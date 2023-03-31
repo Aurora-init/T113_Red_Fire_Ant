@@ -220,7 +220,7 @@ static void gap_device_data_read(struct gatt_db_attribute *attrib,
 		value = ((const uint8_t *)"disconnect");
 	}
 
-	size_t len = strlen((const uint8_t *)value);
+	size_t len = strlen((const char *)value);
 	printf("len = %d\n", len);
 
 	gatt_db_attribute_read_result(attrib, id, error, value, len);

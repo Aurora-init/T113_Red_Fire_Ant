@@ -161,3 +161,7 @@ gatt_db_service_add_characteristic(struct gatt_db_attribute *attrib, --> service
 在static struct gatt_conn *gatt_conn_new(int fd)函数中注释掉bt_att_set_security(conn->att, BT_SECURITY_MEDIUM);这行代码，这行的代码是蓝牙设备与手机通信时的验证配对操作
 
 代码编写完可以去试试了
+
+![image-20230331143942770](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230331143942770.png)
+
+编译好的代码如上

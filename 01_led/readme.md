@@ -204,6 +204,8 @@ LED采用内核点灯的方式驱动：
 
 既然是用命令来驱动LED，那写应用不就简单了，直接给个示例
 
+**LED.c**
+
 	#include <stdlib.h>
 	#include <stdio.h>
 	#include <time.h>

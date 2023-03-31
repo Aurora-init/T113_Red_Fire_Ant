@@ -26,10 +26,15 @@
 #include <sys/types.h>
 #include <sys/mount.h>
 #include <sys/random.h>
+#include <time.h>
+
 
 #ifndef WAIT_ANY
 #define WAIT_ANY (-1)
 #endif
+
+#define VERSION "V1.0" 
+
 
 #include "src/shared/mainloop.h"
 #include "peripheral/efivars.h"
@@ -175,13 +180,31 @@ static void signal_callback(int signum, void *user_data)
 int main(int argc, char *argv[])
 {
 	int exit_status;
+	
+	char command[256];
+	int ret;
 
 	if (getpid() == 1 && getppid() == 0)
 		is_init = true;
-
+	
+	/*绑定设备*/
+    sprintf(command, "echo 0 > /sys/class/rfkill/rfkill0/state");
+    ret = system(command);
+    sleep(1);
+    sprintf(command, "echo 1 > /sys/class/rfkill/rfkill0/state");
+    ret = system(command);
+    sleep(1);
+	sprintf(command, "hciattach -n ttyS1 xradio > /dev/null 2>&1 &");
+    ret = system(command);
+    sleep(1);
+	if(ret == 0)
+	{
+		printf("Device binding successful\n");
+	}
+	
 	mainloop_init();
 
-	//printf("Bluetooth periperhal ver %s\n", VERSION);
+	printf("Bluetooth periperhal ver %s\n", VERSION);
 
 	prepare_filesystem();
 
