@@ -1,6 +1,6 @@
 
 
-# 内核驱动LED
+# **内核驱动LED**
 
 [TOC]
 
@@ -202,7 +202,7 @@ LED采用内核点灯的方式驱动：
 
 ![LEDfeixian](D:\桌面\嵌入式Linux驱动开发\图片\LEDfeixian.jpg)
 
-既然是用命令来驱动LED，那写应用不就简单了，直接给个示例
+既然是用命令来驱动LED，那写应用不就简单了，直接给个示例：
 
 **LED.c**
 
@@ -211,7 +211,7 @@ LED采用内核点灯的方式驱动：
 	#include <time.h>
 	#include <unistd.h>
 	
-	void LED_SHAMING(void)
+	void LED_LIGHTING(void)
 	{
 		struct timespec req;
 		req.tv_sec  = 1;		/* 0s */
@@ -223,9 +223,9 @@ LED采用内核点灯的方式驱动：
 	    /*1.点灯*/
 	    sprintf(command, "echo 1 > /sys/class/leds/red/brightness");
 	    ret = system(command);
-	    nanosleep(&ts, NULL);延时1s加20ms
+	    nanosleep(&req, NULL);延时1s加20ms
 	    /*2.灭灯*/
 	    sprintf(command, "echo 0 > /sys/class/leds/red/brightness");
 	    ret = system(command);
-	    nanosleep(&ts, NULL);延时1s加20ms
+	    nanosleep(&req, NULL);延时1s加20ms
 	}
