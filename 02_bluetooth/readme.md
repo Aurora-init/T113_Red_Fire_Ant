@@ -164,4 +164,4 @@ gatt_db_service_add_characteristic(struct gatt_db_attribute *attrib, --> service
 
 ![image-20230331143942770](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230331143942770.png)
 
-编译好的代码如上
+编译好的代码如上,后续再添加别的东西
