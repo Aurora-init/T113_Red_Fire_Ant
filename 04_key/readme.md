@@ -2,6 +2,8 @@
 
 
 
+[TOC]
+
 实现步骤：
 
 1.确定使用的IO口并准备硬件
@@ -1061,3 +1063,4 @@ int main(int argc, char *argv[])
 }
 ```
 
+## 6.input子系统
