@@ -98,6 +98,8 @@ make V=1
 
 ### 3.3.烧写SD卡
 
+这里不演示
+
 
 
 ## 4.用户按键驱动编写
@@ -529,7 +531,7 @@ static struct file_operations key_fops = {
 
 /* 3. 实现对应的open/read/write等函数，填入file_operations结构体 */
 
-2.1.GPIO初始化函数，被用于open函数中调用
+3.1.GPIO初始化函数，被用于open函数中调用
 
 ```c++
 /*
@@ -565,7 +567,7 @@ static int keyio_init(void)
 
 ![image-20230408121502302](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230408121502302.png)
 
-2.2.open函数设置私有数据并初始化按键GPIO
+3.2.open函数设置私有数据并初始化按键GPIO
 
 ```c++
 /*
@@ -589,7 +591,7 @@ static int key_open(struct inode *inode, struct file *filp)
 }
 ```
 
-2.3.read函数
+3.3.read函数
 
 ```c++
 /*
@@ -618,17 +620,147 @@ static ssize_t key_read(struct file *filp, char __user *buf, size_t cnt, loff_t 
 	return ret;
 
 }
+
+//struct key_dev *dev = filp->private_data;
+这句代码创建了个struct key_dev类型的指针变量，用来指向filp->private_date，然后这个filp->private_data,
+//filp->private_data = &keydev;
+又在open函数(调用read必调用open)，取了keydev变量的地址，也就是dev = keydev。
+    
+//copy_to_user(buf, &value, sizeof(value));即把value的地址，扔给buf这个指针，后面调用read函数，按键值就保存到了这个传入的buf指针变量中
+```
+
+3.4.write函数
+
+```c++
+/*
+ * @description		: 向设备写数据 
+ * @param - filp 	: 设备文件，表示打开的文件描述符
+ * @param - buf 	: 要写给设备写入的数据
+ * @param - cnt 	: 要写入的数据长度
+ * @param - offt 	: 相对于文件首地址的偏移
+ * @return 			: 写入的字节数，如果为负值，表示写入失败
+ */
+static ssize_t key_write(struct file *filp, const char __user *buf, size_t cnt, loff_t *offt)
+{
+	return 0;
+}
+```
+
+3.5.release函数
+
+```c++
+/*
+ * @description		: 关闭/释放设备
+ * @param - filp 	: 要关闭的设备文件(文件描述符)
+ * @return 			: 0 成功;其他 失败
+ */
+static int key_release(struct inode *inode, struct file *filp)
+{
+	return 0;
+}
 ```
 
 /* 4. 把file_operations结构体告诉内核：注册驱动程序*/
 
 /* 5. 谁来注册驱动程序啊？得有一个入口函数：安装驱动程序时就会去调用这个**入口函数***/
 
+```c++
+/*
+ * @description	: 驱动入口函数
+ * @param 		: 无
+ * @return 		: 无
+ */
 
+/*
+*按键入口流程：
+*1.初始化原子变量：因为按键检测需要一直占用CPU不能被其他进程打断。
+*2.注册设备(*)，创建主设备号(这里可以采取，若无主设备号分配，则自动向系统申请一个主设备号)
+*3.初始化cdev，初始化字符设备(cdev)结构体(keydev.cdev)，并将字符设备的操作函数集(key_fops)与字符设备结构体关联起来。
+*4.创建类(*)
+*5.创建设备(*)
+*/
+static int __init mykey_init(void)
+{
+	/* 初始化原子变量 */
+	atomic_set(&keydev.keyvalue, INVAKEY);
+
+	/* 注册字符设备驱动 */
+	/* 1、注册设备，创建主设备号 */
+	if (keydev.major) {		/*  定义了设备号 */
+		keydev.devid = MKDEV(keydev.major, 0);
+		register_chrdev_region(keydev.devid, KEY_CNT, KEY_NAME);
+	} else {				/* 没有定义设备号 */
+		alloc_chrdev_region(&keydev.devid, 0, KEY_CNT, KEY_NAME);	/* 申请设备号 */
+		keydev.major = MAJOR(keydev.devid);	/* 获取分配号的主设备号 */
+		keydev.minor = MINOR(keydev.devid);	/* 获取分配号的次设备号 */
+	}
+	
+	/* 2、初始化cdev */
+	keydev.cdev.owner = THIS_MODULE;
+	cdev_init(&keydev.cdev, &key_fops);//初始化字符设备(cdev)结构体(keydev.cdev)，并将字符设备的操作函数集(key_fops)与字符设备结构体关联起来。
+	
+	/* 3、添加一个cdev */
+	cdev_add(&keydev.cdev, keydev.devid, KEY_CNT);
+	
+	/* 4、创建类 */
+	keydev.class = class_create(THIS_MODULE, KEY_NAME);
+	if (IS_ERR(keydev.class)) {
+		return PTR_ERR(keydev.class);
+	}
+	
+	/* 5、创建设备 */
+	keydev.device = device_create(keydev.class, NULL, keydev.devid, NULL, KEY_NAME);
+	if (IS_ERR(keydev.device)) {
+		return PTR_ERR(keydev.device);
+	}
+	
+	return 0;
+
+}
+
+1.atomic_set(&keydev.keyvalue, INVAKEY);//用于将keydev.keyvalue作为原子变量，并且初始化它的值为INVAKEY，原子操作在多线程并发的情境下，不会被打断，也就是按键按下会一直占用CPU，检测按键松开。
+2.struct cdev { //cdev结构图如下
+	struct kobject kobj;
+	struct module *owner;
+	const struct file_operations *ops;
+	struct list_head list;
+	dev_t dev;
+	unsigned int count;
+} __randomize_layout;
+
+```
 
 /* 6. 有入口函数就应该有出口函数：卸载驱动程序时，就会去调这个**出口函数***/
 
+```c++
+/*
+ * @description	: 驱动出口函数
+ * @param 		: 无
+ * @return 		: 无
+ */
+static void __exit mykey_exit(void)
+{
+	/* 注销字符设备驱动 */
+	gpio_free(keydev.key_gpio);
+	cdev_del(&keydev.cdev);/*  删除cdev */
+	unregister_chrdev_region(keydev.devid, KEY_CNT); /* 注销设备号 */
+
+	device_destroy(keydev.class, keydev.devid); /* 销毁设备 */
+	class_destroy(keydev.class); /* 销毁类 */
+
+}
+
+//这个没啥好说的，看看API
+```
+
 /* 7. 其他完善：提供设备信息，自动创建设备节点*/
+
+```c++
+module_init(mykey_init);
+module_exit(mykey_exit);
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("z");
+```
 
 #### key_drv.c(完整)
 
@@ -863,5 +995,69 @@ module_init(mykey_init);
 module_exit(mykey_exit);
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("z");
+```
+
+
+
+## 5.用户按键应用程序
+
+```c++
+#include "stdio.h"
+#include "unistd.h"
+#include "sys/types.h"
+#include "sys/stat.h"
+#include "fcntl.h"
+#include "stdlib.h"
+#include "string.h"
+
+/* 定义按键值 */
+#define KEY0VALUE	0XF0
+#define INVAKEY		0X00
+
+
+/*
+ * @description		: main主程序
+ * @param - argc 	: argv数组元素个数
+ * @param - argv 	: 具体参数
+ * @return 			: 0 成功;其他 失败
+ */
+
+int main(int argc, char *argv[])
+{
+	int fd, ret;
+	char *filename;
+	int keyvalue;
+	
+
+	if(argc != 2){
+		printf("Error Usage!\r\n");
+		return -1;
+	}
+	
+	filename = argv[1];
+	
+	/* 打开key驱动 */
+	fd = open(filename, O_RDWR);
+	if(fd < 0){
+		printf("file %s open failed!\r\n", argv[1]);
+		return -1;
+	}
+	
+	/* 循环读取按键值数据！ */
+	while(1) {
+		read(fd, &keyvalue, sizeof(keyvalue));
+		if (keyvalue == KEY0VALUE) {	/* KEY0 */
+			printf("KEY0 Press, value = %#X\r\n", keyvalue);	/* 按下 */
+		}
+	}
+	
+	ret= close(fd); /* 关闭文件 */
+	if(ret < 0){
+		printf("file %s close failed!\r\n", argv[1]);
+		return -1;
+	}
+	return 0;
+
+}
 ```
 
