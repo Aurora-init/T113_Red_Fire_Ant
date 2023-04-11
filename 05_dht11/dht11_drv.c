@@ -31,8 +31,8 @@ struct dht11
     int gpio; /* gpio */
     int irq;
     dev_t dev_no; /* 设备号 */
-    struct cdev chrdev;
-    struct class *class;
+    struct cdev chrdev; /*字符设备*/
+    struct class *class;/*设备类*/
     spinlock_t lock;
 };
 
@@ -41,7 +41,7 @@ struct dht11 dht11_dev;
 static int dht11_wait_for_ready(void)
 {
     int timeout = 400;
-    while (DHT11_READ() && timeout) /* 等待低电平到来 */
+    while (DHT11_READ() && timeout) /* 等待低电平到来*///准备接收传感器的响应信号
     {
         udelay(1);
         --timeout;
@@ -53,7 +53,7 @@ static int dht11_wait_for_ready(void)
     }
 
     timeout = 1000;
-    while (!DHT11_READ() && timeout) /* 等待高电平到来    */
+    while (!DHT11_READ() && timeout) /* 等待高电平到来*///当读到低电平，说明响应信号开始了，需要持续83us
     {
         udelay(1);
         --timeout;
@@ -65,7 +65,7 @@ static int dht11_wait_for_ready(void)
     }
 
     timeout = 1000;
-    while (DHT11_READ() && timeout) /* 等待高电平结束 */
+    while (DHT11_READ() && timeout) /* 等待高电平结束*///当读到高电平，说明响应信号进入87us阶段，跳出循环说明响应信号结束了
     {
         udelay(1);
         --timeout;
@@ -81,15 +81,17 @@ static int dht11_wait_for_ready(void)
 
 static int dht11_start(void)
 {
+	/*主机对DHT11发送起始信号*/
     DHT11_IO_OUT();
     DHT11_WRITE(0);
     mdelay(20);
     DHT11_WRITE(1);
     udelay(30);
     DHT11_IO_IN(); /* 设置为输入 */
-    udelay(2);
+    udelay(2);//等2us让高电平过渡到低电平
 
-    if (dht11_wait_for_ready())
+	/*从机向主机发送响应信号*/
+    if (dht11_wait_for_ready())//检验DHT11传感器的响应信号
         return -1;
     return 0;
 }
@@ -97,11 +99,11 @@ static int dht11_start(void)
 static int dht11_read_byte(unsigned char *byte)
 {
     unsigned char i;
-    unsigned char bit = 0;
-    unsigned char data = 0;
+    unsigned char bit = 0;//每个二进制位的值
+    unsigned char data = 0;//整个8位二进制数的值
     int timeout = 0;
 
-    for (i = 0; i < 8; i++)
+    for (i = 0; i < 8; i++)//每次循环读取一个二进制位
     {
         timeout = 1000;
         while (DHT11_READ() && timeout) /* 等待变为低电平 */
@@ -116,7 +118,7 @@ static int dht11_read_byte(unsigned char *byte)
         }
 
         timeout = 1000;
-        while (!DHT11_READ() && timeout) /* 等待变为高电平 */
+        while (!DHT11_READ() && timeout) /* 等待变为高电平 *///跳出循环表示传感器开始输出高电平，则传感器数据的二进制位是什么值就能确定了
         {
             udelay(1);
             --timeout;
@@ -126,6 +128,9 @@ static int dht11_read_byte(unsigned char *byte)
             printk("[failed] timeout %d\n", __LINE__);
             return -1; /* 超时 */
         }
+		//每个二进制位的时间持续120us,高电平持续23~27us表示0，持续68-74us表示1，低电平持续54us
+		//若位数据为0，结束低电平后延时40us，信号到了一个二进制位的时间的第94us，大于54+27，说明此时电平必然为低
+		//若位数据为1，结束低电平后延时40us，信号到了一个二进制位的时间的第94us，小于54+68，说明此时电平必然为高
         udelay(40);
 
         bit = DHT11_READ();
