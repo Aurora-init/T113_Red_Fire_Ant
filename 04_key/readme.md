@@ -40,7 +40,7 @@ sudo gedit sun8iw20p1-t113-100ask-t113-pro.dts
 
 在根设备节点下添加挂载key设备节点：
 
-```
+```dtd
 key { /*定义了一个名称为"key"的节点。*/
 		#address-cells = <1>; /*此节点使用一个地址单元。*/
 		#size-cells = <1>;	/*此节点使用一个尺寸单元。*/
@@ -59,7 +59,7 @@ key { /*定义了一个名称为"key"的节点。*/
 
 代码块2：
 
-```
+```dtd
 key_pins_a: userkey { 
 		allwinner,pins = "PB4" ; 
 	};/*定义一个GPIO引脚（GPIO pin）并将其命名为“userkey”，该引脚被映射到Allwinner SoC的PB4引脚。*/
@@ -91,7 +91,7 @@ key_pins_a: userkey {
 
 进入到/buildroot目录下，输入以下两条命令即可在/output/images目录下找到生成的sd卡镜像，该命令用到了buildroot框架。
 
-```
+```bash
 make linux-rebuild V=1 
 make V=1
 ```
@@ -100,13 +100,13 @@ make V=1
 
 ### 3.3.烧写SD卡
 
-这里不演示
+不演示
 
 
 
 ## 4.用户按键驱动编写
 
-对于第一个驱动程序，我感觉需要详细一点介绍什么是“驱动”，
+对于第一个驱动程序，我感觉需要详细一点介绍什么是“驱动”
 
 ### 4.1.最基本的linux驱动框架
 
@@ -1062,5 +1062,31 @@ int main(int argc, char *argv[])
 
 }
 ```
+
+### 装载驱动程序验证
+
+```bash
+insmod key_drv.ko
+
+lsmod
+```
+
+现象：
+
+![image-20230412111136365](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230412111136365.png)
+
+打开key设备
+
+![image-20230412111250588](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230412111250588.png)
+
+按下按键，打印按键按下信息，按键值为0xf0，为应用代码中自己定义的宏
+
+![image-20230412111335963](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230412111335963.png)
+
+## 写个按键点灯的应用：
+
+
+
+
 
 ## 6.input子系统
