@@ -2,7 +2,7 @@
 
 
 
-
+[TOC]
 
 实现步骤：
 
@@ -18,7 +18,7 @@
 
 ## 1.确定使用的IO口并准备硬件
 
-在之前飞线LED的IO口时，DHT11的IO我也一并飞了，56号引脚，PD14。
+在之前飞线LED的IO口时，DHT11的IO（黑线）我也一并飞了，56号引脚，PD14。
 
 ![image-20230411093539499](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230411093539499.png)
 
@@ -482,7 +482,7 @@ static int _drv_release(struct inode *node, struct file *file)
 #define DHT11_READ() gpio_get_value(DHT11_PIN)
 ```
 
-**设备树列表**(platform_device)
+**设备树列表**(platform_device注册)****
 
 ```c++
 /* 设备树的匹配列表 */
@@ -1111,11 +1111,19 @@ int main(int argc, char **argv)
 }
 ```
 
+### 装载驱动
 
+```bash
+insmod dht11_drv.ko
 
+lsmod
+```
 
+### 程序现象：
 
+![image-20230412112841637](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230412112841637.png)
 
+每次运行只读一次是合理的，后面还要结合onenet的代码
 
 
 
