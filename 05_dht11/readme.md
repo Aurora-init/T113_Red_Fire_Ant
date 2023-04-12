@@ -28,8 +28,6 @@
 
 ## 2.修改设备树
 
-
-
 ### 2.1.设备树修改实操:
 
 ```bash
@@ -38,11 +36,9 @@ cd /buildroot-100ask_t113-pro/buildroot/output/build/linux-origin_master/arch/ar
 sudo gedit sun8iw20p1-t113-100ask-t113-pro.dts
 ```
 
-
-
 代码块1：挂载dht11设备节点到根设备节点上
 
-```
+```dtd
 /*添加DHT11的设备树文件*/
 	dht11 { /*定义了一个名称为"dht11"的节点。*/
 		compatible = "dht-11";/*属性指定了该节点与哪种设备兼容，这里的 “dht-11” 表示该节点与 DHT11 温湿度传感器设备兼容*/
@@ -55,7 +51,7 @@ sudo gedit sun8iw20p1-t113-100ask-t113-pro.dts
 
 代码块2：pio设置
 
-```
+```dtd
 dht11_pin: dht11_pin{
 		allwinner,pins = "PD14"; /*dht11的时钟和数据线接PD14上面*/
 	};
@@ -64,6 +60,8 @@ dht11_pin: dht11_pin{
 在根设备节点下添加挂载dht11设备节点：
 
 ![image-20230411094229616](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230411094229616.png)
+
+
 
 ## 3.裁剪LINUX内核，编译并烧写
 
