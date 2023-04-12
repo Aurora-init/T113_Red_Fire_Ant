@@ -6,6 +6,7 @@ struct class *class;    /* 类 		*/
 int major;              /* 主设备号 */
 struct i2c_client *gy_sensor_client;
 
+
 // 构造i2c_msg通过这个client调用i2c_tansfer来读写
 static int gy_sensor_write_reg(unsigned char addr)
 {
@@ -18,8 +19,7 @@ static int gy_sensor_write_reg(unsigned char addr)
     msgs.len = 1;   //长度1 byte
     msgs.flags = 0; //表示写
 
-    ret = i2c_transfer(gy_sensor_client->adapter, &msgs, 1); 
-    //这里都封装好了，本来根据i2c协议写数据需要先写入器件写地址，然后才能读
+    ret = i2c_transfer(gy_sensor_client->adapter, &msgs, 1); //i2c_transfer帮你完成了START信号STOP信号等操作，只需要你对几个结构体填充一下变量成员传进去就能实现功能
     if (ret < 0)
     {
         printk("i2c_transfer write err\n");
