@@ -56,7 +56,8 @@ int gy_sensor_open(struct inode *inode, struct file *file)
 // 读出传感器的两个字节
 static ssize_t gy_sensor_read(struct file *file, char __user *buf, size_t count, loff_t *off)
 {
-    unsigned char addr = 0, data[2];
+	//unsigned char addr = 0;
+    unsigned char data[2];
     gy_sensor_read_reg(data);
     copy_to_user(buf, data, 2);
     return 1;
