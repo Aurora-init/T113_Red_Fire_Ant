@@ -317,21 +317,330 @@ static int dht11_read_byte(unsigned char *byte)
 }
 ```
 
+**_drv_open(struct inode *node, struct file *file)**
 
+**open函数**
 
+```c++
+static int _drv_open(struct inode *node, struct file *file)
+{
+    printk("[success] dht11 open\n");
+    return 0;
+}
+```
 
+**_drv_read(struct file *filp, char __user *buf, size_t size, loff_t *offset)**
 
-/* 4. 把file_operations结构体告诉内核：注册驱动程序*/
+**read函数**，实际上就是调用前面定义的那些函数，分别为步骤1-4
+
+```c++
+static ssize_t _drv_read(struct file *filp, char __user *buf, size_t size, loff_t *offset)
+{
+    int ret;
+    int i;
+    unsigned char data[5] = {0};
+    unsigned long flags;
+
+    /* 缓冲区大小不为5就报错-EINVAL */
+    if (size != 5)
+        return -EINVAL;
+    
+    /* 单总线设备时序要求严格，关闭中断,防止时序被中断破坏 */
+    spin_lock_irqsave(&dht11_dev.lock, flags);
+    
+    /* 启动信号 */
+    if (dht11_start() != 0)
+    {
+        printk("[failed] dht11 start failed\n");
+        ret = -EFAULT;
+        goto failed1;
+    }
+    
+    /* 读出5字节数据 */
+    for (i = 0; i < 5; i++)
+    {
+        if (dht11_read_byte(&data[i]))
+        {
+            printk("[failed] data err\n");
+            ret = -EAGAIN;
+            goto failed1;
+        }
+    }
+    
+    /* 打开中断 */
+    spin_unlock_irqrestore(&dht11_dev.lock, flags);
+    /* 校验数据 */
+    if (data[4] != (data[0] + data[1] + data[2] + data[3]))
+    {
+        printk("[failed] check data failed\n");
+        ret = -EAGAIN;
+        goto failed1;
+    }
+    
+    /* 将数据拷贝回用户空间 */
+    if (copy_to_user(buf, data, 5))
+    {
+        ret = -EFAULT;
+        goto failed1;
+    }
+    else
+    {
+        ret = 5;
+    }
+    
+    return ret;
+
+failed1:
+    spin_unlock_irqrestore(&dht11_dev.lock, flags);
+    return ret;
+}static ssize_t _drv_read(struct file *filp, char __user *buf, size_t size, loff_t *offset)
+{
+    int ret;
+    int i;
+    unsigned char data[5] = {0};
+    unsigned long flags;
+
+    if (size != 5)
+        return -EINVAL;
+    
+    /* 关闭中断,防止时序被中断破坏 */
+    spin_lock_irqsave(&dht11_dev.lock, flags);
+    
+    /* 启动信号 */
+    if (dht11_start() != 0)
+    {
+        printk("[failed] dht11 start failed\n");
+        ret = -EFAULT;
+        goto failed1;
+    }
+    
+    /* 读出5字节数据 */
+    for (i = 0; i < 5; i++)
+    {
+        if (dht11_read_byte(&data[i]))
+        {
+            printk("[failed] data err\n");
+            ret = -EAGAIN;
+            goto failed1;
+        }
+    }
+    
+    /* 打开中断 */
+    spin_unlock_irqrestore(&dht11_dev.lock, flags);
+    /* 校验数据 */
+    if (data[4] != (data[0] + data[1] + data[2] + data[3]))
+    {
+        printk("[failed] check data failed\n");
+        ret = -EAGAIN;
+        goto failed1;
+    }
+    
+    /* 将数据拷贝回用户空间 */
+    if (copy_to_user(buf, data, 5))
+    {
+        ret = -EFAULT;
+        goto failed1;
+    }
+    else
+    {
+        ret = 5;
+    }
+    
+    return ret;
+
+failed1:
+    spin_unlock_irqrestore(&dht11_dev.lock, flags);
+    return ret;
+}
+```
+
+**_drv_release(struct inode *node, struct file *file)**
+
+**设备释放函数**
+
+```c++
+static int _drv_release(struct inode *node, struct file *file)
+{
+    printk("[success] dht11 release\n");
+    return 0;
+}
+```
+
+**宏定义**
+
+```c++
+//前情提要
+#define DEV_DTS_NODE_PATH "/dht11"     /* 设备树节点的路径，在根节点下 */
+#define DEV_PIN_DTS_NAME "dht11-gpios" /* GPIO引脚的属性名 */
+#define DEV_NAME "dht11"               /* 设备名  /dev/dht11 */
+#define DEV_DTS_COMPATIBLE "dht-11"    /* 设备匹配属性 compatible */
+
+#define DHT11_PIN dht11_dev.gpio
+#define DHT11_IO_OUT() gpio_direction_output(DHT11_PIN, 1);
+#define DHT11_IO_IN() gpio_direction_input(DHT11_PIN)
+#define DHT11_WRITE(bit) gpio_set_value(DHT11_PIN, bit)
+#define DHT11_READ() gpio_get_value(DHT11_PIN)
+```
+
+**设备树列表**(platform_device)
+
+```c++
+/* 设备树的匹配列表 */
+static struct of_device_id dts_match_table[] = {
+    {
+        .compatible = DEV_DTS_COMPATIBLE,
+    }, /* 通过设备树来匹配 */
+};
+```
+
+**_driver_probe(struct platform_device *pdev)**
+
+```c++
+static int _driver_probe(struct platform_device *pdev)
+{
+    int err;
+    struct device *ds_dev;
+    struct device_node *dev_node;
+
+    struct device_node *node = pdev->dev.of_node;
+
+    if (!node)
+    {
+        printk("dts node can not found!\r\n");
+        return -EINVAL;
+    }
+
+    dev_node = of_find_node_by_path(DEV_DTS_NODE_PATH); /* 找到dht11的设备树节点  */
+    if (IS_ERR(dev_node))
+    {
+        printk("dht11 DTS Node not found!\r\n");
+        return PTR_ERR(dev_node);
+    }
+
+    dht11_dev.gpio = of_get_named_gpio(dev_node, DEV_PIN_DTS_NAME, 0); /* 获取dht11的gpio编号 */
+    if (dht11_dev.gpio < 0)
+    {
+        printk("dht11-gpio not found!\r\n");
+        return -EINVAL;
+    }
+
+    err = gpio_request(dht11_dev.gpio, DEV_PIN_DTS_NAME);
+    if (err)
+    {
+        printk("gpio_request gpio is failed!\n");
+        return -EINVAL;
+    }
+
+    printk("dht11 gpio %d\n", dht11_dev.gpio);
+
+    /* 内核自动分配设备号 */
+    err = alloc_chrdev_region(&dht11_dev.dev_no, 0, 1, DEV_NAME);
+    if (err < 0)
+    {
+        pr_err("Error: failed to register mbochs_dev, err: %d\n", err);
+        goto failed3;
+    }
+
+    cdev_init(&dht11_dev.chrdev, &drv_file_ops);
+
+    cdev_add(&dht11_dev.chrdev, dht11_dev.dev_no, 1);
+
+    dht11_dev.class = class_create(THIS_MODULE, DEV_NAME);
+    if (IS_ERR(dht11_dev.class))
+    {
+        err = PTR_ERR(dht11_dev.class);
+        goto failed1;
+    }
+
+    /* 创建设备节点 */
+    ds_dev = device_create(dht11_dev.class, NULL, dht11_dev.dev_no, NULL, DEV_NAME);
+    if (IS_ERR(ds_dev))
+    { /* 判断指针是否合法 */
+        err = PTR_ERR(ds_dev);
+        goto failed2;
+    }
+
+    spin_lock_init(&dht11_dev.lock); /* 初始化自旋锁 */
+    printk("[success] dht11 probe success\r\n");
+    return 0;
+failed2:
+    device_destroy(dht11_dev.class, dht11_dev.dev_no);
+    class_destroy(dht11_dev.class);
+failed1:
+    unregister_chrdev_region(dht11_dev.dev_no, 1);
+    cdev_del(&dht11_dev.chrdev);
+failed3:
+    gpio_free(dht11_dev.gpio);
+    return err;
+}
+```
+
+**_driver_remove(struct platform_device *pdev)**
+
+```c++
+static int _driver_remove(struct platform_device *pdev)
+{
+    device_destroy(dht11_dev.class, dht11_dev.dev_no);
+    class_destroy(dht11_dev.class);
+    unregister_chrdev_region(dht11_dev.dev_no, 1);
+    cdev_del(&dht11_dev.chrdev);
+    gpio_free(dht11_dev.gpio);
+
+    printk(KERN_INFO "[success] dht11 remove success\n");
+    
+    return 0;
+
+}
+```
+
+**_platform_driver结构体**
+
+```c++
+static struct platform_driver _platform_driver = {
+    .probe = _driver_probe,
+    .remove = _driver_remove,
+    .driver = {
+        .name = DEV_DTS_COMPATIBLE,
+        .owner = THIS_MODULE,
+        .of_match_table = dts_match_table, /* 通过设备树匹配 */
+    },
+};
+```
 
 /* 5. 谁来注册驱动程序啊？得有一个入口函数：安装驱动程序时就会去调用这个**入口函数***/
 
 /* 6. 有入口函数就应该有出口函数：卸载驱动程序时，就会去调这个**出口函数***/
 
+```c++
+/* 入口函数 */
+static int __init _driver_init(void)
+{
+    int ret;
+    printk("dht11 %s\n", __FUNCTION__);
+
+    ret = platform_driver_register(&_platform_driver); //注册platform驱动
+    
+    return ret;
+
+}
+
+/*  出口函数 */
+static void __exit _driver_exit(void)
+{
+    printk("dht11  %s\n", __FUNCTION__);
+    platform_driver_unregister(&_platform_driver);
+}
+```
+
 /* 7. 其他完善：提供设备信息，自动创建设备节点*/
 
+```c++
+module_init(_driver_init);
+module_exit(_driver_exit);
 
-
-
+MODULE_AUTHOR("Fourth");
+MODULE_LICENSE("GPL");
+```
 
 #### 4.3.dht11_drv.c(完整)
 
@@ -713,15 +1022,94 @@ MODULE_AUTHOR("Fourth");
 MODULE_LICENSE("GPL");
 ```
 
+## 5.dht11应用程序编写
 
+```c++
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/ioctl.h>
+#include <poll.h>
+#include <stdint.h>
 
+#define DEV_NAME "/dev/dht11"
 
+typedef struct dht11
+{
+    float temperature;
+    float humidity;
+} DHT11;
 
+void sleep_ms(unsigned int ms)
+{
+    struct timeval delay;
+    delay.tv_sec = 0;
+    delay.tv_usec = ms * 1000;
+    select(0, NULL, NULL, NULL, &delay);
+}
 
+int getDht11(DHT11 *dht11_data)
+{
+    int fd;
+    int ret;
 
+    /* 2. 打开文件 */
+    fd = open(DEV_NAME, O_RDONLY); // | O_NONBLOCK
+    
+    if (fd < 0)
+    {
+        printf("[failed] can not open file %s, %d\n", DEV_NAME, fd);
+        return -1;
+    }
+    
+    uint8_t dht11_temp_data[5];
+    int timeout = 5;
+    while (timeout)
+    {
+        ret = read(fd, dht11_temp_data, sizeof(dht11_temp_data)) == sizeof(dht11_temp_data);
+        if (ret)
+        {
+            sleep_ms(500);
+            ret = read(fd, dht11_temp_data, sizeof(dht11_temp_data)) == sizeof(dht11_temp_data);
+            if (ret)
+            {
+                dht11_data->temperature = dht11_temp_data[2] + (float)dht11_temp_data[3] / 10.00;
+                dht11_data->humidity = dht11_temp_data[0] + dht11_temp_data[1] / 10.00;
+                printf("[success] temperture %d.%d  humi %d.%d\r\n", dht11_temp_data[2],
+                       dht11_temp_data[3], dht11_temp_data[0], dht11_temp_data[1]);
+                close(fd);
+                return 0;
+            }
+            else
+                continue;
+        }
+        else
+        {
+            printf("[failed] tempget temp err %d\n", ret);
+            timeout--;
+        }
+        sleep_ms(500);
+    }
+    close(fd);
+    return -1;
 
+}
 
-
+int main(int argc, char **argv)
+{
+    DHT11 dht11_data;
+    if (!getDht11(&dht11_data))
+    {
+        printf("!!! temp %.1f  humi %.1f\n", dht11_data.temperature, dht11_data.humidity);
+    }
+    else
+        printf("read dht11 error\n");
+    return 0;
+}
+```
 
 
 
