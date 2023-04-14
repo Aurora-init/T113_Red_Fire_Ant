@@ -2,7 +2,7 @@ all: edp
 
 CC=arm-linux-gnueabi-gcc
 CFLAGS= -I. -D_LINUX -lm  -pthread
-CLIENT_OBJ = cJSON.o ConnectOneNet.o EdpKit.o wifi_connect.o Uart.o Main.o  
+CLIENT_OBJ = cJSON.o ConnectOneNet.o EdpKit.o wifi_connect.o Uart.o gps_analyse.o Main.o  
 
 # 如果需要加密功能且系统内已经安装openssl，
 # 取消以下两行注释

@@ -12,10 +12,9 @@ int set_serial_uart(int ser_fd, int nSpeed, int nBits, char nEvent, int nStop)
 	}
 	
 	bzero( &new_cfg, sizeof(new_cfg));
-	/*原始模式*/
-	/* 设置字符大小*/
-	new_cfg = old_cfg; 
-	cfmakeraw(&new_cfg); /* 配置为原始模式 */ 
+	
+	new_cfg = old_cfg; 		/* 设置字符大小*/
+	cfmakeraw(&new_cfg); 	/* 配置为原始模式 */ 
 
     /* 设置波特率 */
     switch (nSpeed)
@@ -88,7 +87,7 @@ int set_serial_uart(int ser_fd, int nSpeed, int nBits, char nEvent, int nStop)
 	/*清除串口缓冲区*/
 	tcflush( ser_fd,TCIOFLUSH);
 	new_cfg.c_cc[VTIME] = 0; //等待时间
-	new_cfg.c_cc[VMIN] = 1; //最少接收字节数
+	new_cfg.c_cc[VMIN] = 1;  //最少接收字节数
 	tcflush ( ser_fd, TCIOFLUSH);
 
     /*串口设置使能*/
