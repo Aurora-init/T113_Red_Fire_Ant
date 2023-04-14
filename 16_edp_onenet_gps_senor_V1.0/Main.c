@@ -107,7 +107,7 @@ int main(void)
 												3.非阻塞模式、
 												4.打开文件时将文件描述符标记为“关闭时执行”*/
 
-	fd_uart0 = open("/dev/ttyUSB0" , O_RDWR|O_NOCTTY);//串口0设置功能为：1.打开文件时使用读写模式、2.不将打开的设备文件作为控制终端设备
+	fd_uart0 = open("/dev/ttyUSB0" , O_RDWR|O_NOCTTY);//串口0设置功能为：1.打开文件时使用读写模式、2.不将打开的设备文件作为控制终端设备、
 	fd_uart1 = open("/dev/ttyUSB1" , O_RDWR|O_NOCTTY);//串口1设置功能为：1.打开文件时使用读写模式、2.不将打开的设备文件作为控制终端设备、（看情况设置：3.非阻塞模式、）
 	if(fd_uart0 < 0 && fd_uart1 < 0)
 	{
@@ -170,7 +170,6 @@ int main(void)
 		}
 
 		/*3.1.2.准备串口1获得的GPS经度、维度数据*/
-		//printf("UART1:GPS_Date:%s\n", uart_buf1);	//打印GPS原始数据,到时候要去掉的,但为了方便调试，也为了看看GPS模块是否连接上卫星
 		memset(&gngga_buf, 0, sizeof(gngga_buf));	//清空gngga_buf结构体
 		gps_analyse(uart_buf1, &gngga_buf); 		//将数据放进gngga_buf结构体，这个结构里暂时存储了解析后的GPS数据
 
