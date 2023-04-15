@@ -34,7 +34,9 @@ void Hal_ONENET_Init(void);
 void *OneNetReacv(void *arg)
 {
 	/*保存接收的字符串*/
-	char RecvBuffer[100] = {0};  
+	char RecvBuffer[100]; 
+	
+	/*Linux命令缓冲区*/
 	char command[256];
 	int ret;
 
@@ -44,17 +46,35 @@ void *OneNetReacv(void *arg)
 		memset(RecvBuffer ,0 ,sizeof(RecvBuffer));
 		OneNet_RecvData((void*)&sockfd , RecvBuffer);
 		printf("RecvBuffer:%s\n", RecvBuffer);
-		if (strcmp(RecvBuffer, "{"LEDSET":"1"}") == 0) {
-			/*1.点灯*/
-   			sprintf(command, "echo 1 > /sys/class/leds/red/brightness");
-    		ret = system(command);
-		}else if(strcmp(RecvBuffer, "{"LEDSET":"0"}") == 0){
-			/*2.灭灯*/
-    		sprintf(command, "echo 0 > /sys/class/leds/red/brightness");
-    		ret = system(command);
+
+		/* 查找命令部分的起始位置和长度 */
+		char* cmdStart = strstr(RecvBuffer, "{\"LEDSET\":\"");
+		if (cmdStart == NULL) {
+			/* 如果命令部分不存在，则执行默认操作 */
+			continue;
+		}
+
+		cmdStart += strlen("{\"LEDSET\":\"");
+		int cmdLen = strcspn(cmdStart, "\"}");
+
+		/* 复制命令部分到一个新的缓冲区 */
+		char cmdBuffer[20]; // 假设命令部分的最大长度为20
+		strncpy(cmdBuffer, cmdStart, cmdLen);
+		cmdBuffer[cmdLen] = '\0';
+
+		/* 根据提取出的命令执行相应的操作 */
+		if (strcmp(cmdBuffer, "0") == 0) {
+			 /* 2.灭灯 */
+			sprintf(command, "echo 0 > /sys/class/leds/red/brightness");
+			ret = system(command);
+		} else if (strcmp(cmdBuffer, "1") == 0) {
+			/* 1.点灯 */
+			sprintf(command, "echo 1 > /sys/class/leds/red/brightness");
+			ret = system(command);
 		}
 	}
 }
+
 
 /*******************************************END多线程1之接收线程END**************************************************/
 
