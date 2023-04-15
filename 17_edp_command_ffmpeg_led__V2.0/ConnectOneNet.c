@@ -175,14 +175,24 @@ void OneNet_SendData_float(char *buf,char *buf1,float number)
 {
 	EdpPacket* pEdp = NULL;   //数据包
 	LPDataTime time_par;
+	time_par->year = 2023;
+	time_par->month = 4;
+	time_par->day = 15;	
+	time_par->hour = 10;	
+	time_par->minute = 44;	
+	time_par->second = 1;	
 
+	FloatDPS* BUF;
+	BUF->ds_id = 4;
+	BUF->f_data = number;
 	
   	OneNet_FillBuf_float(buf,buf1,number);														//封装数据流，获取总的一个字符长度
 
-	//PackSavedataFloatWithTime(const char* dst_devid, const FloatDPS* input, int input_count, const LPDataTime op_time, uint16 msg_id)
+	pEdp = PackSavedataFloatWithTime("1026301742", (const FloatDPS*)BUF, 0,(const LPDataTime)time_par, 0);				//封包-Type5
+	//pEdp = PacketSavedataSimpleString(NULL,(const char *) buf ,0);					
+	
 	//PacketSavedataSimpleString(const char* dst_devid, const char* input, uint16 msg_id)
-	pEdp = PackSavedataFloatWithTime(NULL, (const FloatDPS*)buf, 0, time_par, 0);				//封包-Type5
-	//pEdp = PacketSavedataSimpleString(NULL,(const char *) buf ,0);							
+	//PackSavedataFloatWithTime(const char* dst_devid, const FloatDPS* input, int input_count, const LPDataTime op_time, uint16 msg_id)
 	
 	int ret = send(sockfd ,pEdp->_data, pEdp->_write_pos ,0);       							//发送数据到平台
 	if (ret < 0)

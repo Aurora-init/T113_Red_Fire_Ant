@@ -24,6 +24,7 @@ typedef struct parmanent
     char temp;						//温度变量
 	char humi;						//湿度变量
 	char light;						//光照强度变量
+	float test_value;
 } onenet_parmanent;
 
 
@@ -33,7 +34,9 @@ void Hal_ONENET_Init(void);
 void *OneNetReacv(void *arg)
 {
 	/*保存接收的字符串*/
-	char RecvBuffer[10] = {0};  
+	char RecvBuffer[100] = {0};  
+	char command[256];
+	int ret;
 
 	/*当接收到onenet平台的数据就打印出来，后面也可以用这个线程来实验一些远程控制的操作*/
 	while(1)
@@ -41,6 +44,15 @@ void *OneNetReacv(void *arg)
 		memset(RecvBuffer ,0 ,sizeof(RecvBuffer));
 		OneNet_RecvData((void*)&sockfd , RecvBuffer);
 		printf("RecvBuffer:%s\n", RecvBuffer);
+		if (strcmp(RecvBuffer, "{"LEDSET":"1"}") == 0) {
+			/*1.点灯*/
+   			sprintf(command, "echo 1 > /sys/class/leds/red/brightness");
+    		ret = system(command);
+		}else if(strcmp(RecvBuffer, "{"LEDSET":"0"}") == 0){
+			/*2.灭灯*/
+    		sprintf(command, "echo 0 > /sys/class/leds/red/brightness");
+    		ret = system(command);
+		}
 	}
 }
 
@@ -173,6 +185,7 @@ int main(void)
 		memset(&gngga_buf, 0, sizeof(gngga_buf));	//清空gngga_buf结构体
 		gps_analyse(uart_buf1, &gngga_buf); 		//将数据放进gngga_buf结构体，这个结构里暂时存储了解析后的GPS数据
 
+		
 		/*3.2.清空原本的onenet数据流缓冲区，把新数据写进去，发送到onenet平台*/
 		switch(onenet_send_state)
 		{
