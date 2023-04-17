@@ -87,7 +87,7 @@
 				let sw = event.detail.value;
 				if (sw) {
 					uni.request({
-						url: 'http://api.heclouds.com/cmds?device_id=1026301742&qos=0&timeout=0&topic=LED_SW',
+						url: 'http://api.heclouds.com/cmds?device_id=1026301742&qos=0&timeout=0&topic=LED _SW',
 						header: {
 							'api-key': 'CQGBtAbN5qPrwI5PnVHNSvVmtNs=' //Master-key
 						},
@@ -242,6 +242,7 @@
 	  background-color: #2b9939;
 	  color: #ffffff;
 	}
+	
 	
 </style>
 
