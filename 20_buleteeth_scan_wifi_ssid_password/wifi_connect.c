@@ -43,15 +43,41 @@ SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="dc:44:6d:7e:10:6
 //草稿命令（创建一个立马能用的70-persistent-net.rules）
 //sh -c 'echo "SUBSYSTEM==\"net\", ACTION==\"add\", DRIVERS==\"?*\", ATTR{address}==\"dc:44:6d:7e:10:67\", ATTR{dev_id}==\"0x0\", ATTR{type}==\"1\", KERNEL==\"wlan*\", NAME=\"wlan1\"" > ./70-persistent-net.rules'
 
-#define SSID_NAME "Ace2" 			//热点名称
-#define WIFI_PASSWORD "123780807"	//热点密码
-
 void wifi_connect(void)
 {
 	char command[256];
 	int result;
-	// 定义要写入的内容
+
+	char ssid_name[100];
+	char wifi_password[100];
+
+	// 定义要写入的固定内容
     char content[] = "SUBSYSTEM==\"net\", ACTION==\"add\", DRIVERS==\"?*\", ATTR{address}==\"dc:44:6d:7e:10:67\", ATTR{dev_id}==\"0x0\", ATTR{type}==\"1\", KERNEL==\"wlan*\", NAME=\"wlan0\"";
+
+	// 检查文件是否存在，如果不存在则创建文件并写入初始数据
+    if (access("/root/wifi.txt", F_OK) == -1) {
+        FILE *fp = fopen("/root/wifi.txt", "w");
+
+        if (fp == NULL) {
+            printf("无法创建文件wifi.txt\n");
+        }
+
+        fprintf(fp, "Ace2,123780807");
+
+        fclose(fp);
+    }
+	// 打开wifi.txt文件
+    FILE *fp = fopen("/root/wifi.txt", "r");
+
+    if (fp == NULL) {
+        printf("无法打开文件wifi.txt\n");
+    }
+
+    // 从文件中读取一行数据，格式为 "ssid_name,wifi_password"
+    fscanf(fp, "%[^,],%s", ssid_name, wifi_password);
+
+    // 关闭文件
+    fclose(fp);
 
 	/*3.把原本的70-persistent-net.rules删掉，把写好的内容扔进去*/
 	sprintf(command, "rm -f /etc/udev/rules.d/70-persistent-net.rules");
@@ -70,7 +96,7 @@ void wifi_connect(void)
 	/*2.配置WiFi信道名和密码*/
 	sprintf(command, "rm -rf /etc/wpa_supplicant.conf");
     result = system(command);
-	sprintf(command, "wpa_passphrase %s %s >> /etc/wpa_supplicant.conf", SSID_NAME,WIFI_PASSWORD);
+	sprintf(command, "wpa_passphrase %s %s >> /etc/wpa_supplicant.conf", ssid_name,wifi_password);
     result = system(command);
 	sleep(1);
 	
@@ -91,4 +117,5 @@ void wifi_connect(void)
 	sprintf(command, "dmesg -n 1");
     result = system(command);
 }
+
 
