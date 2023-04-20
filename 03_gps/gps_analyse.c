@@ -59,6 +59,5 @@ int print_gps(GNGGA *gps_data)
 	printf("==大地水准位间距 : %d.%d\n", gps_data->Geoidal_Separation,gps_data->Geoidal_Separation_x);
 	printf("===                                                      ===\n");
 	printf("============================================================\n");
-
-    	return 0;
+    return 0;
 }
