@@ -104,7 +104,7 @@ void OneNet_SendData(char *buf,char *stream,char wdata);
 //	返回参数：	无
 //	说明：		
 //==========================================================
-void OneNet_SendData_float(char *buf,char *stream,float wdata);
+void OneNet_SendData_float(int id,float number);
 
 
 //==========================================================

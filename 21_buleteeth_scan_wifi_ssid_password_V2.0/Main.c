@@ -230,7 +230,9 @@ int main(void)
 		}else{
 			onenet_value.light = ((uart_buf0[4] - '0') * 10) + (uart_buf0[5] - '0');
 		}
-		
+
+		//测试API浮点数据
+		onenet_value.test_value = 23.1213;
 		/*定时拍照功能*/
 
 		timestamp = time(NULL);
@@ -283,18 +285,15 @@ int main(void)
 			printf("Send LIGH: %d \n", onenet_value.light); // 打印
 			onenet_send_state = 3;
 		case 3://状态3发送数据分割线
-			print_gps(&gngga_buf);         						 //打印GPS数据
-			printf("*************Send UART End*************\n"); // 打印
-			printf("*************Send UART End*************\n"); // 打印
+//			print_gps(&gngga_buf);         						 //打印GPS数据
+//			printf("*************Send UART End*************\n"); // 打印
+//			printf("*************Send UART End*************\n"); // 打印
+			OneNet_SendData_float(4,onenet_value.test_value);
+			sleep(1);
+			printf("TEST: %f \n", onenet_value.test_value); // 打印
 			onenet_send_state = 0;
 		}
 
-	}
-
-	ret= close(fd_key); /* 关闭文件 */
-	if(ret < 0){
-		printf("file /dev/key close failed!\r\n");
-		return -1;
 	}
 
 	/*关闭socket连接*/

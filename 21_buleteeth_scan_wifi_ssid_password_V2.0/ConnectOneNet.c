@@ -1,4 +1,5 @@
 #include "ConnectOneNet.h"
+#include <time.h>
 
 int sockfd;
 
@@ -171,30 +172,31 @@ void OneNet_FillBuf_float(char *buf,char *buf1,float number)
 //	返回参数：	无
 //	说明：		
 //==========================================================
-void OneNet_SendData_float(char *buf,char *buf1,float number)
-{
-	EdpPacket* pEdp = NULL;   //数据包
-	LPDataTime time_par;
-	time_par->year = 2023;
-	time_par->month = 4;
-	time_par->day = 15;	
-	time_par->hour = 10;	
-	time_par->minute = 44;	
-	time_par->second = 1;	
+void OneNet_SendData_float(int id,float number) {
+    // 构建数据点数组
+    FloatDPS dps[1];
+    dps[0].ds_id = 	(uint16)id;                 // 数据流 ID
+    dps[0].f_data = number;             		// 浮点数据
 
-	FloatDPS* BUF;
-	BUF->ds_id = 4;
-	BUF->f_data = number;
+    // 构建时间信息
+    DataTime op_time;
+    time_t now;
+    time(&now);
+    struct tm *timeinfo = localtime(&now);
+    op_time.year = timeinfo->tm_year + 1900;
+    op_time.month = timeinfo->tm_mon + 1;
+    op_time.day = timeinfo->tm_mday;
+    op_time.hour = timeinfo->tm_hour;
+    op_time.minute = timeinfo->tm_min;
+    op_time.second = timeinfo->tm_sec;
+    // 构建数据包
+    EdpPacket *pkg = PackSavedataFloatWithTime(NULL, dps, 1, &op_time, 0);
+	if (pkg == NULL) {
+        printf("Failed to create data packet.\n");
+        return;
+    }
 	
-  	OneNet_FillBuf_float(buf,buf1,number);														//封装数据流，获取总的一个字符长度
-
-	pEdp = PackSavedataFloatWithTime("1026301742", (const FloatDPS*)BUF, 0,(const LPDataTime)time_par, 0);				//封包-Type5
-	//pEdp = PacketSavedataSimpleString(NULL,(const char *) buf ,0);					
-	
-	//PacketSavedataSimpleString(const char* dst_devid, const char* input, uint16 msg_id)
-	//PackSavedataFloatWithTime(const char* dst_devid, const FloatDPS* input, int input_count, const LPDataTime op_time, uint16 msg_id)
-	
-	int ret = send(sockfd ,pEdp->_data, pEdp->_write_pos ,0);       							//发送数据到平台
+	int ret = send(sockfd ,pkg->_data, pkg->_write_pos ,0);
 	if (ret < 0)
 	{
 		printf("send send_pkg->data error!\n");
@@ -204,9 +206,7 @@ void OneNet_SendData_float(char *buf,char *buf1,float number)
 		printf("send send_pkg->data[%f] success!\n" ,number);
 		return ;
 	}
-	
-	DeleteBuffer(&pEdp);		 		//删包
-	
+	DeleteBuffer(&pkg);		 		//删包
 }
 
 //==========================================================
