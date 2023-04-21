@@ -40,6 +40,24 @@
 			  </view>
 			  <button class="btnx" :class="{'btn-onx': camera}" @click="oncameraSwitch">{{ camera ? '' : '' }}</button>
 			</view>
+			
+			<view class="device-cart">
+				<view class="device-info">
+					<view class="device-name">纬度</view>
+					<image class="device-logo" src="/static/GPS.png"></image>
+				</view>
+				<view class="device-data">{{latitude}},N</view>
+			</view>
+			
+			<view class="device-cart">
+				<view class="device-info">
+					<view class="device-name">经度</view>
+					<image class="device-logo" src="/static/GPS.png"></image>
+				</view>
+				<view class="device-data">{{longitude}},E</view>
+			</view>
+			
+			
 		</view>
 	</view>
 </template>
@@ -51,6 +69,8 @@
 				Temp: 0,
 				Humi: 0,
 				ligh: 0,
+				latitude :0,
+				longitude :0,
 				Led: false,
 				camera: false,
 			}
@@ -76,9 +96,11 @@
 				    },
 					method: 'GET',
 				    success: (res) => {
-						this.Temp = res.data.data.datastreams[0].datapoints[0].value;
-						this.Humi = res.data.data.datastreams[1].datapoints[0].value;
-						this.ligh = res.data.data.datastreams[2].datapoints[0].value;
+						this.Temp = res.data.data.datastreams[2].datapoints[0].value;
+						this.Humi = res.data.data.datastreams[3].datapoints[0].value;
+						this.ligh = res.data.data.datastreams[4].datapoints[0].value;
+						this.latitude = res.data.data.datastreams[0].datapoints[0].value;
+						this.longitude = res.data.data.datastreams[1].datapoints[0].value;
 				    }
 				});
 			},

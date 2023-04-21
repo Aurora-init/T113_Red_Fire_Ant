@@ -46,17 +46,7 @@
             },
             /* SDK配置 */
             "sdkConfigs" : {
-                "ad" : {
-                    "gdt" : {},
-                    "csj" : {},
-                    "360" : {},
-                    "ks" : {},
-                    "ks-content" : {},
-                    "BXM-AD" : {},
-                    "sigmob" : {},
-                    "hw" : {},
-                    "bd" : {}
-                }
+                "ad" : {}
             },
             "icons" : {
                 "android" : {

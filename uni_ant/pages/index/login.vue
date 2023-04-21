@@ -52,7 +52,7 @@ export default {
           content: '您是否想要离开该页面？',
           success: function(res) {
             if (res.confirm) {
-              uni.navigateTo({
+              uni.reLaunch({
                 url: '/pages/index/login'
               });
             } else {
@@ -140,7 +140,7 @@ export default {
 } */
 .logo {
   max-width: 120px;
-  max-height: 145px;
+  max-height: 140px;
 }
 
 .form {
