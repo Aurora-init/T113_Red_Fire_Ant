@@ -27,7 +27,11 @@ typedef struct parmanent
     char temp;						//温度变量
 	char humi;						//湿度变量
 	char light;						//光照强度变量
+	
 	float test_value;
+	
+	float latitude;					//维度
+	float longitude;				//经度
 } onenet_parmanent;
 
 
@@ -231,8 +235,7 @@ int main(void)
 			onenet_value.light = ((uart_buf0[4] - '0') * 10) + (uart_buf0[5] - '0');
 		}
 
-		//测试API浮点数据
-		onenet_value.test_value = 23.1213;
+		
 		/*定时拍照功能*/
 
 		timestamp = time(NULL);
@@ -262,6 +265,10 @@ int main(void)
 		memset(&gngga_buf, 0, sizeof(gngga_buf));	//清空gngga_buf结构体
 		gps_analyse(uart_buf1, &gngga_buf); 		//将数据放进gngga_buf结构体，这个结构里暂时存储了解析后的GPS数据
 
+		//2311.77676,N = 23+(11.77676/60) = 23.1962793°N
+		//                      (float)(2311/100) =23.00000       (float)(2311%100) =11.00000  		((float)77676)/10000 = 0.77676
+		onenet_value.latitude = (float)(gngga_buf.latitude/100) + ((((float)(gngga_buf.latitude%100)) + (((float)gngga_buf.latitude_x)/10000))/60);
+		onenet_value.longitude = (float)(gngga_buf.longitude/100) + ((((float)(gngga_buf.longitude%100)) + (((float)gngga_buf.longitude_x)/10000))/60);
 		
 		/*3.2.清空原本的onenet数据流缓冲区，把新数据写进去，发送到onenet平台*/
 		switch(onenet_send_state)
@@ -284,14 +291,19 @@ int main(void)
 			sleep(1);
 			printf("Send LIGH: %d \n", onenet_value.light); // 打印
 			onenet_send_state = 3;
-		case 3://状态3发送数据分割线
+		case 3://状态3发送维度数据
+			OneNet_SendData_float(1,onenet_value.latitude);
+			sleep(1);
+			printf("latitude: %f \n", onenet_value.latitude); // 打印
+			onenet_send_state = 4;
+		case 4://状态3发送维度数据
+			OneNet_SendData_float(2,onenet_value.longitude);
+			sleep(1);
+			printf("longitude: %f \n", onenet_value.longitude); // 打印
+			onenet_send_state = 0;
 //			print_gps(&gngga_buf);         						 //打印GPS数据
 //			printf("*************Send UART End*************\n"); // 打印
 //			printf("*************Send UART End*************\n"); // 打印
-			OneNet_SendData_float(4,onenet_value.test_value);
-			sleep(1);
-			printf("TEST: %f \n", onenet_value.test_value); // 打印
-			onenet_send_state = 0;
 		}
 
 	}

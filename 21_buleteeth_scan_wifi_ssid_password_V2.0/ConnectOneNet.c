@@ -151,19 +151,19 @@ void OneNet_SendData(char *buf,char *buf1,char number)
 	DeleteBuffer(&pEdp);		 		//删包
 	
 }
-
-//把浮点数据设置为平台可识别的格式
-void OneNet_FillBuf_float(char *buf,char *buf1,float number)  
-{
-	char text[25] = {0};
-	memset(buf, 0, sizeof(buf));
-	strcat((char *)buf, ",;");	
-	strcat((char *)buf, buf1);
-	strcat((char *)buf, ",");
-	sprintf(text,"%f",number);
-	strcat((char *)buf, text);
-	strcat((char *)buf, ";");
-}
+//
+////把浮点数据设置为平台可识别的格式
+//void OneNet_FillBuf_float(char *buf,char *buf1,float number)  
+//{
+//	char text[25] = {0};
+//	memset(buf, 0, sizeof(buf));
+//	strcat((char *)buf, ",;");	
+//	strcat((char *)buf, buf1);
+//	strcat((char *)buf, ",");
+//	sprintf(text,"%f",number);
+//	strcat((char *)buf, text);
+//	strcat((char *)buf, ";");
+//}
 
 //==========================================================
 //	函数名称：	OneNet_SendData
@@ -183,14 +183,14 @@ void OneNet_SendData_float(int id,float number) {
     time_t now;
     time(&now);
     struct tm *timeinfo = localtime(&now);
-    op_time.year = timeinfo->tm_year + 1900;
-    op_time.month = timeinfo->tm_mon + 1;
-    op_time.day = timeinfo->tm_mday;
+    op_time.year = timeinfo->tm_year + 1697;
+    op_time.month = timeinfo->tm_mon + 4;
+    op_time.day = timeinfo->tm_mday + 21;
     op_time.hour = timeinfo->tm_hour;
     op_time.minute = timeinfo->tm_min;
     op_time.second = timeinfo->tm_sec;
     // 构建数据包
-    EdpPacket *pkg = PackSavedataFloatWithTime(NULL, dps, 1, &op_time, 0);
+    EdpPacket *pkg = PackSavedataFloatWithTime(DEVICE_ID, dps, 1, &op_time, 0);
 	if (pkg == NULL) {
         printf("Failed to create data packet.\n");
         return;

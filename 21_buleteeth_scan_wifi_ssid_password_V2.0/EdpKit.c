@@ -1200,7 +1200,7 @@ EdpPacket* PackSavedataFloatWithTime(const char* dst_devid, const FloatDPS* inpu
     time_t tTime = 0;
 	struct tm st = {0};
 
-    printf("== enter PackSavedataFloatWithTime: input_count:%d,dst:%s == \n", input_count, dst_devid);
+    //printf("== enter PackSavedataFloatWithTime: input_count:%d,dst:%s == \n", input_count, dst_devid);
     
 
     /*ensure count less than 1000*/
@@ -1217,7 +1217,7 @@ EdpPacket* PackSavedataFloatWithTime(const char* dst_devid, const FloatDPS* inpu
     WriteRemainlen(pkg, remainlen);
 
     
-    printf("== remain_len:%u , input_len:%u == \n", remainlen, input_len);
+    //printf("== remain_len:%u , input_len:%u == \n", remainlen, input_len);
 
     flag |= dst_devid ? 0x80 : 0;
     flag |= msg_id ? 0x40 : 0;
