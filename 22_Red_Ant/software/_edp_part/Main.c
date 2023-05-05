@@ -9,7 +9,7 @@
 #include <ctype.h>
 #include <time.h>
 
-#include "EdpKit.h"
+#include "EdpKit.h"				//
 #include "wifi_connect.h"
 #include "ConnectOneNet.h"
 #include "gps_analyse.h"
@@ -27,9 +27,7 @@ typedef struct parmanent
     char temp;						//温度变量
 	char humi;						//湿度变量
 	char light;						//光照强度变量
-	
-	float test_value;
-	
+
 	float latitude;					//维度
 	float longitude;				//经度
 } onenet_parmanent;
@@ -40,16 +38,20 @@ void Hal_ONENET_Init(void);
 /*******************************************START多线程1之接收线程START**************************************************/
 void *OneNetReacv(void *arg)
 {
-	/*保存接收的字符串*/
+	/*函数返回值变量*/
+	int ret;
+	
+	/*OneNET接收缓冲区*/
 	char RecvBuffer[100]; 
 	
 	/*Linux命令缓冲区*/
 	char command[256];
-	int ret;
+	
 
 	/*当接收到onenet平台的数据就打印出来，后面也可以用这个线程来实验一些远程控制的操作*/
 	while(1)
 	{
+		/*把OneNET平台下发的数据存放至RecvBuffer中*/
 		memset(RecvBuffer ,0 ,sizeof(RecvBuffer));
 		OneNet_RecvData((void*)&sockfd , RecvBuffer);
 		printf("RecvBuffer:%s\n", RecvBuffer);
@@ -249,6 +251,7 @@ int main(void)
 				/* 拍照 */
 				sprintf(command, "ffmpeg -y -i /dev/video0 -vframes 1 -s 1920x1080 -q:v 0 -f image2 ./test_photo.jpg");
 				ret = system(command);
+				sleep(1);
 				/* 关灯 */
 				sprintf(command, "echo 0 > /sys/class/leds/red/brightness");
 				ret = system(command);
@@ -256,6 +259,7 @@ int main(void)
 	        	/* 拍照 */
 				sprintf(command, "ffmpeg -y -i /dev/video0 -vframes 1 -s 1920x1080 -q:v 0 -f image2 ./test_photo.jpg");
 				ret = system(command);
+				sleep(1);
 	        }
 	    }
 		
@@ -294,7 +298,7 @@ int main(void)
 			sleep(1);
 			printf("latitude: %f \n", onenet_value.latitude); // 打印
 			onenet_send_state = 4;
-		case 4://状态3发送维度数据
+		case 4://状态4发送经度数据
 			OneNet_SendData_float(2,onenet_value.longitude);
 			sleep(1);
 			printf("longitude: %f \n", onenet_value.longitude); // 打印
