@@ -1,0 +1,429 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               26/Mar/2023  16:31:26
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Components\hal\userspace\hal_lcd_spi.c
+#    Command line       =  
+#        -f C:\Users\11148\AppData\Local\Temp\EWCD10.tmp
+#        ("D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Components\hal\userspace\hal_lcd_spi.c"
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+#        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+#        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+#        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+#        ZCL_LEVEL_CTRL -D HAL_KEY=FALSE -D xISR_KEYINTERRUPT -D HAL_UART=TRUE
+#        -D INT_HEAP_LEN=2048 -D HAL_LCD=TRUE -D HAL_LCD_OLED12864=TRUE -D
+#        HAL_ADC=TRUE -D HAL_DHT11=TRUE -lC
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List"
+#        -lA
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List"
+#        --diag_suppress Pe001,Pa010 -o
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wRouter.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DRTR_NWK) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0402
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x5a, 0x69, 0x67, 0x42,
+#        0x65,0x65, 0x41, 0x6c, 0x6c, 0x69, 0x61, 0x6e, 0x63, 0x65, 0x30,
+#        0x39}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+#        -DENABLE_LED4_DISABLE_S1) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wZCL.cfg"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\" -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\target\CC2530EB\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\userspace\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\high_level\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mt\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\osal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\saddr\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\sdata\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\af\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\bdb\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\gp\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\nwk\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sapi\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sec\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sys\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zcl\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zdo\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\f8w\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Applications\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List\hal_lcd_spi.lst
+#    Object file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\Obj\hal_lcd_spi.r51
+#
+###############################################################################
+
+D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度 & 光照度采集系统\ZigBee设备端固件与源码\源码\Components\hal\userspace\hal_lcd_spi.c
+      1          #include "hal_lcd_spi.h"
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa0
+   \   union <unnamed> volatile __sfr _A_P2
+   \                     _A_P2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf4
+   \   unsigned char volatile __sfr P1SEL
+   \                     P1SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf5
+   \   unsigned char volatile __sfr P2SEL
+   \                     P2SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf6
+   \   unsigned char volatile __sfr P1INP
+   \                     P1INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf7
+   \   unsigned char volatile __sfr P2INP
+   \                     P2INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xff
+   \   unsigned char volatile __sfr P2DIR
+   \                     P2DIR:
+   \   000000                DS 1
+      2          #include <stdarg.h>
+      3          
+      4          static void halLcdSpiTxByte(uint8 b);
+      5          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      6          void halLcdSpiInit(void)
+   \                     halLcdSpiInit:
+      7          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+      8          #ifdef HAL_LCD_SPI_SW
+      9              SW_SPI_INIT_CLK(HAL_LCD_SPI_SCK_PORT, HAL_LCD_SPI_SCK_PIN,SPI_CPOL_HIGH);
+   \   000000   43FE20       ORL       0xfe,#0x20
+   \   000003   53F4DF       ANL       0xf4,#0xdf
+   \   000006   D295         SETB      0x90.5
+     10              SW_SPI_INIT_MOSI(HAL_LCD_SPI_SDA_PORT, HAL_LCD_SPI_SDA_PIN);
+   \   000008   43FE40       ORL       0xfe,#0x40
+   \   00000B   53F4BF       ANL       0xf4,#0xbf
+     11          #else
+     12              HwSPICfg_t cfg = {
+     13                  .alternate = HW_SPI1_ALT2,
+     14                  .bitOrder  = HW_SPI_BITORDER_MSB,
+     15                  .CPOL      = HW_SPI_CPOL_HIGH,
+     16                  .CPHA      = HW_SPI_CPHA_SECOND,
+     17              };
+     18              
+     19              HwSPIInit(&cfg);
+     20          #endif
+     21              
+     22              SPI_CS_INIT(HAL_LCD_SPI_CS_PORT, HAL_LCD_SPI_CS_PIN);
+   \   00000E   43FF01       ORL       0xff,#0x1
+   \   000011   53F5FE       ANL       0xf5,#0xfe
+   \   000014   D2A0         SETB      0xa0.0
+     23              SPI_GPIO_OUTPUT(HAL_LCD_SPI_DC_PORT, HAL_LCD_SPI_DC_PIN);
+   \   000016   43FE10       ORL       0xfe,#0x10
+   \   000019   53F4EF       ANL       0xf4,#0xef
+     24              SPI_GPIO_OUTPUT(HAL_LCD_SPI_RST_PORT, HAL_LCD_SPI_RST_PIN);
+   \   00001C   43FE01       ORL       0xfe,#0x1
+   \   00001F   53F4FE       ANL       0xf4,#0xfe
+     25          }
+   \   000022   02....       LJMP      ?BRET
+   \   000025                REQUIRE P1DIR
+   \   000025                REQUIRE P1SEL
+   \   000025                REQUIRE P1INP
+   \   000025                REQUIRE P2INP
+   \   000025                REQUIRE _A_P1
+   \   000025                REQUIRE P2DIR
+   \   000025                REQUIRE P2SEL
+   \   000025                REQUIRE _A_P2
+     26          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     27          void halLcdSpiTxCmd(uint8 cmd)
+   \                     halLcdSpiTxCmd:
+     28          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+     29              SPI_CS_SELECT(HAL_LCD_SPI_CS_PORT, HAL_LCD_SPI_CS_PIN);
+   \   000005   C2A0         CLR       0xa0.0
+     30            
+     31              SPI_GPIO_CLEAR(HAL_LCD_SPI_DC_PORT, HAL_LCD_SPI_DC_PIN);
+   \   000007   C294         CLR       0x90.4
+     32              halLcdSpiTxByte(cmd);
+   \   000009                ; Setup parameters for call to function halLcdSpiTxByte
+   \   000009                REQUIRE ?Subroutine0
+   \   000009                REQUIRE _A_P2
+   \   000009                REQUIRE _A_P1
+   \   000009                ; // Fall through to label ?Subroutine0
+     33              
+     34              SPI_CS_RELEASE(HAL_LCD_SPI_CS_PORT, HAL_LCD_SPI_CS_PIN);
+     35          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL     `??halLcdSpiTxByte::?relay`; Banked call to: halLcdSpiTxByte
+   \   000003   D2A0         SETB      0xa0.0
+   \   000005   7F01         MOV       R7,#0x1
+   \   000007   02....       LJMP      ?BANKED_LEAVE_XDATA
+     36          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     37          void halLcdSpiTxData(uint8 dat)
+   \                     halLcdSpiTxData:
+     38          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+     39              SPI_CS_SELECT(HAL_LCD_SPI_CS_PORT, HAL_LCD_SPI_CS_PIN);
+   \   000005   C2A0         CLR       0xa0.0
+     40              
+     41              SPI_GPIO_SET(HAL_LCD_SPI_DC_PORT, HAL_LCD_SPI_DC_PIN);
+   \   000007   D294         SETB      0x90.4
+     42              halLcdSpiTxByte(dat);
+   \   000009                ; Setup parameters for call to function halLcdSpiTxByte
+   \   000009   80..         SJMP      ?Subroutine0
+   \   00000B                REQUIRE _A_P2
+   \   00000B                REQUIRE _A_P1
+     43              
+     44              SPI_CS_RELEASE(HAL_LCD_SPI_CS_PORT, HAL_LCD_SPI_CS_PIN);
+     45          }
+     46          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     47          static void halLcdSpiTxByte(uint8 b)
+   \                     halLcdSpiTxByte:
+     48          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     49          #ifdef HAL_LCD_SPI_SW
+     50                SwSPITxByte(HAL_LCD_SPI_SCK_PORT, HAL_LCD_SPI_SCK_PIN,
+     51                            HAL_LCD_SPI_SDA_PORT, HAL_LCD_SPI_SDA_PIN,
+     52                            SPI_BITORDER_MSB,
+     53                            SPI_CPOL_HIGH, HW_SPI_CPHA_SECOND,
+     54                            b);
+   \   000000   7808         MOV       R0,#0x8
+   \                     ??halLcdSpiTxByte_0:
+   \   000002   C295         CLR       0x90.5
+   \   000004   E9           MOV       A,R1
+   \   000005   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000007   4004         JC        ??halLcdSpiTxByte_1
+   \   000009   C296         CLR       0x90.6
+   \   00000B   8002         SJMP      ??halLcdSpiTxByte_2
+   \                     ??halLcdSpiTxByte_1:
+   \   00000D   D296         SETB      0x90.6
+   \                     ??halLcdSpiTxByte_2:
+   \   00000F   C3           CLR       C
+   \   000010   33           RLC       A
+   \   000011   F9           MOV       R1,A
+   \   000012   D295         SETB      0x90.5
+   \   000014   18           DEC       R0
+   \   000015   E8           MOV       A,R0
+   \   000016   70EA         JNZ       ??halLcdSpiTxByte_0
+     55          #else
+     56                HwSPITxByte(HW_SPI1_ALT2, b);
+     57          #endif 
+     58          }
+   \   000018   02....       LJMP      ?BRET
+   \   00001B                REQUIRE _A_P1
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??halLcdSpiInit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    halLcdSpiInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??halLcdSpiTxCmd::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    halLcdSpiTxCmd
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??halLcdSpiTxData::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    halLcdSpiTxData
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??halLcdSpiTxByte::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    halLcdSpiTxByte
+
+   Maximum stack usage in bytes:
+
+   XSTACK Function
+   ------ --------
+      0   halLcdSpiInit
+      9   halLcdSpiTxByte
+      9   halLcdSpiTxCmd
+        9   -> halLcdSpiTxByte
+      9   halLcdSpiTxData
+        9   -> halLcdSpiTxByte
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      10  ?Subroutine0
+       1  P1DIR
+       1  P1INP
+       1  P1SEL
+       1  P2DIR
+       1  P2INP
+       1  P2SEL
+       1  _A_P1
+       1  _A_P2
+      37  halLcdSpiInit
+       6  halLcdSpiInit::?relay
+      27  halLcdSpiTxByte
+       6  halLcdSpiTxByte::?relay
+       9  halLcdSpiTxCmd
+       6  halLcdSpiTxCmd::?relay
+      11  halLcdSpiTxData
+       6  halLcdSpiTxData::?relay
+
+ 
+ 94 bytes in segment BANKED_CODE
+ 24 bytes in segment BANK_RELAYS
+  8 bytes in segment SFR_AN
+ 
+ 24 bytes of CODE     memory
+  0 bytes of DATA     memory (+ 8 bytes shared)
+ 94 bytes of HUGECODE memory
+
+Errors: none
+Warnings: none

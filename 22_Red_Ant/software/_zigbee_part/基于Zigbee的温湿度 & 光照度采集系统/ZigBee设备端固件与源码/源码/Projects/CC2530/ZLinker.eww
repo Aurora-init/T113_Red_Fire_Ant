@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\ZLinker.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>ALL</name>
+      <member>
+        <project>ZLinker</project>
+        <configuration>Coordinator</configuration>
+      </member>
+      <member>
+        <project>ZLinker</project>
+        <configuration>Router</configuration>
+      </member>
+      <member>
+        <project>ZLinker</project>
+        <configuration>EndDevice</configuration>
+      </member>
+      <member>
+        <project>ZLinker</project>
+        <configuration>EndDevice - OTAClient</configuration>
+      </member>
+      <member>
+        <project>ZLinker</project>
+        <configuration>Router - OTAClient</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

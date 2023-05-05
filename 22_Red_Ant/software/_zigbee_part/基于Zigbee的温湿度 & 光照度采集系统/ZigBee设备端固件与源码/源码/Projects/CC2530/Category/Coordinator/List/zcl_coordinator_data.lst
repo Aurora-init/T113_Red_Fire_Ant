@@ -1,0 +1,546 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               26/Mar/2023  16:30:21
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_coordinator_data.c
+#    Command line       =  
+#        -f C:\Users\11148\AppData\Local\Temp\EWCEB2.tmp
+#        ("D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_coordinator_data.c"
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+#        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+#        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+#        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+#        ZCL_LEVEL_CTRL -D HAL_KEY=TRUE -D xISR_KEYINTERRUPT -D HAL_UART=TRUE
+#        -D INT_HEAP_LEN=2048 -D HAL_LCD=TRUE -D HAL_LCD_OLED12864=TRUE -lC
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List"
+#        -lA
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List"
+#        --diag_suppress Pe001,Pa010 -o
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0402
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x5a, 0x69, 0x67, 0x42,
+#        0x65,0x65, 0x41, 0x6c, 0x6c, 0x69, 0x61, 0x6e, 0x63, 0x65, 0x30,
+#        0x39}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+#        -DENABLE_LED4_DISABLE_S1) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wZCL.cfg"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\" -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\target\CC2530EB\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\userspace\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\high_level\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mt\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\osal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\saddr\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\sdata\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\af\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\bdb\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\gp\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\nwk\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sapi\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sec\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sys\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zcl\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zdo\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\f8w\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Applications\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List\zcl_coordinator_data.lst
+#    Object file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\Obj\zcl_coordinator_data.r51
+#
+###############################################################################
+
+D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度 & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_coordinator_data.c
+      1          #include "zcl.h"
+      2          #include "zcl_general.h"
+      3          #include "zcl_ha.h"
+      4          
+      5          #include "zcl_coordinator.h"
+      6          
+      7          #include "zb_common.h"
+      8          
+      9          /* Basic Cluster。 */
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     10          const uint8 hardware_revision = 0;
+   \                     hardware_revision:
+   \   000000   00           DB 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     11          const uint8 zcl_version = 0;
+   \                     zcl_version:
+   \   000000   00           DB 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     12          const uint8 manufacture[] = { 9, 'B','y','t','e','H','o','u','s','e' }; // ByteHouse
+   \                     manufacture:
+   \   000000   09           DB 9
+   \   000001   42           DB 66
+   \   000002   79           DB 121
+   \   000003   74           DB 116
+   \   000004   65           DB 101
+   \   000005   48           DB 72
+   \   000006   6F           DB 111
+   \   000007   75           DB 117
+   \   000008   73           DB 115
+   \   000009   65           DB 101
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     13          const uint8 model[] = { 14, 'c', 'o', 'o', 'r', 'd', 'i', 'n', 'a', 't', 'o', 'r', '.', 'v', '1'}; // coordinator.v1
+   \                     model:
+   \   000000   0E           DB 14
+   \   000001   63           DB 99
+   \   000002   6F           DB 111
+   \   000003   6F           DB 111
+   \   000004   72           DB 114
+   \   000005   64           DB 100
+   \   000006   69           DB 105
+   \   000007   6E           DB 110
+   \   000008   61           DB 97
+   \   000009   74           DB 116
+   \   00000A   6F           DB 111
+   \   00000B   72           DB 114
+   \   00000C   2E           DB 46
+   \   00000D   76           DB 118
+   \   00000E   31           DB 49
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     14          const uint8 power_source = POWER_SOURCE_DC;
+   \                     power_source:
+   \   000000   04           DB 4
+     15          
+     16          /* currently all cluster implementations are according to ZCL6, 
+     17             which has revision #1. In the future it is possible that different 
+     18             clusters will have different revisions, so they will have to use
+     19             separate attribute variables. */
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     20          const uint16 cluster_revision_all = 0x0001;
+   \                     cluster_revision_all:
+   \   000000   0100         DW 1
+     21          
+     22          /* Attributes */
+
+   \                                 In  segment CODE_C, align 1
+     23          CONST zclAttrRec_t zcl_coordinator_attrs[] =
+   \                     zcl_coordinator_attrs:
+   \   000000   0000         DW 0
+   \   000002   0000         DW 0
+   \   000004   20           DB 32
+   \   000005   01           DB 1
+   \   000006   ....         DW zcl_version
+   \   000008   0000         DW 0
+   \   00000A   0300         DW 3
+   \   00000C   20           DB 32
+   \   00000D   01           DB 1
+   \   00000E   ....         DW hardware_revision
+   \   000010   0000         DW 0
+   \   000012   0400         DW 4
+   \   000014   42           DB 66
+   \   000015   01           DB 1
+   \   000016   ....         DW manufacture
+   \   000018   0000         DW 0
+   \   00001A   0500         DW 5
+   \   00001C   42           DB 66
+   \   00001D   01           DB 1
+   \   00001E   ....         DW model
+   \   000020   0000         DW 0
+   \   000022   0700         DW 7
+   \   000024   30           DB 48
+   \   000025   01           DB 1
+   \   000026   ....         DW power_source
+   \   000028   0000         DW 0
+   \   00002A   FDFF         DW 65533
+   \   00002C   21           DB 33
+   \   00002D   01           DB 1
+   \   00002E   ....         DW cluster_revision_all
+     24          {
+     25              {
+     26                  ZCL_CLUSTER_ID_GEN_BASIC,
+     27                  {
+     28                      ATTRID_BASIC_ZCL_VERSION,
+     29                      ZCL_DATATYPE_UINT8,
+     30                      ACCESS_CONTROL_READ,
+     31                      (void *)&zcl_version
+     32                  }
+     33              },
+     34          
+     35              {
+     36                  ZCL_CLUSTER_ID_GEN_BASIC,
+     37                  {
+     38                      ATTRID_BASIC_HW_VERSION,
+     39                      ZCL_DATATYPE_UINT8,
+     40                      ACCESS_CONTROL_READ,
+     41                      (void *)&hardware_revision
+     42                  }
+     43              },
+     44          
+     45              {
+     46                  ZCL_CLUSTER_ID_GEN_BASIC,
+     47                  {
+     48                      ATTRID_BASIC_MANUFACTURER_NAME,
+     49                      ZCL_DATATYPE_CHAR_STR,
+     50                      ACCESS_CONTROL_READ,
+     51                      (void *)manufacture
+     52                  }
+     53              },
+     54          
+     55              {
+     56                  ZCL_CLUSTER_ID_GEN_BASIC,
+     57                  {
+     58                      ATTRID_BASIC_MODEL_ID,
+     59                      ZCL_DATATYPE_CHAR_STR,
+     60                      ACCESS_CONTROL_READ,
+     61                      (void *)model
+     62                  }
+     63              },
+     64          
+     65              {
+     66                  ZCL_CLUSTER_ID_GEN_BASIC,
+     67                  {
+     68                      ATTRID_BASIC_POWER_SOURCE,
+     69                      ZCL_DATATYPE_ENUM8,
+     70                      ACCESS_CONTROL_READ,
+     71                      (void *)&power_source
+     72                  }
+     73              },
+     74          
+     75              {
+     76                  ZCL_CLUSTER_ID_GEN_BASIC,
+     77                  {
+     78                      ATTRID_CLUSTER_REVISION,
+     79                      ZCL_DATATYPE_UINT16,
+     80                      ACCESS_CONTROL_READ,
+     81                      (void *)&cluster_revision_all
+     82                  }
+     83              },  
+     84          };
+     85          
+
+   \                                 In  segment CODE_C, align 1
+     86          uint8 CONST zcl_coordinator_attrs_len = (sizeof(zcl_coordinator_attrs) / sizeof(zcl_coordinator_attrs[0]));
+   \                     zcl_coordinator_attrs_len:
+   \   000000   06           DB 6
+     87          
+     88          /* In-clusters */
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     89          const cId_t zcl_coordinator_incluster_list[] = {
+   \                     zcl_coordinator_incluster_list:
+   \   000000   0000         DW 0
+     90              ZCL_CLUSTER_ID_GEN_BASIC,
+     91          };
+     92          #define ZCLCOORDINATOR_MAX_INCLUSTERS    (sizeof(zcl_coordinator_incluster_list) / sizeof(zcl_coordinator_incluster_list[0]))
+     93          
+     94          /* Out-clusters */
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     95          const cId_t zcl_coordinator_outcluster_list[] = {
+   \                     zcl_coordinator_outcluster_list:
+   \   000000   0300         DW 3
+   \   000002   0600         DW 6
+   \   000004   0400         DW 4
+   \   000006   0800         DW 8
+   \   000008   0003         DW 768
+   \   00000A   0010         DW 4096
+     96              ZCL_CLUSTER_ID_GEN_IDENTIFY,
+     97              ZCL_CLUSTER_ID_GEN_ON_OFF,
+     98              ZCL_CLUSTER_ID_GEN_GROUPS,
+     99          
+    100              ZCL_CLUSTER_ID_GEN_LEVEL_CONTROL,
+    101              ZCL_CLUSTER_ID_LIGHTING_COLOR_CONTROL,
+    102              ZCL_CLUSTER_ID_TOUCHLINK,
+    103          };
+    104          #define ZCLCOORDINATOR_MAX_OUTCLUSTERS   (sizeof(zcl_coordinator_outcluster_list) / sizeof(zcl_coordinator_outcluster_list[0]))
+    105          
+    106          /* Clusters for the private endpoint. */
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    107          const cId_t zcl_coordinator_private_clusters[] = {
+   \                     zcl_coordinator_private_clusters:
+   \   000000   0000         DW 0
+   \   000002   0100         DW 1
+   \   000004   0200         DW 2
+    108              PRIV_CID_MESSAGE,
+    109              PRIV_CID_SETON,
+    110              PRIV_CID_SETOFF,
+    111          };
+    112          #define ZCLCOORDINATOR_MAX_OUTCLUSTERS_PRIV   (sizeof(zcl_coordinator_private_clusters) / sizeof(zcl_coordinator_private_clusters[0]))
+    113          
+    114          /* ZHA simple description. */
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    115          SimpleDescriptionFormat_t simpledesc_zha =
+   \                     simpledesc_zha:
+   \   000000                DS 12
+   \   00000C                REQUIRE `?<Initializer for simpledesc_zha>`
+   \   00000C                REQUIRE __INIT_XDATA_I
+    116          {
+    117            ENDPOINT_ZHA,
+    118            ZCL_HA_PROFILE_ID,
+    119            ZCL_HA_DEVICEID_HOME_GATEWAY,
+    120            0,
+    121            0,
+    122            ZCLCOORDINATOR_MAX_INCLUSTERS,
+    123            (cId_t *)zcl_coordinator_incluster_list,
+    124            ZCLCOORDINATOR_MAX_OUTCLUSTERS,
+    125            (cId_t *)zcl_coordinator_outcluster_list,
+    126          };
+    127          
+    128          /* ZLL simple description. */
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    129          SimpleDescriptionFormat_t simpledesc_zll =
+   \                     simpledesc_zll:
+   \   000000                DS 12
+   \   00000C                REQUIRE `?<Initializer for simpledesc_zll>`
+   \   00000C                REQUIRE __INIT_XDATA_I
+    130          {
+    131            ENDPOINT_ZLL,
+    132            ZCL_HA_PROFILE_ID,
+    133            ZCL_HA_DEVICEID_HOME_GATEWAY,
+    134            0,
+    135            0,
+    136            ZCLCOORDINATOR_MAX_INCLUSTERS,
+    137            (cId_t *)zcl_coordinator_incluster_list,
+    138            ZCLCOORDINATOR_MAX_OUTCLUSTERS,
+    139            (cId_t *)zcl_coordinator_outcluster_list,
+    140          };
+    141          
+    142          /* Private simple description. */
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    143          SimpleDescriptionFormat_t simpledesc_priv =
+   \                     simpledesc_priv:
+   \   000000                DS 12
+   \   00000C                REQUIRE `?<Initializer for simpledesc_priv>`
+   \   00000C                REQUIRE __INIT_XDATA_I
+    144          {
+    145            ENDPOINT_PRIVATE,
+    146            ZCL_HA_PROFILE_ID,
+    147            ZCL_HA_DEVICEID_HOME_GATEWAY,
+    148            0,
+    149            0,
+    150            ZCLCOORDINATOR_MAX_OUTCLUSTERS_PRIV,
+    151            (cId_t *)zcl_coordinator_private_clusters,
+    152            ZCLCOORDINATOR_MAX_OUTCLUSTERS_PRIV,
+    153            (cId_t *)zcl_coordinator_private_clusters,
+    154          };
+    155          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    156          endPointDesc_t endpoint_desc_priv = {
+   \                     endpoint_desc_priv:
+   \   000000                DS 7
+   \   000007                REQUIRE `?<Initializer for endpoint_desc_priv>`
+   \   000007                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for simpledesc_zha>`:
+   \   000000   08           DB 8
+   \   000001   0401         DW 260
+   \   000003   5000         DW 80
+   \   000005   00           DB 0
+   \   000006   01           DB 1
+   \   000007   ....         DW zcl_coordinator_incluster_list
+   \   000009   06           DB 6
+   \   00000A   ....         DW zcl_coordinator_outcluster_list
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for simpledesc_zll>`:
+   \   000000   0B           DB 11
+   \   000001   0401         DW 260
+   \   000003   5000         DW 80
+   \   000005   00           DB 0
+   \   000006   01           DB 1
+   \   000007   ....         DW zcl_coordinator_incluster_list
+   \   000009   06           DB 6
+   \   00000A   ....         DW zcl_coordinator_outcluster_list
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for simpledesc_priv>`:
+   \   000000   78           DB 120
+   \   000001   0401         DW 260
+   \   000003   5000         DW 80
+   \   000005   00           DB 0
+   \   000006   03           DB 3
+   \   000007   ....         DW zcl_coordinator_private_clusters
+   \   000009   03           DB 3
+   \   00000A   ....         DW zcl_coordinator_private_clusters
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for endpoint_desc_priv>`:
+   \   000000   78           DB 120
+   \   000001   00           DB 0
+   \   000002   0000         DW 0H
+   \   000004   ....         DW simpledesc_priv
+   \   000006   00           DB 0
+    157            .endPoint = ENDPOINT_PRIVATE,
+    158            .epType = 0,
+    159            .simpleDesc = &simpledesc_priv,
+    160            .latencyReq = (afNetworkLatencyReq_t)0,
+    161          };
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       7  ?<Initializer for endpoint_desc_priv>
+      12  ?<Initializer for simpledesc_priv>
+      12  ?<Initializer for simpledesc_zha>
+      12  ?<Initializer for simpledesc_zll>
+       2  cluster_revision_all
+       7  endpoint_desc_priv
+       1  hardware_revision
+      10  manufacture
+      15  model
+       1  power_source
+      12  simpledesc_priv
+      12  simpledesc_zha
+      12  simpledesc_zll
+      48  zcl_coordinator_attrs
+       1  zcl_coordinator_attrs_len
+       2  zcl_coordinator_incluster_list
+      12  zcl_coordinator_outcluster_list
+       6  zcl_coordinator_private_clusters
+       1  zcl_version
+
+ 
+ 49 bytes in segment CODE_C
+ 43 bytes in segment XDATA_I
+ 43 bytes in segment XDATA_ID
+ 50 bytes in segment XDATA_ROM_C
+ 
+ 92 bytes of CODE  memory
+ 50 bytes of CONST memory
+ 43 bytes of XDATA memory
+
+Errors: none
+Warnings: none

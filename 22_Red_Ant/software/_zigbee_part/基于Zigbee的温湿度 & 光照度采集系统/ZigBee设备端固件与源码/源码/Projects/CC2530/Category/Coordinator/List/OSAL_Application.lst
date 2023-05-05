@@ -1,0 +1,514 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               26/Mar/2023  16:30:20
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Applications\OSAL_Application.c
+#    Command line       =  
+#        -f C:\Users\11148\AppData\Local\Temp\EWCACB.tmp
+#        ("D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Applications\OSAL_Application.c"
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+#        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+#        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+#        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+#        ZCL_LEVEL_CTRL -D HAL_KEY=TRUE -D xISR_KEYINTERRUPT -D HAL_UART=TRUE
+#        -D INT_HEAP_LEN=2048 -D HAL_LCD=TRUE -D HAL_LCD_OLED12864=TRUE -lC
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\Category\Coordinator\List"
+#        -lA
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\Category\Coordinator\List"
+#        --diag_suppress Pe001,Pa010 -o
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\Category\Coordinator\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\Tools\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\Tools\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0402
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x5a, 0x69, 0x67, 0x42,
+#        0x65,0x65, 0x41, 0x6c, 0x6c, 0x69, 0x61, 0x6e, 0x63, 0x65, 0x30,
+#        0x39}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+#        -DENABLE_LED4_DISABLE_S1) -f
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\Tools\f8wZCL.cfg"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        & ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\" -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\hal\include\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\hal\target\CC2530EB\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\hal\userspace\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\mac\include\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\mac\high_level\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\mac\low_level\srf04\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\mt\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\osal\include\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\services\saddr\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\services\sdata\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\af\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\bdb\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\gp\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\nwk\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\sapi\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\sec\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\sys\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\zcl\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\stack\zdo\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\zmac\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Components\zmac\f8w\"
+#        -I
+#        "D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\..\..\Applications\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\Category\Coordinator\List\OSAL_Application.lst
+#    Object file        =  
+#        D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È
+#        &
+#        ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Projects\CC2530\Category\Coordinator\Obj\OSAL_Application.r51
+#
+###############################################################################
+
+D:\×ÀÃæ\¡¶ZigBee3.0¿ª·¢Ö¸ÄÏ¡·ÅäÌ××ÊÔ´£¨¸½¼Ó²¿·Ö£©\¿ÎÍâÆª£ºÏîÄ¿ÊµÕ½\»ùÓÚZigbeeµÄÎÂÊª¶È & ¹âÕÕ¶È²É¼¯ÏµÍ³\ZigBeeÉè±¸¶Ë¹Ì¼þÓëÔ´Âë\Ô´Âë\Applications\OSAL_Application.c
+      1          /**************************************************************************************************
+      2            Filename:       OSAL_SampleSw.c
+      3            Revised:        $Date: 2014-06-03 16:29:28 -0700 (Tue, 03 Jun 2014) $
+      4            Revision:       $Revision: 38778 $
+      5          
+      6            Description:    This file contains all the settings and other functions
+      7                            that the user should set and change.
+      8          
+      9          
+     10            Copyright 2006-2014 Texas Instruments Incorporated. All rights reserved.
+     11          
+     12            IMPORTANT: Your use of this Software is limited to those specific rights
+     13            granted under the terms of a software license agreement between the user
+     14            who downloaded the software, his/her employer (which must be your employer)
+     15            and Texas Instruments Incorporated (the "License").  You may not use this
+     16            Software unless you agree to abide by the terms of the License. The License
+     17            limits your use, and you acknowledge, that the Software may not be modified,
+     18            copied or distributed unless embedded on a Texas Instruments microcontroller
+     19            or used solely and exclusively in conjunction with a Texas Instruments radio
+     20            frequency transceiver, which is integrated into your product.  Other than for
+     21            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     22            works of, modify, distribute, perform, display or sell this Software and/or
+     23            its documentation for any purpose.
+     24          
+     25            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     26            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     27            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     28            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     29            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     30            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     31            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     32            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     33            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     34            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     35            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     36          
+     37            Should you have any questions regarding your right to use this Software,
+     38            contact Texas Instruments Incorporated at www.TI.com.
+     39          **************************************************************************************************/
+     40          
+     41          /*********************************************************************
+     42           * INCLUDES
+     43           */
+     44          
+     45          #include "ZComDef.h"
+     46          #include "hal_drivers.h"
+     47          #include "OSAL.h"
+     48          #include "OSAL_Tasks.h"
+     49          
+     50          #if defined ( MT_TASK )
+     51            #include "MT.h"
+     52            #include "MT_TASK.h"
+     53          #endif
+     54          
+     55          #include "nwk.h"
+     56          #include "APS.h"
+     57          #include "ZDApp.h"
+     58          
+     59          #include "bdb_interface.h"
+     60          
+     61          #if !defined (DISABLE_GREENPOWER_BASIC_PROXY) && (ZG_BUILD_RTR_TYPE)
+     62            #include "gp_common.h"
+     63          #endif   
+     64          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+     65            #include "ZDNwkMgr.h"
+     66          #endif
+     67          #if defined ( ZIGBEE_FRAGMENTATION )
+     68            #include "aps_frag.h"
+     69          #endif
+     70          
+     71          #if defined ( INTER_PAN )
+     72            #include "stub_aps.h"
+     73          #if defined ( BDB_TL_INITIATOR )
+     74            #include "bdb_touchlink_initiator.h"
+     75          #endif // BDB_TL_INITIATOR
+     76          #if defined ( BDB_TL_TARGET )
+     77            #include "bdb_touchlink_target.h"
+     78          #endif // BDB_TL_TARGET
+     79          #endif // INTER_PAN
+     80          
+     81          #if ZG_BUILD_COORDINATOR_TYPE
+     82              #include "zcl_coordinator.h"
+     83          #elif ZG_BUILD_RTRONLY_TYPE
+     84              #include "zcl_router.h"
+     85          #else
+     86          #endif
+     87          
+     88          #if (defined OTA_CLIENT) && (OTA_CLIENT == TRUE)
+     89            #include "zcl_ota.h"
+     90          #endif
+     91          /*********************************************************************
+     92           * GLOBAL VARIABLES
+     93           */
+     94          
+     95          // The order in this table must be identical to the task initialization calls below in osalInitTask.
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     96          const pTaskEventHandlerFn tasksArr[] = {
+   \                     tasksArr:
+   \   000000   ....         DW `??macEventLoop::?relay`
+   \   000002   ....         DW `??nwk_event_loop::?relay`
+   \   000004   ....         DW `??gp_event_loop::?relay`
+   \   000006   ....         DW `??Hal_ProcessEvent::?relay`
+   \   000008   ....         DW `??APS_event_loop::?relay`
+   \   00000A   ....         DW `??APSF_ProcessEvent::?relay`
+   \   00000C   ....         DW `??ZDApp_event_loop::?relay`
+   \   00000E   ....         DW `??ZDNwkMgr_event_loop::?relay`
+   \   000010   ....         DW `??zcl_event_loop::?relay`
+   \   000012   ....         DW `??bdb_event_loop::?relay`
+   \   000014   ....         DW `??zcl_coordinator_event_loop::?relay`
+     97            macEventLoop,
+     98            nwk_event_loop,
+     99          #if !defined (DISABLE_GREENPOWER_BASIC_PROXY) && (ZG_BUILD_RTR_TYPE)
+    100            gp_event_loop,
+    101          #endif  
+    102            Hal_ProcessEvent,
+    103          #if defined( MT_TASK )
+    104            MT_ProcessEvent,
+    105          #endif
+    106            APS_event_loop,
+    107          #if defined ( ZIGBEE_FRAGMENTATION )
+    108            APSF_ProcessEvent,
+    109          #endif
+    110            ZDApp_event_loop,
+    111          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+    112            ZDNwkMgr_event_loop,
+    113          #endif
+    114            //Added to include TouchLink functionality
+    115            #if defined ( INTER_PAN )
+    116              StubAPS_ProcessEvent,
+    117            #endif
+    118            // Added to include TouchLink initiator functionality
+    119            #if defined ( BDB_TL_INITIATOR )
+    120              touchLinkInitiator_event_loop,
+    121            #endif
+    122            // Added to include TouchLink target functionality
+    123            #if defined ( BDB_TL_TARGET )
+    124              touchLinkTarget_event_loop,
+    125            #endif
+    126            zcl_event_loop,
+    127            bdb_event_loop,
+    128          #if ZG_BUILD_COORDINATOR_TYPE
+    129            zcl_coordinator_event_loop,
+    130          #elif ZG_BUILD_RTRONLY_TYPE
+    131            zcl_router_event_loop,
+    132          #else
+    133          #endif
+    134          #if (defined OTA_CLIENT) && (OTA_CLIENT == TRUE)
+    135            zclOTA_event_loop
+    136          #endif
+    137          };
+    138          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    139          const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
+   \                     tasksCnt:
+   \   000000   0B           DB 11
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    140          uint16 *tasksEvents;
+   \                     tasksEvents:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    141          
+    142          /*********************************************************************
+    143           * FUNCTIONS
+    144           *********************************************************************/
+    145          
+    146          /*********************************************************************
+    147           * @fn      osalInitTasks
+    148           *
+    149           * @brief   This function invokes the initialization function for each task.
+    150           *
+    151           * @param   void
+    152           *
+    153           * @return  none
+    154           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    155          void osalInitTasks( void )
+   \                     osalInitTasks:
+    156          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    157            uint8 taskID = 0;
+    158          
+    159            tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
+   \   000004                ; Setup parameters for call to function osal_mem_alloc
+   \   000004   7A16         MOV       R2,#0x16
+   \   000006   7B00         MOV       R3,#0x0
+   \   000008   12....       LCALL     `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+   \   00000B   90....       MOV       DPTR,#tasksEvents
+   \   00000E   EA           MOV       A,R2
+   \   00000F   F0           MOVX      @DPTR,A
+   \   000010   A3           INC       DPTR
+   \   000011   EB           MOV       A,R3
+   \   000012   F0           MOVX      @DPTR,A
+    160            osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
+   \   000013                ; Setup parameters for call to function osal_memset
+   \   000013   7C16         MOV       R4,#0x16
+   \   000015   7D00         MOV       R5,#0x0
+   \   000017   7900         MOV       R1,#0x0
+   \   000019   12....       LCALL     `??osal_memset::?relay`; Banked call to: osal_memset
+    161          
+    162            macTaskInit( taskID++ );
+   \   00001C                ; Setup parameters for call to function macTaskInit
+   \   00001C   7900         MOV       R1,#0x0
+   \   00001E   12....       LCALL     `??macTaskInit::?relay`; Banked call to: macTaskInit
+    163            nwk_init( taskID++ );
+   \   000021                ; Setup parameters for call to function nwk_init
+   \   000021   7901         MOV       R1,#0x1
+   \   000023   12....       LCALL     `??nwk_init::?relay`; Banked call to: nwk_init
+    164          #if !defined (DISABLE_GREENPOWER_BASIC_PROXY) && (ZG_BUILD_RTR_TYPE)
+    165            gp_Init( taskID++ );
+   \   000026                ; Setup parameters for call to function gp_Init
+   \   000026   7902         MOV       R1,#0x2
+   \   000028   12....       LCALL     `??gp_Init::?relay`; Banked call to: gp_Init
+    166          #endif
+    167            Hal_Init( taskID++ );
+   \   00002B                ; Setup parameters for call to function Hal_Init
+   \   00002B   7903         MOV       R1,#0x3
+   \   00002D   12....       LCALL     `??Hal_Init::?relay`; Banked call to: Hal_Init
+    168          #if defined( MT_TASK )
+    169            MT_TaskInit( taskID++ );
+    170          #endif
+    171            APS_Init( taskID++ );
+   \   000030                ; Setup parameters for call to function APS_Init
+   \   000030   7904         MOV       R1,#0x4
+   \   000032   12....       LCALL     `??APS_Init::?relay`; Banked call to: APS_Init
+    172          #if defined ( ZIGBEE_FRAGMENTATION )
+    173            APSF_Init( taskID++ );
+   \   000035                ; Setup parameters for call to function APSF_Init
+   \   000035   7905         MOV       R1,#0x5
+   \   000037   12....       LCALL     `??APSF_Init::?relay`; Banked call to: APSF_Init
+    174          #endif
+    175            ZDApp_Init( taskID++ );
+   \   00003A                ; Setup parameters for call to function ZDApp_Init
+   \   00003A   7906         MOV       R1,#0x6
+   \   00003C   12....       LCALL     `??ZDApp_Init::?relay`; Banked call to: ZDApp_Init
+    176          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+    177            ZDNwkMgr_Init( taskID++ );
+   \   00003F                ; Setup parameters for call to function ZDNwkMgr_Init
+   \   00003F   7907         MOV       R1,#0x7
+   \   000041   12....       LCALL     `??ZDNwkMgr_Init::?relay`; Banked call to: ZDNwkMgr_Init
+    178          #endif
+    179            // Added to include TouchLink functionality 
+    180            #if defined ( INTER_PAN )
+    181              StubAPS_Init( taskID++ );
+    182            #endif
+    183            // Added to include TouchLink initiator functionality 
+    184            #if defined( BDB_TL_INITIATOR )
+    185              touchLinkInitiator_Init( taskID++ );
+    186            #endif
+    187            // Added to include TouchLink target functionality 
+    188            #if defined ( BDB_TL_TARGET )
+    189              touchLinkTarget_Init( taskID++ );
+    190            #endif
+    191            zcl_Init( taskID++ );
+   \   000044                ; Setup parameters for call to function zcl_Init
+   \   000044   7908         MOV       R1,#0x8
+   \   000046   12....       LCALL     `??zcl_Init::?relay`; Banked call to: zcl_Init
+    192            bdb_Init( taskID++ );
+   \   000049                ; Setup parameters for call to function bdb_Init
+   \   000049   7909         MOV       R1,#0x9
+   \   00004B   12....       LCALL     `??bdb_Init::?relay`; Banked call to: bdb_Init
+    193          #if ZG_BUILD_COORDINATOR_TYPE
+    194            zcl_coordinator_init( taskID++ );
+   \   00004E                ; Setup parameters for call to function zcl_coordinator_init
+   \   00004E   790A         MOV       R1,#0xa
+   \   000050   12....       LCALL     `??zcl_coordinator_init::?relay`; Banked call to: zcl_coordinator_init
+    195          #elif ZG_BUILD_RTRONLY_TYPE
+    196            zcl_router_init( taskID++ );
+    197          #else
+    198          #endif
+    199          #if (defined OTA_CLIENT) && (OTA_CLIENT == TRUE)
+    200            zclOTA_Init( taskID );
+    201          #endif
+    202          }
+   \   000053   D083         POP       DPH
+   \   000055   D082         POP       DPL
+   \   000057   02....       LJMP      ?BRET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osalInitTasks::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osalInitTasks
+    203          
+    204          /*********************************************************************
+    205          *********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   ISTACK Function
+   ------ --------
+      2   osalInitTasks
+        2   -> APSF_Init
+        2   -> APS_Init
+        2   -> Hal_Init
+        2   -> ZDApp_Init
+        2   -> ZDNwkMgr_Init
+        2   -> bdb_Init
+        2   -> gp_Init
+        2   -> macTaskInit
+        2   -> nwk_init
+        2   -> osal_mem_alloc
+        2   -> osal_memset
+        2   -> zcl_Init
+        2   -> zcl_coordinator_init
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      90  osalInitTasks
+       6  osalInitTasks::?relay
+      22  tasksArr
+       1  tasksCnt
+       2  tasksEvents
+
+ 
+ 90 bytes in segment BANKED_CODE
+  6 bytes in segment BANK_RELAYS
+ 23 bytes in segment XDATA_ROM_C
+  2 bytes in segment XDATA_Z
+ 
+  6 bytes of CODE     memory
+ 23 bytes of CONST    memory
+ 90 bytes of HUGECODE memory
+  2 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,1293 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.10.1.4655 for 8051              26/Mar/2023  16:31:31
+// Copyright 2004-2017 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_router.c
+//    Command line       =  
+//        -f C:\Users\11148\AppData\Local\Temp\EWDEB0.tmp
+//        ("D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_router.c"
+//        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+//        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+//        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+//        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+//        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+//        ZCL_LEVEL_CTRL -D HAL_KEY=FALSE -D xISR_KEYINTERRUPT -D HAL_UART=TRUE
+//        -D INT_HEAP_LEN=2048 -D HAL_LCD=TRUE -D HAL_LCD_OLED12864=TRUE -D
+//        HAL_ADC=TRUE -D HAL_DHT11=TRUE -lC
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List"
+//        -lA
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List"
+//        --diag_suppress Pe001,Pa010 -o
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\Obj"
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -f
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wRouter.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DRTR_NWK) -f
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0402
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x5a, 0x69, 0x67, 0x42,
+//        0x65,0x65, 0x41, 0x6c, 0x6c, 0x69, 0x61, 0x6e, 0x63, 0x65, 0x30,
+//        0x39}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+//        -DENABLE_LED4_DISABLE_S1) -f
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wZCL.cfg"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        & 光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\" -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\include\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\target\CC2530EB\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\userspace\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\include\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\high_level\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mt\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\osal\include\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\saddr\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\sdata\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\af\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\bdb\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\gp\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\nwk\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sapi\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sec\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sys\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zcl\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zdo\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\f8w\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Applications\"
+//        -Ohz --require_prototypes)
+//    Locale             =  Chinese (Simplified)_China.936
+//    List file          =  
+//        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List\zcl_router.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME zcl_router
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?CALL_IND
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK8_X_FOUR
+        EXTERN ?PUSH_XSTACK8_X_TWO
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??zcl_router_event_loop::?relay`
+        FUNCTION `??zcl_router_event_loop::?relay`,0203H
+        PUBLIC `??zcl_router_init::?relay`
+        FUNCTION `??zcl_router_init::?relay`,0203H
+        FUNCTION `??zcl_router_on_commissioning::?relay`,0203H
+        PUBWEAK __Constant_3e8
+        PUBLIC zcl_router_event_loop
+        FUNCTION zcl_router_event_loop,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 16, STACK
+        PUBLIC zcl_router_init
+        FUNCTION zcl_router_init,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        FUNCTION zcl_router_on_commissioning,021603H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME XSTACK, 4, STACK
+        PUBLIC zcl_router_taskid
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+RegisterForKeys     SYMBOL "RegisterForKeys"
+`??RegisterForKeys::?relay` SYMBOL "?relay", RegisterForKeys
+afRegister          SYMBOL "afRegister"
+`??afRegister::?relay` SYMBOL "?relay", afRegister
+bdb_RegisterCommissioningStatusCB SYMBOL "bdb_RegisterCommissioningStatusCB"
+`??bdb_RegisterCommissioningStatusCB::?relay` SYMBOL "?relay", bdb_RegisterCommissioningStatusCB
+bdb_StartCommissioning SYMBOL "bdb_StartCommissioning"
+`??bdb_StartCommissioning::?relay` SYMBOL "?relay", bdb_StartCommissioning
+osal_msg_deallocate SYMBOL "osal_msg_deallocate"
+`??osal_msg_deallocate::?relay` SYMBOL "?relay", osal_msg_deallocate
+osal_msg_receive    SYMBOL "osal_msg_receive"
+`??osal_msg_receive::?relay` SYMBOL "?relay", osal_msg_receive
+osal_start_timerEx  SYMBOL "osal_start_timerEx"
+`??osal_start_timerEx::?relay` SYMBOL "?relay", osal_start_timerEx
+zcl_router_event_loop SYMBOL "zcl_router_event_loop"
+`??zcl_router_event_loop::?relay` SYMBOL "?relay", zcl_router_event_loop
+zcl_router_init     SYMBOL "zcl_router_init"
+`??zcl_router_init::?relay` SYMBOL "?relay", zcl_router_init
+
+        EXTERN `??RegisterForKeys::?relay`
+        FUNCTION `??RegisterForKeys::?relay`,00H
+        EXTERN `??afRegister::?relay`
+        FUNCTION `??afRegister::?relay`,00H
+        EXTERN `??bdb_RegisterCommissioningStatusCB::?relay`
+        FUNCTION `??bdb_RegisterCommissioningStatusCB::?relay`,00H
+        EXTERN `??bdb_StartCommissioning::?relay`
+        FUNCTION `??bdb_StartCommissioning::?relay`,00H
+        EXTERN `??osal_msg_deallocate::?relay`
+        FUNCTION `??osal_msg_deallocate::?relay`,00H
+        EXTERN `??osal_msg_receive::?relay`
+        FUNCTION `??osal_msg_receive::?relay`,00H
+        EXTERN `??osal_start_timerEx::?relay`
+        FUNCTION `??osal_start_timerEx::?relay`,00H
+        EXTERN RegisterForKeys
+        FUNCTION RegisterForKeys,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN afRegister
+        FUNCTION afRegister,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN bdb_RegisterCommissioningStatusCB
+        FUNCTION bdb_RegisterCommissioningStatusCB,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN bdb_StartCommissioning
+        FUNCTION bdb_StartCommissioning,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN endpoint_desc_priv
+        EXTERN osal_msg_deallocate
+        FUNCTION osal_msg_deallocate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_receive
+        FUNCTION osal_msg_receive,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_start_timerEx
+        FUNCTION osal_start_timerEx,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 16, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zbport_
+
+// D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度 & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_router.c
+//    1 #include "zcl_router.h"
+//    2 
+//    3 #include "bdb_interface.h"
+//    4 
+//    5 #include "zb_port.h"
+//    6 
+//    7 #include "hal_key.h"
+//    8 
+//    9 #include "OnBoard.h"
+//   10 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   11 byte zcl_router_taskid;
+zcl_router_taskid:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//   12 
+//   13 static void zcl_router_on_incoming_msgs(zclIncomingMsg_t *msg);
+//   14 static void zcl_router_on_zdo_msg(zdoIncomingMsg_t *msg);
+//   15 static void zcl_router_on_commissioning(bdbCommissioningModeMsg_t *msg);
+//   16 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   17 void zcl_router_init(byte task_id)
+zcl_router_init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function zcl_router_init
+        CODE
+//   18 {
+        FUNCALL zcl_router_init, afRegister
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zcl_router_init, RegisterForKeys
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zcl_router_init, bdb_RegisterCommissioningStatusCB
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zcl_router_init, bdb_StartCommissioning
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zcl_router_init, osal_start_timerEx
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R1
+//   19     zcl_router_taskid = task_id;
+        MOV       DPTR,#zcl_router_taskid
+        MOVX      @DPTR,A
+//   20 
+//   21     // Private endpint
+//   22     endpoint_desc_priv.task_id = &zcl_router_taskid;
+        MOV       DPTR,#endpoint_desc_priv + 2
+        MOV       A,#zcl_router_taskid & 0xff
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,#(zcl_router_taskid >> 8) & 0xff
+        MOVX      @DPTR,A
+//   23     afRegister(&endpoint_desc_priv);
+        ; Setup parameters for call to function afRegister
+        MOV       R2,#endpoint_desc_priv & 0xff
+        MOV       R3,#(endpoint_desc_priv >> 8) & 0xff
+        LCALL     `??afRegister::?relay`; Banked call to: afRegister
+//   24 
+//   25     RegisterForKeys(zcl_router_taskid);
+        ; Setup parameters for call to function RegisterForKeys
+        MOV       DPTR,#zcl_router_taskid
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??RegisterForKeys::?relay`; Banked call to: RegisterForKeys
+//   26 
+//   27     bdb_RegisterCommissioningStatusCB(zcl_router_on_commissioning);
+        ; Setup parameters for call to function bdb_RegisterCommissioningStatusCB
+        MOV       R2,#`??zcl_router_on_commissioning::?relay` & 0xff
+        MOV       R3,#(`??zcl_router_on_commissioning::?relay` >> 8) & 0xff
+        LCALL     `??bdb_RegisterCommissioningStatusCB::?relay`; Banked call to: bdb_RegisterCommissioningStatusCB
+//   28 
+//   29     bdb_StartCommissioning(BDB_COMMISSIONING_MODE_NWK_STEERING | BDB_COMMISSIONING_MODE_FINDING_BINDING);
+        ; Setup parameters for call to function bdb_StartCommissioning
+        MOV       R1,#0xa
+        LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+//   30 
+//   31     zbport_->init();
+        ; Setup parameters for indirect call
+        LCALL     ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_4:
+        LCALL     ??Subroutine1_0 & 0xFFFF
+??CrossCallReturnLabel_0:
+        LCALL     ?CALL_IND
+//   32 
+//   33     osal_start_timerEx(zcl_router_taskid, ZB_USER_EVENT, ZB_USER_EVENT_PERIOD);
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV       DPTR,#__Constant_3e8
+        LCALL     ?PUSH_XSTACK8_X_FOUR
+          CFI CFA_XSP16 add(XSP16, 13)
+        MOV       R2,#0x1
+        MOV       R3,#0x0
+        MOV       DPTR,#zcl_router_taskid
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+        MOV       A,#0x4
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 9)
+//   34 }
+        MOV       R7,#0x1
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock0
+//   35 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   36 uint16 zcl_router_event_loop(uint8 task_id, uint16 events)
+zcl_router_event_loop:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function zcl_router_event_loop
+        CODE
+//   37 {
+        FUNCALL zcl_router_event_loop, bdb_StartCommissioning
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zcl_router_event_loop, osal_msg_deallocate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zcl_router_event_loop, osal_msg_receive
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zcl_router_event_loop, osal_start_timerEx
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 16, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 16, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        MOV       A,#-0xc
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 12)
+        ; Saved register size: 12
+        ; Auto size: 0
+        MOV       A,R2
+        MOV       R6,A
+        MOV       A,R3
+        MOV       R7,A
+//   38     afIncomingMSGPacket_t *msg;
+//   39 
+//   40     (void)task_id;
+//   41 
+//   42     if (events & SYS_EVENT_MSG) {
+        ANL       A,#0x80
+        JNZ       ??zcl_router_event_loop_0
+//   43         while ((msg = (afIncomingMSGPacket_t *)osal_msg_receive(zcl_router_taskid))) {
+//   44             switch (msg->hdr.event) {
+//   45             case AF_INCOMING_MSG_CMD:
+//   46               zbport_->on_priv_msg(msg->srcAddr.addr.shortAddr, msg->clusterId, msg->cmd.Data, msg->cmd.DataLength);
+//   47             break;
+//   48 
+//   49             case ZCL_INCOMING_MSG:
+//   50               zcl_router_on_incoming_msgs((zclIncomingMsg_t *)msg);
+//   51             break;
+//   52 
+//   53             case ZDO_CB_MSG: zcl_router_on_zdo_msg((zdoIncomingMsg_t *)msg); break;
+//   54 
+//   55             case ZDO_STATE_CHANGE: break;
+//   56 
+//   57             case KEY_CHANGE: if(((keyChange_t *)msg)->keys & HAL_KEY_SW_6) zbport_->on_click(); break;
+//   58 
+//   59             default: break;
+//   60             }/*switch*/
+//   61 
+//   62             osal_msg_deallocate((uint8 *)msg);
+//   63         }/* while */
+//   64 
+//   65         return (events ^ SYS_EVENT_MSG);
+//   66     }
+//   67 
+//   68     if (events & ROUTER_REJOIN_EVT) {
+        MOV       A,R6
+        ANL       A,#0x80
+        JNZ       $+5
+        LJMP      ??zcl_router_event_loop_1 & 0xFFFF
+//   69         bdb_StartCommissioning(BDB_COMMISSIONING_MODE_NWK_STEERING | BDB_COMMISSIONING_MODE_FINDING_BINDING );
+        ; Setup parameters for call to function bdb_StartCommissioning
+        MOV       R1,#0xa
+        LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+//   70 
+//   71         return (events ^ ROUTER_REJOIN_EVT);
+        MOV       A,R6
+        XRL       A,#0x80
+        LJMP      ??zcl_router_event_loop_2 & 0xFFFF
+//   72     }
+??zcl_router_event_loop_3:
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       C,0xE0 /* A   */.5
+        JNC       ??zcl_router_event_loop_4
+        ; Setup parameters for indirect call
+        LCALL     ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_5:
+        INC       DPTR
+        INC       DPTR
+        LCALL     ??Subroutine1_0 & 0xFFFF
+??CrossCallReturnLabel_1:
+        LCALL     ?CALL_IND
+??zcl_router_event_loop_4:
+        ; Setup parameters for call to function osal_msg_deallocate
+        MOV       R2,?V0
+        MOV       R3,?V1
+        LCALL     `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+??zcl_router_event_loop_0:
+        ; Setup parameters for call to function osal_msg_receive
+        MOV       DPTR,#zcl_router_taskid
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??osal_msg_receive::?relay`; Banked call to: osal_msg_receive
+        MOV       ?V0,R2
+        MOV       ?V1,R3
+        MOV       A,R2
+        ORL       A,?V1
+        JZ        ??zcl_router_event_loop_5
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOVX      A,@DPTR
+        ADD       A,#-0x1a
+        JZ        ??zcl_router_event_loop_6
+        ADD       A,#0x5a
+        JZ        ??zcl_router_event_loop_3
+        SJMP      ??zcl_router_event_loop_4
+??zcl_router_event_loop_6:
+        ; Setup parameters for indirect call
+        MOV       A,R2
+        ADD       A,#0x20
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V1
+        MOV       DPH,A
+        LCALL     ?PUSH_XSTACK8_X_TWO
+          CFI CFA_XSP16 add(XSP16, 14)
+        MOV       A,R2
+        ADD       A,#0x22
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V1
+        MOV       DPH,A
+        LCALL     ?PUSH_XSTACK8_X_TWO
+          CFI CFA_XSP16 add(XSP16, 16)
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R4,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R5,A
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R2,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R3,A
+        LCALL     ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_6:
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        LCALL     ??Subroutine1_0 & 0xFFFF
+??CrossCallReturnLabel_2:
+        LCALL     ?CALL_IND
+        MOV       A,#0x4
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 12)
+        SJMP      ??zcl_router_event_loop_4
+??zcl_router_event_loop_5:
+        MOV       A,R6
+        MOV       R2,A
+        MOV       A,R7
+        XRL       A,#0x80
+        SJMP      ??zcl_router_event_loop_7
+//   73 
+//   74     if (events & ZB_USER_EVENT) {
+??zcl_router_event_loop_1:
+        MOV       A,R6
+        MOV       C,0xE0 /* A   */.0
+        JNC       ??zcl_router_event_loop_8
+//   75         zbport_->on_timer(ZB_USER_EVENT_PERIOD);
+        ; Setup parameters for indirect call
+        MOV       R2,#-0x18
+        MOV       R3,#0x3
+        MOV       DPTR,#zbport_
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        XCH       A,R0
+        ADD       A,#0x6
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R0
+        MOV       DPH,A
+        LCALL     ??Subroutine1_0 & 0xFFFF
+??CrossCallReturnLabel_3:
+        LCALL     ?CALL_IND
+//   76         osal_start_timerEx(zcl_router_taskid, ZB_USER_EVENT, ZB_USER_EVENT_PERIOD);
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV       DPTR,#__Constant_3e8
+        LCALL     ?PUSH_XSTACK8_X_FOUR
+          CFI CFA_XSP16 add(XSP16, 16)
+        MOV       R2,#0x1
+        MOV       R3,#0x0
+        MOV       DPTR,#zcl_router_taskid
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+        MOV       A,#0x4
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 12)
+//   77 
+//   78         return (events ^ ZB_USER_EVENT);
+        MOV       A,R6
+        XRL       A,#0x1
+??zcl_router_event_loop_2:
+        MOV       R2,A
+        MOV       A,R7
+??zcl_router_event_loop_7:
+        MOV       R3,A
+        SJMP      ??zcl_router_event_loop_9
+//   79     }
+//   80 
+//   81     return 0;
+??zcl_router_event_loop_8:
+        MOV       R2,#0x0
+        MOV       R3,#0x0
+??zcl_router_event_loop_9:
+        MOV       R7,#0x4
+        LJMP      ?BANKED_LEAVE_XDATA
+//   82 }
+          CFI EndBlock cfiBlock1
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiCond2 Using cfiCommon0
+          CFI Function zcl_router_init
+          CFI Conditional ??CrossCallReturnLabel_4
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI (cfiCond3) Function zcl_router_event_loop
+          CFI (cfiCond3) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond3) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond3) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond3) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond3) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond3) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond3) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond3) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond3) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond3) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond3) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond3) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond3) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond3) CFA_SP SP+-2
+          CFI (cfiCond3) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI (cfiCond4) Function zcl_router_event_loop
+          CFI (cfiCond4) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond4) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond4) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond4) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond4) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond4) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond4) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond4) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond4) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond4) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond4) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond4) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond4) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond4) CFA_SP SP+-2
+          CFI (cfiCond4) CFA_XSP16 add(XSP16, 16)
+          CFI Block cfiPicker5 Using cfiCommon1
+          CFI (cfiPicker5) NoFunction
+          CFI (cfiPicker5) Picker
+        MOV       DPTR,#zbport_
+          CFI EndBlock cfiCond2
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiPicker5
+        REQUIRE ??Subroutine1_0
+        ; // Fall through to label ??Subroutine1_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine1_0:
+          CFI Block cfiCond6 Using cfiCommon0
+          CFI Function zcl_router_init
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI (cfiCond7) Function zcl_router_event_loop
+          CFI (cfiCond7) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond7) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond7) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond7) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond7) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond7) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond7) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond7) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond7) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond7) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond7) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond7) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond7) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond7) CFA_SP SP+-2
+          CFI (cfiCond7) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI (cfiCond8) Function zcl_router_event_loop
+          CFI (cfiCond8) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond8) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond8) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond8) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond8) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond8) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond8) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond8) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond8) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond8) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond8) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond8) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond8) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond8) CFA_SP SP+-2
+          CFI (cfiCond8) CFA_XSP16 add(XSP16, 16)
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI (cfiCond9) Function zcl_router_event_loop
+          CFI (cfiCond9) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond9) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond9) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond9) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond9) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond9) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond9) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond9) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond9) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond9) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond9) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond9) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond9) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond9) CFA_SP SP+-2
+          CFI (cfiCond9) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI (cfiCond10) Function zcl_router_init
+          CFI (cfiCond10) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond10) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond10) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond10) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond10) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond10) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond10) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond10) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond10) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond10) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond10) CFA_SP SP+-2
+          CFI (cfiCond10) CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond11 Using cfiCommon0
+          CFI (cfiCond11) Function zcl_router_event_loop
+          CFI (cfiCond11) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond11) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond11) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond11) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond11) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond11) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond11) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond11) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond11) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond11) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond11) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond11) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond11) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond11) CFA_SP SP+-2
+          CFI (cfiCond11) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond12 Using cfiCommon0
+          CFI (cfiCond12) Function zcl_router_event_loop
+          CFI (cfiCond12) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond12) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond12) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond12) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond12) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond12) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond12) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond12) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond12) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond12) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond12) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond12) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond12) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond12) CFA_SP SP+-2
+          CFI (cfiCond12) CFA_XSP16 add(XSP16, 16)
+          CFI Block cfiPicker13 Using cfiCommon1
+          CFI (cfiPicker13) NoFunction
+          CFI (cfiPicker13) Picker
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       DPH,A
+        MOV       DPL,R0
+        RET
+          CFI EndBlock cfiCond6
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiCond11
+          CFI EndBlock cfiCond12
+          CFI EndBlock cfiPicker13
+//   83 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   84 void zcl_router_on_commissioning(bdbCommissioningModeMsg_t *msg)
+zcl_router_on_commissioning:
+          CFI Block cfiBlock14 Using cfiCommon0
+          CFI Function zcl_router_on_commissioning
+        CODE
+//   85 {
+        FUNCALL zcl_router_on_commissioning, bdb_StartCommissioning
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zcl_router_on_commissioning, osal_start_timerEx
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 4, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 4, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   86     switch(msg->bdbCommissioningMode) {
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        MOVX      A,@DPTR
+        DEC       A
+        JZ        ??zcl_router_on_commissioning_0
+        DEC       A
+        JNZ       ??zcl_router_on_commissioning_1
+//   87     case BDB_COMMISSIONING_FORMATION:
+//   88         if(msg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS) {
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOVX      A,@DPTR
+        JNZ       ??zcl_router_on_commissioning_1
+//   89             //After formation, perform nwk steering again plus the remaining commissioning modes that has not been processed yet
+//   90             bdb_StartCommissioning(BDB_COMMISSIONING_MODE_NWK_STEERING | msg->bdbRemainingCommissioningModes);
+        ; Setup parameters for call to function bdb_StartCommissioning
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        ORL       A,#0x2
+        MOV       R1,A
+        LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+        SJMP      ??zcl_router_on_commissioning_1
+//   91         }
+//   92         else {
+//   93             //Want to try other channels?
+//   94             //try with bdb_setChannelAttribute
+//   95         }
+//   96     break;
+//   97 
+//   98     case BDB_COMMISSIONING_NWK_STEERING:
+//   99         if(msg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS) {
+??zcl_router_on_commissioning_0:
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOVX      A,@DPTR
+        JZ        ??zcl_router_on_commissioning_1
+//  100             //YOUR JOB:
+//  101             //We are on the nwk, what now?
+//  102         }
+//  103         else {
+//  104             //See the possible errors for nwk steering procedure
+//  105             //No suitable networks found
+//  106             //Want to try other channels?
+//  107             //try with bdb_setChannelAttribute
+//  108             osal_start_timerEx(zcl_router_taskid, ROUTER_REJOIN_EVT, ROUTER_REJOIN_PERIOD);
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV       DPTR,#__Constant_3e8
+        LCALL     ?PUSH_XSTACK8_X_FOUR
+          CFI CFA_XSP16 add(XSP16, 4)
+        MOV       R2,#-0x80
+        MOV       R3,#0x0
+        MOV       DPTR,#zcl_router_taskid
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+        MOV       A,#0x4
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 XSP16+0
+//  109         }
+//  110     break;
+//  111 
+//  112     case BDB_COMMISSIONING_FINDING_BINDING:
+//  113         if(msg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS) {
+//  114             //YOUR JOB:
+//  115         }
+//  116         else {
+//  117             //YOUR JOB:
+//  118             //retry?, wait for user interaction?
+//  119         }
+//  120     break;
+//  121 
+//  122     case BDB_COMMISSIONING_INITIALIZATION:
+//  123         //Initialization notification can only be successful. Failure on initialization 
+//  124         //only happens for ZED and is notified as BDB_COMMISSIONING_PARENT_LOST notification
+//  125       
+//  126         //YOUR JOB:
+//  127         //We are on a network, what now?
+//  128     break;
+//  129   }
+//  130 }
+??zcl_router_on_commissioning_1:
+        POP       DPH
+          CFI DPH0 SameValue
+          CFI CFA_SP SP+-4
+        POP       DPL
+          CFI DPL0 SameValue
+          CFI CFA_SP SP+-3
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock14
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_3e8:
+        DD 1000
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zcl_router_init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zcl_router_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zcl_router_event_loop::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zcl_router_event_loop
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zcl_router_on_commissioning::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zcl_router_on_commissioning
+
+        END
+//  131 
+//  132 void zcl_router_on_incoming_msgs(zclIncomingMsg_t *msg)
+//  133 {
+//  134 }
+//  135 
+//  136 void zcl_router_on_zdo_msg(zdoIncomingMsg_t *msg)
+//  137 {
+//  138 }
+// 
+// 409 bytes in segment BANKED_CODE
+//  18 bytes in segment BANK_RELAYS
+//   4 bytes in segment XDATA_ROM_C
+//   1 byte  in segment XDATA_Z
+// 
+//  18 bytes of CODE     memory
+//   0 bytes of CONST    memory (+ 4 bytes shared)
+// 409 bytes of HUGECODE memory
+//   1 byte  of XDATA    memory
+//
+//Errors: none
+//Warnings: none

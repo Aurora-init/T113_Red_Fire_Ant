@@ -1,0 +1,1472 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.10.1.4655 for 8051              26/Mar/2023  16:30:21
+// Copyright 2004-2017 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_port.c
+//    Command line       =  
+//        -f C:\Users\11148\AppData\Local\Temp\EWCE51.tmp
+//        ("D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_port.c"
+//        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+//        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+//        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+//        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+//        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+//        ZCL_LEVEL_CTRL -D HAL_KEY=TRUE -D xISR_KEYINTERRUPT -D HAL_UART=TRUE
+//        -D INT_HEAP_LEN=2048 -D HAL_LCD=TRUE -D HAL_LCD_OLED12864=TRUE -lC
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List"
+//        -lA
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List"
+//        --diag_suppress Pe001,Pa010 -o
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\Obj"
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -f
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wCoord.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DZDO_COORDINATOR -DRTR_NWK) -f
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0402
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x5a, 0x69, 0x67, 0x42,
+//        0x65,0x65, 0x41, 0x6c, 0x6c, 0x69, 0x61, 0x6e, 0x63, 0x65, 0x30,
+//        0x39}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+//        -DENABLE_LED4_DISABLE_S1) -f
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wZCL.cfg"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        & 光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\" -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\include\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\target\CC2530EB\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\userspace\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\include\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\high_level\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mt\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\osal\include\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\saddr\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\sdata\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\af\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\bdb\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\gp\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\nwk\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sapi\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sec\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sys\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zcl\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zdo\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\f8w\"
+//        -I
+//        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Applications\"
+//        -Ohz --require_prototypes)
+//    Locale             =  Chinese (Simplified)_China.936
+//    List file          =  
+//        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+//        &
+//        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List\zb_port.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME zb_port
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__iar_require _formatted_write", ""
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?V6
+        EXTERN ?V7
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?CALL_IND
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN ?XSTACK_DISP101_8
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        FUNCTION `??zb_on_msg::?relay`,0203H
+        FUNCTION `??zb_port_coordinator_on_msg::?relay`,0203H
+        FUNCTION `??zb_port_init::?relay`,0203H
+        FUNCTION `??zb_port_on_click::?relay`,0203H
+        FUNCTION `??zb_port_on_priv_msg::?relay`,0203H
+        FUNCTION `??zb_port_on_timer::?relay`,0203H
+        FUNCTION `??zclSampleSw_UartCB::?relay`,0203H
+        FUNCTION zb_on_msg,021603H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        FUNCTION zb_port_coordinator_on_msg,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 147, STACK
+        FUNCTION zb_port_init,0603H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        FUNCTION zb_port_on_click,0603H
+        ARGFRAME XSTACK, 0, STACK
+        FUNCTION zb_port_on_priv_msg,021603H
+        ARGFRAME XSTACK, 4, STACK
+        LOCFRAME ISTACK, 2, STACK
+        FUNCTION zb_port_on_timer,0603H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC zbport_
+        FUNCTION zclSampleSw_UartCB,021603H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+HalLcdWriteString   SYMBOL "HalLcdWriteString"
+`??HalLcdWriteString::?relay` SYMBOL "?relay", HalLcdWriteString
+HalUARTOpen         SYMBOL "HalUARTOpen"
+`??HalUARTOpen::?relay` SYMBOL "?relay", HalUARTOpen
+HalUARTRead         SYMBOL "HalUARTRead"
+`??HalUARTRead::?relay` SYMBOL "?relay", HalUARTRead
+HalUARTWrite        SYMBOL "HalUARTWrite"
+`??HalUARTWrite::?relay` SYMBOL "?relay", HalUARTWrite
+Hal_UART_RxBufLen   SYMBOL "Hal_UART_RxBufLen"
+`??Hal_UART_RxBufLen::?relay` SYMBOL "?relay", Hal_UART_RxBufLen
+sprintf             SYMBOL "sprintf"
+`??sprintf::?relay` SYMBOL "?relay", sprintf
+
+        EXTERN `??HalLcdWriteString::?relay`
+        FUNCTION `??HalLcdWriteString::?relay`,00H
+        EXTERN `??HalUARTOpen::?relay`
+        FUNCTION `??HalUARTOpen::?relay`,00H
+        EXTERN `??HalUARTRead::?relay`
+        FUNCTION `??HalUARTRead::?relay`,00H
+        EXTERN `??HalUARTWrite::?relay`
+        FUNCTION `??HalUARTWrite::?relay`,00H
+        EXTERN `??Hal_UART_RxBufLen::?relay`
+        FUNCTION `??Hal_UART_RxBufLen::?relay`,00H
+        EXTERN `??sprintf::?relay`
+        FUNCTION `??sprintf::?relay`,00H
+        EXTERN HalLcdWriteString
+        FUNCTION HalLcdWriteString,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 141, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalUARTOpen
+        FUNCTION HalUARTOpen,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 141, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalUARTRead
+        FUNCTION HalUARTRead,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalUARTWrite
+        FUNCTION HalUARTWrite,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 141, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN Hal_UART_RxBufLen
+        FUNCTION Hal_UART_RxBufLen,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN sprintf
+        FUNCTION sprintf,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 147, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zbmsg_
+        EXTERN zbnwk_
+
+// D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度 & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_port.c
+//    1 #include "zb_port.h"
+//    2 
+//    3 #include "zb_network.h"
+//    4 
+//    5 #include "zb_msg.h"
+//    6 
+//    7 #include "hal_lcd.h"
+//    8 
+//    9 #include "AF.h"
+//   10 
+//   11 #include "cc2530_ioctl.h"
+//   12 
+//   13 #include "hal_adc.h"
+//   14 
+//   15 #include "hal_dht11.h"
+//   16 
+//   17 #include "hal_uart.h"
+//   18 
+//   19 #include <stdio.h>
+//   20 #include <stdlib.h>
+//   21 #include <string.h>
+//   22 
+//   23 // Uart
+//   24 #define ZCLSAMPLESW_UART_BUF_LEN        128
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   25 static uint8 zclSampleSw_UartBuf[ZCLSAMPLESW_UART_BUF_LEN];
+zclSampleSw_UartBuf:
+        DS 128
+        REQUIRE __INIT_XDATA_Z
+//   26 static void zclSampleSw_InitUart(void);
+//   27 static void zclSampleSw_UartCB(uint8 port, uint8 event);
+//   28 
+//   29 static void zb_on_msg(const uint8_t *data, uint8_t len);
+//   30 
+//   31 static void zb_port_init(void);
+//   32 static void zb_port_on_click(void);
+//   33 static void zb_port_on_priv_msg(uint16_t nwkaddr, uint16_t cluster, const uint8_t *data, uint16_t len);
+//   34 static void zb_port_on_timer(uint16_t ms);
+//   35 
+//   36 #if ZG_BUILD_COORDINATOR_TYPE
+//   37 static void zb_port_coordinator_on_msg(uint8_t temp, uint8_t humi, uint8_t light, uint8_t gas);
+//   38 #endif
+//   39 
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   40 const zb_port_t *zbport_ = &(const zb_port_t){
+zbport_:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for zbport_>`
+        REQUIRE __INIT_XDATA_I
+//   41     .init = zb_port_init,
+//   42     .on_click = zb_port_on_click,
+//   43     .on_priv_msg = zb_port_on_priv_msg,
+//   44     .on_timer = zb_port_on_timer,
+//   45 };
+//   46 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   47 void zb_on_msg(const uint8_t *data, uint8_t len)
+zb_on_msg:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function zb_on_msg
+        CODE
+//   48 {
+        FUNCALL zb_on_msg, HalLcdWriteString
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_on_msg, HalLcdWriteString
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   49 #if ZG_BUILD_COORDINATOR_TYPE
+//   50     HalLcdWriteString("", 2);
+        ; Setup parameters for call to function HalLcdWriteString
+        MOV       R1,#0x2
+        MOV       R2,#`?<Constant "">` & 0xff
+        MOV       R3,#(`?<Constant "">` >> 8) & 0xff
+        LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+//   51     HalLcdWriteString("sync", 2);
+        ; Setup parameters for call to function HalLcdWriteString
+        MOV       R1,#0x2
+        MOV       R2,#`?<Constant "sync">` & 0xff
+        MOV       R3,#(`?<Constant "sync">` >> 8) & 0xff
+        LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+//   52 #elif ZG_BUILD_RTRONLY_TYPE
+//   53 #else
+//   54 #endif
+//   55 }
+          CFI EndBlock cfiBlock0
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        POP       DPH
+          CFI CFA_SP SP+-4
+          CFI DPH0 SameValue
+        POP       DPL
+          CFI CFA_SP SP+-3
+          CFI DPL0 SameValue
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock1
+//   56 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   57 void zb_port_init()
+zb_port_init:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function zb_port_init
+        CODE
+//   58 {
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   59 #if ZG_BUILD_COORDINATOR_TYPE
+//   60     zbmsg_->set_receiver(zb_on_msg);
+        ; Setup parameters for indirect call
+        MOV       R2,#`??zb_on_msg::?relay` & 0xff
+        MOV       R3,#(`??zb_on_msg::?relay` >> 8) & 0xff
+        MOV       DPTR,#zbmsg_
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_2:
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_3:
+        LCALL     ?CALL_IND
+//   61     zbmsg_->init();
+        ; Setup parameters for indirect call
+        MOV       DPTR,#zbmsg_
+        LCALL     ?Subroutine1 & 0xFFFF
+??CrossCallReturnLabel_0:
+        LCALL     ?CALL_IND
+//   62 
+//   63     zbnwk_->permit(60, 0);
+        ; Setup parameters for indirect call
+        MOV       R2,#0x0
+        MOV       R1,#0x3c
+        MOV       DPTR,#zbnwk_
+        LCALL     ?Subroutine1 & 0xFFFF
+??CrossCallReturnLabel_1:
+        LCALL     ?CALL_IND
+//   64 #elif ZG_BUILD_RTRONLY_TYPE
+//   65 #else
+//   66 #endif
+//   67 }
+        SJMP      ?Subroutine0
+          CFI EndBlock cfiBlock2
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI Function zb_port_init
+          CFI Conditional ??CrossCallReturnLabel_2
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-7
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI (cfiCond4) Function zb_port_init
+          CFI (cfiCond4) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond4) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond4) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond4) CFA_SP SP+-7
+          CFI Block cfiPicker5 Using cfiCommon1
+          CFI (cfiPicker5) NoFunction
+          CFI (cfiPicker5) Picker
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_6:
+        RET
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiPicker5
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiCond6 Using cfiCommon0
+          CFI Function zb_port_init
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-7
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI (cfiCond7) Function zb_port_init
+          CFI (cfiCond7) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond7) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond7) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond7) CFA_SP SP+-7
+          CFI Block cfiPicker8 Using cfiCommon1
+          CFI (cfiPicker8) NoFunction
+          CFI (cfiPicker8) Picker
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_4:
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_5:
+        RET
+          CFI EndBlock cfiCond6
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiPicker8
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI Function zb_port_init
+          CFI Conditional ??CrossCallReturnLabel_6, ??CrossCallReturnLabel_2
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-9
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI (cfiCond10) Function zb_port_init
+          CFI (cfiCond10) Conditional ??CrossCallReturnLabel_6, ??CrossCallReturnLabel_3
+          CFI (cfiCond10) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond10) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond10) CFA_SP SP+-9
+          CFI Block cfiCond11 Using cfiCommon0
+          CFI (cfiCond11) Function zb_port_init
+          CFI (cfiCond11) Conditional ??CrossCallReturnLabel_4, ??CrossCallReturnLabel_0
+          CFI (cfiCond11) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond11) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond11) CFA_SP SP+-9
+          CFI Block cfiCond12 Using cfiCommon0
+          CFI (cfiCond12) Function zb_port_init
+          CFI (cfiCond12) Conditional ??CrossCallReturnLabel_4, ??CrossCallReturnLabel_1
+          CFI (cfiCond12) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond12) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond12) CFA_SP SP+-9
+          CFI Block cfiCond13 Using cfiCommon0
+          CFI (cfiCond13) Function zb_port_init
+          CFI (cfiCond13) Conditional ??CrossCallReturnLabel_5, ??CrossCallReturnLabel_0
+          CFI (cfiCond13) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond13) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond13) CFA_SP SP+-9
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI (cfiCond14) Function zb_port_init
+          CFI (cfiCond14) Conditional ??CrossCallReturnLabel_5, ??CrossCallReturnLabel_1
+          CFI (cfiCond14) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond14) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond14) CFA_SP SP+-9
+          CFI Block cfiPicker15 Using cfiCommon1
+          CFI (cfiPicker15) NoFunction
+          CFI (cfiPicker15) Picker
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       DPH,A
+        MOV       DPL,R0
+        RET
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiCond11
+          CFI EndBlock cfiCond12
+          CFI EndBlock cfiCond13
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiPicker15
+//   68 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   69 void zb_port_on_click(void)
+zb_port_on_click:
+          CFI Block cfiBlock16 Using cfiCommon0
+          CFI Function zb_port_on_click
+        CODE
+//   70 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   71 #if ZG_BUILD_COORDINATOR_TYPE
+//   72 #elif ZG_BUILD_RTRONLY_TYPE
+//   73 #else
+//   74 #endif
+//   75 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock16
+//   76 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   77 void zb_port_on_priv_msg(uint16_t nwkaddr, uint16_t cluster, const uint8_t *data, uint16_t len)
+zb_port_on_priv_msg:
+          CFI Block cfiBlock17 Using cfiCommon0
+          CFI Function zb_port_on_priv_msg
+        CODE
+//   78 {
+        FUNCALL zb_port_on_priv_msg, zb_port_coordinator_on_msg
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   79 #if ZG_BUILD_COORDINATOR_TYPE
+//   80     static uint8_t _temp = 25;
+//   81     static uint8_t _humi = 54;
+//   82 
+//   83     if (cluster == PRIV_CID_MESSAGE) {
+        MOV       A,R4
+        ORL       A,R5
+        JNZ       ??zb_port_on_priv_msg_0
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R1,A
+//   84         uint8_t temp  = data[0];
+        MOV       DPL,R0
+        MOV       DPH,R1
+        MOVX      A,@DPTR
+        MOV       R4,A
+//   85         uint8_t humi  = data[1];
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R2,A
+//   86         uint8_t light = data[2];
+        MOV       DPL,R0
+        MOV       DPH,R1
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R3,A
+//   87 
+//   88         if (temp != 0xFF) _temp = temp;
+        MOV       A,#-0x1
+        XRL       A,R4
+        JZ        ??zb_port_on_priv_msg_1
+        MOV       A,R4
+        MOV       DPTR,#??_temp
+        MOVX      @DPTR,A
+//   89         if (humi != 0xFF) _humi = humi;
+??zb_port_on_priv_msg_1:
+        MOV       A,#-0x1
+        XRL       A,R2
+        JZ        ??zb_port_on_priv_msg_2
+        MOV       A,R2
+        MOV       DPTR,#??_humi
+        MOVX      @DPTR,A
+//   90 
+//   91         char msg[32];
+//   92         
+//   93         //sprintf(msg, "%d#", _temp);
+//   94         //sprintf(msg, "T:%d,H:%d#", _temp, _humi);
+//   95 
+//   96         //zbmsg_->send((uint8_t *)msg, strlen(msg) + 1);
+//   97 
+//   98         zb_port_coordinator_on_msg(_temp, _humi, light, 0);
+??zb_port_on_priv_msg_2:
+        ; Setup parameters for call to function zb_port_coordinator_on_msg
+        MOV       R4,#0x0
+        MOV       DPTR,#??_humi
+        MOVX      A,@DPTR
+        MOV       R2,A
+        MOV       DPTR,#??_temp
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??zb_port_coordinator_on_msg::?relay`; Banked call to: zb_port_coordinator_on_msg
+//   99     }
+//  100 #elif ZG_BUILD_RTRONLY_TYPE
+//  101 #else
+//  102 #endif
+//  103 }
+??zb_port_on_priv_msg_0:
+        LJMP      ?Subroutine0 & 0xFFFF
+          CFI EndBlock cfiBlock17
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+??_temp:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for _temp>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+??_humi:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for _humi>`
+        REQUIRE __INIT_XDATA_I
+//  104 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  105 void zb_port_on_timer(uint16_t ms)
+zb_port_on_timer:
+          CFI Block cfiBlock18 Using cfiCommon0
+          CFI Function zb_port_on_timer
+        CODE
+//  106 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  107 #if ZG_BUILD_COORDINATOR_TYPE
+//  108 #elif ZG_BUILD_RTRONLY_TYPE
+//  109     extern endPointDesc_t endpoint_desc_priv;
+//  110 
+//  111     static uint8_t newdev = 0;
+//  112 
+//  113     if (!(_NIB.nwkDevAddress != INVALID_NODE_ADDR && _NIB.nwkPanId != INVALID_NODE_ADDR)) {
+//  114         if (newdev == 0) newdev = 1;
+//  115         return;
+//  116     }
+//  117 
+//  118     if (newdev != 0) {
+//  119         static uint8_t cnt = 0;
+//  120         if (cnt < 7) { cnt++; return; }
+//  121     }
+//  122 
+//  123     uint8_t buf[4];
+//  124 
+//  125     static uint8_t _temp = 0xFF, _humi = 0xFF, _light = 0xFF;
+//  126 
+//  127     halDHT11Data_t dht11Dat = halDHT11GetData();
+//  128     if (dht11Dat.ok && (dht11Dat.temp != 0 || dht11Dat.humi != 0)) {
+//  129         buf[0] = dht11Dat.temp;
+//  130         buf[1] = dht11Dat.humi;
+//  131     }
+//  132     else buf[0] = buf[1] = 0xFF;
+//  133     
+//  134     buf[2] = HalAdcRead(HAL_ADC_CHN_AIN7, HAL_ADC_RESOLUTION_8);
+//  135     if (buf[2] >= 125) buf[2] = 0;
+//  136     else buf[2] = 125 - buf[2];
+//  137 
+//  138     buf[3] = 0;
+//  139 
+//  140     if (_temp == buf[0] && _humi == buf[1] && (_light != 0xFF && (_light < buf[2] + 3) && (_light + 3 > buf[2]))) return;
+//  141 
+//  142     _temp = buf[0];
+//  143     _humi = buf[1];
+//  144 
+//  145 #if 0
+//  146     /* Debug */
+//  147     char str[32];
+//  148     sprintf(str, "%d %d %d %d", _temp, _humi, buf[2], buf[3]);
+//  149     HalLcdWriteString(str, 3);
+//  150 #endif
+//  151 
+//  152     if (_light > buf[2] + 3 || _light + 3 < buf[2]) {
+//  153         _light = buf[2];
+//  154         zbnwk_->priv_send(0, &endpoint_desc_priv, PRIV_CID_MESSAGE, buf, 4);
+//  155     }
+//  156     else {
+//  157         static uint8_t sendcnt = 0;
+//  158         if (++sendcnt > 3) { _light = buf[2]; sendcnt = 0; zbnwk_->priv_send(0, &endpoint_desc_priv, PRIV_CID_MESSAGE, buf, 4); }
+//  159     }
+//  160 #else
+//  161 #endif
+//  162 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock18
+//  163 
+//  164 #if ZG_BUILD_COORDINATOR_TYPE
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  165 void zb_port_coordinator_on_msg(uint8_t temp, uint8_t humi, uint8_t light, uint8_t gas)
+zb_port_coordinator_on_msg:
+          CFI Block cfiBlock19 Using cfiCommon0
+          CFI Function zb_port_coordinator_on_msg
+        CODE
+//  166 {
+        FUNCALL zb_port_coordinator_on_msg, HalUARTOpen
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 141, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 141, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_port_coordinator_on_msg, sprintf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 145, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 145, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_port_coordinator_on_msg, sprintf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 143, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 143, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_port_coordinator_on_msg, HalLcdWriteString
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 141, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 141, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_port_coordinator_on_msg, HalLcdWriteString
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 141, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 141, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_port_coordinator_on_msg, sprintf
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 147, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 147, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_port_coordinator_on_msg, HalUARTWrite
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 141, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 141, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V6
+        REQUIRE ?V7
+        MOV       A,#-0x10
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 16)
+        ; Saved register size: 16
+        ; Auto size: 125
+        MOV       A,#-0x7d
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 141)
+        MOV       A,R1
+        MOV       R6,A
+        MOV       A,R2
+        MOV       R7,A
+        MOV       ?V0,R3
+//  167     zclSampleSw_InitUart();
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       A,#0x1
+        MOVX      @DPTR,A
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#0x4
+        MOVX      @DPTR,A
+        MOV       A,#0x2
+        LCALL     ?XSTACK_DISP0_8
+        CLR       A
+        MOVX      @DPTR,A
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP0_8
+        CLR       A
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+        MOV       A,#0xa
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#-0x80
+        MOVX      @DPTR,A
+        INC       DPTR
+        CLR       A
+        MOVX      @DPTR,A
+        MOV       A,#0x12
+        LCALL     ?XSTACK_DISP0_8
+        CLR       A
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+        MOV       A,#0x5
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#0x6
+        MOVX      @DPTR,A
+        MOV       A,#0x16
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#0x1
+        MOVX      @DPTR,A
+        MOV       A,#0x1b
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#`??zclSampleSw_UartCB::?relay` & 0xff
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,#(`??zclSampleSw_UartCB::?relay` >> 8) & 0xff
+        MOVX      @DPTR,A
+        ; Setup parameters for call to function HalUARTOpen
+        MOV       R2,?XSP + 0
+        MOV       R3,?XSP + 1
+        MOV       R1,#0x0
+        LCALL     `??HalUARTOpen::?relay`; Banked call to: HalUARTOpen
+//  168     
+//  169     char tempHumiStr[32];
+//  170     char lightGasStr[32];
+//  171     char tempx[32];
+//  172     char tempxHumixlightx[32];
+//  173     
+//  174     /*这两段封装了LCD显示的东西*/
+//  175     sprintf(tempHumiStr, "T:%d,H:%d", temp, humi);
+        MOV       A,R6
+        MOV       ?V4,A
+        MOV       ?V5,#0x0
+        MOV       A,R7
+        MOV       ?V6,A
+        MOV       ?V7,#0x0
+        ; Setup parameters for call to function sprintf
+        MOV       R0,#?V6
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 143)
+        MOV       R0,#?V4
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 145)
+        MOV       R4,#`?<Constant "T:%d,H:%d">` & 0xff
+        MOV       R5,#(`?<Constant "T:%d,H:%d">` >> 8) & 0xff
+        MOV       A,#0x61
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??sprintf::?relay`; Banked call to: sprintf
+        MOV       A,#0x4
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 141)
+//  176     sprintf(lightGasStr, "LADC: %d", light);
+        MOV       A,?V0
+        MOV       ?V2,A
+        MOV       ?V3,#0x0
+        ; Setup parameters for call to function sprintf
+        MOV       R0,#?V2
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 143)
+        MOV       R4,#`?<Constant "LADC: %d">` & 0xff
+        MOV       R5,#(`?<Constant "LADC: %d">` >> 8) & 0xff
+        MOV       A,#0x3f
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??sprintf::?relay`; Banked call to: sprintf
+        MOV       A,#0x2
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 141)
+//  177     HalLcdWriteString(tempHumiStr, 3);
+        ; Setup parameters for call to function HalLcdWriteString
+        MOV       R1,#0x3
+        MOV       A,#0x5d
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+//  178     HalLcdWriteString(lightGasStr, 4);
+        ; Setup parameters for call to function HalLcdWriteString
+        MOV       R1,#0x4
+        MOV       A,#0x3d
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+//  179     
+//  180     /*这一段封装了串口打印的数据*/
+//  181     
+//  182     //sprintf(tempx,"%d\0",temp,humi); 
+//  183     //HalUARTWrite(HAL_UART_PORT_0, tempx, 10);
+//  184     sprintf(tempxHumixlightx, "%d%d%d\0", temp,humi,light); 
+        ; Setup parameters for call to function sprintf
+        MOV       R0,#?V2
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 143)
+        MOV       R0,#?V6
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 145)
+        MOV       R0,#?V4
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 147)
+        MOV       R4,#`?<Constant "%d%d%d\\000">` & 0xff
+        MOV       R5,#(`?<Constant "%d%d%d\\000">` >> 8) & 0xff
+        MOV       A,#0x23
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??sprintf::?relay`; Banked call to: sprintf
+        MOV       A,#0x6
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 141)
+//  185     HalUARTWrite(HAL_UART_PORT_0, tempxHumixlightx, 10);
+        ; Setup parameters for call to function HalUARTWrite
+        MOV       R4,#0xa
+        MOV       R5,#0x0
+        MOV       A,#0x1d
+        LCALL     ?XSTACK_DISP101_8
+        MOV       R1,#0x0
+        LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+//  186     //HalUARTWrite(HAL_UART_PORT_0, Humix, 10);
+//  187     //HalUARTWrite(HAL_UART_PORT_0, lightx, 10);
+//  188 }
+        MOV       A,#0x7d
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 16)
+        MOV       R7,#0x8
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock19
+//  189 #endif
+//  190 
+//  191 static void zclSampleSw_InitUart(void)
+//  192 {
+//  193   halUARTCfg_t uartConfig;
+//  194 
+//  195   /* UART Configuration */
+//  196   uartConfig.configured           = TRUE;
+//  197   uartConfig.baudRate             = HAL_UART_BR_115200;
+//  198   uartConfig.flowControl          = FALSE;
+//  199   uartConfig.flowControlThreshold = 0;
+//  200   uartConfig.rx.maxBufSize        = ZCLSAMPLESW_UART_BUF_LEN;
+//  201   uartConfig.tx.maxBufSize        = 0;
+//  202   uartConfig.idleTimeout          = 6;
+//  203   uartConfig.intEnable            = TRUE;
+//  204   uartConfig.callBackFunc         = zclSampleSw_UartCB;
+//  205 
+//  206   /* Start UART */
+//  207   HalUARTOpen(HAL_UART_PORT_0, &uartConfig);
+//  208 }
+//  209 
+//  210 /**
+//  211  * @fn      zclSampleSw_UartCB
+//  212  *
+//  213  * @brief   Uart Callback
+//  214  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  215 static void zclSampleSw_UartCB(uint8 port, uint8 event)
+zclSampleSw_UartCB:
+          CFI Block cfiBlock20 Using cfiCommon0
+          CFI Function zclSampleSw_UartCB
+        CODE
+//  216 {
+        FUNCALL zclSampleSw_UartCB, Hal_UART_RxBufLen
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zclSampleSw_UartCB, HalUARTRead
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zclSampleSw_UartCB, HalUARTWrite
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  217   uint8 rxLen = Hal_UART_RxBufLen(HAL_UART_PORT_0);
+        ; Setup parameters for call to function Hal_UART_RxBufLen
+        MOV       R1,#0x0
+        LCALL     `??Hal_UART_RxBufLen::?relay`; Banked call to: Hal_UART_RxBufLen
+        MOV       A,R2
+//  218   
+//  219   if(rxLen != 0)
+        JZ        ??zclSampleSw_UartCB_0
+//  220   {
+//  221     //读取串口接收到的数据
+//  222     HalUARTRead(HAL_UART_PORT_0  ,  zclSampleSw_UartBuf , rxLen);
+        MOV       R6,A
+        ; Setup parameters for call to function HalUARTRead
+        MOV       R4,A
+        MOV       R5,#0x0
+        MOV       R2,#zclSampleSw_UartBuf & 0xff
+        MOV       R3,#(zclSampleSw_UartBuf >> 8) & 0xff
+        MOV       R1,#0x0
+        LCALL     `??HalUARTRead::?relay`; Banked call to: HalUARTRead
+//  223     //发送开关命令
+//  224     //zclSampleSw_OnOffTest();
+//  225     //串口发送接收到的数据
+//  226     HalUARTWrite(HAL_UART_PORT_0 ,  zclSampleSw_UartBuf , rxLen);
+        ; Setup parameters for call to function HalUARTWrite
+        MOV       A,R6
+        MOV       R4,A
+        MOV       R5,#0x0
+        MOV       R2,#zclSampleSw_UartBuf & 0xff
+        MOV       R3,#(zclSampleSw_UartBuf >> 8) & 0xff
+        MOV       R1,#0x0
+        LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+//  227   }
+//  228 }
+??zclSampleSw_UartCB_0:
+        MOV       R7,#0x1
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock20
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zbport_>`:
+        DATA16
+        DW ?_0
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for _temp>`:
+        DATA8
+        DB 25
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for _humi>`:
+        DATA8
+        DB 54
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_on_msg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_on_msg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_port_init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_port_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_port_on_click::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_port_on_click
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_port_on_priv_msg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_port_on_priv_msg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_port_on_timer::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_port_on_timer
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_port_coordinator_on_msg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_port_coordinator_on_msg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zclSampleSw_UartCB::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zclSampleSw_UartCB
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+?_0:
+        DATA16
+        DW `??zb_port_init::?relay`
+        DW `??zb_port_on_click::?relay`
+        DW `??zb_port_on_priv_msg::?relay`
+        DW `??zb_port_on_timer::?relay`
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "">`:
+        DB ""
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "sync">`:
+        DB "sync"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "T:%d,H:%d">`:
+        DB "T:%d,H:%d"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "LADC: %d">`:
+        DB "LADC: %d"
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+`?<Constant "%d%d%d\\000">`:
+        DB 25H, 64H, 25H, 64H, 25H, 64H, 0, 0
+
+        END
+// 
+// 469 bytes in segment BANKED_CODE
+//  42 bytes in segment BANK_RELAYS
+//   4 bytes in segment XDATA_I
+//   4 bytes in segment XDATA_ID
+//  41 bytes in segment XDATA_ROM_C
+// 128 bytes in segment XDATA_Z
+// 
+//  46 bytes of CODE     memory
+//  41 bytes of CONST    memory
+// 469 bytes of HUGECODE memory
+// 132 bytes of XDATA    memory
+//
+//Errors: none
+//Warnings: 3

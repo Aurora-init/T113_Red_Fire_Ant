@@ -1,0 +1,742 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               26/Mar/2023  16:31:31
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_network.c
+#    Command line       =  
+#        -f C:\Users\11148\AppData\Local\Temp\EWDD23.tmp
+#        ("D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_network.c"
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+#        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+#        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+#        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+#        ZCL_LEVEL_CTRL -D HAL_KEY=FALSE -D xISR_KEYINTERRUPT -D HAL_UART=TRUE
+#        -D INT_HEAP_LEN=2048 -D HAL_LCD=TRUE -D HAL_LCD_OLED12864=TRUE -D
+#        HAL_ADC=TRUE -D HAL_DHT11=TRUE -lC
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List"
+#        -lA
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List"
+#        --diag_suppress Pe001,Pa010 -o
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wRouter.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DRTR_NWK) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0402
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x5a, 0x69, 0x67, 0x42,
+#        0x65,0x65, 0x41, 0x6c, 0x6c, 0x69, 0x61, 0x6e, 0x63, 0x65, 0x30,
+#        0x39}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+#        -DENABLE_LED4_DISABLE_S1) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wZCL.cfg"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\" -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\target\CC2530EB\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\userspace\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\high_level\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mt\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\osal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\saddr\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\sdata\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\af\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\bdb\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\gp\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\nwk\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sapi\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sec\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sys\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zcl\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zdo\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\f8w\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Applications\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List\zb_network.lst
+#    Object file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\Obj\zb_network.r51
+#
+###############################################################################
+
+D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度 & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_network.c
+      1          #include "zb_network.h"
+      2          
+      3          #include "ZDProfile.h"
+      4          
+      5          #include "zcl_general.h"
+      6          
+      7          static void zb_nwk_permit(uint8_t timeout, uint8_t broadcast);
+      8          
+      9          static void zb_nwk_remove(uint8_t *mac, uint16_t nwkaddr);
+     10          
+     11          static void zb_nwk_priv_send(uint16_t nwkaddr, void *endpoint_desc, uint16_t cluster, const uint8_t *data, uint16_t len);
+     12          
+     13          static void zb_nwk_set_onoff(uint16_t nwkaddr, uint8_t endpoint, uint8_t on);
+     14          static void zb_nwk_set_level(uint16_t nwkaddr, uint8_t endpoint, uint8_t level);
+     15          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     16          const zb_network_t *zbnwk_ = &(const zb_network_t){
+   \                     zbnwk_:
+   \   000000                DS 2
+   \   000002                REQUIRE `?<Initializer for zbnwk_>`
+   \   000002                REQUIRE __INIT_XDATA_I
+     17              .permit = zb_nwk_permit,
+     18          
+     19              .remove = zb_nwk_remove,
+     20          
+     21              .priv_send = zb_nwk_priv_send,
+     22          
+     23              .set_onoff = zb_nwk_set_onoff,
+     24              .set_level = zb_nwk_set_level,
+     25          };
+     26          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     27          void zb_nwk_permit(uint8_t timeout, uint8_t broadcast)
+   \                     zb_nwk_permit:
+     28          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 9
+   \   000005   74F7         MOV       A,#-0x9
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   E9           MOV       A,R1
+   \   00000B   FE           MOV       R6,A
+   \   00000C   EA           MOV       A,R2
+   \   00000D   FF           MOV       R7,A
+     29              zAddrType_t addr = {
+     30                  .addrMode = AddrBroadcast,
+     31                  .addr.shortAddr = NWK_BROADCAST_SHORTADDR_DEVZCZR,
+     32              };
+   \   00000E   90....       MOV       DPTR,#`?<Constant {{65532}, 15}>`
+   \   000011   AC..         MOV       R4,?XSP + 0
+   \   000013   AD..         MOV       R5,?XSP + 1
+   \   000015   7409         MOV       A,#0x9
+   \   000017   12....       LCALL     ?MOVE_LONG8_XDATA_XDATA
+     33          
+     34              if (broadcast) ZDP_MgmtPermitJoinReq(&addr, timeout, TRUE, FALSE);
+   \   00001A   EF           MOV       A,R7
+   \   00001B   600B         JZ        ??zb_nwk_permit_0
+   \   00001D                ; Setup parameters for call to function ZDP_MgmtPermitJoinReq
+   \   00001D   7D00         MOV       R5,#0x0
+   \   00001F   7C01         MOV       R4,#0x1
+   \   000021   AA..         MOV       R2,?XSP + 0
+   \   000023   AB..         MOV       R3,?XSP + 1
+   \   000025   12....       LCALL     `??ZDP_MgmtPermitJoinReq::?relay`; Banked call to: ZDP_MgmtPermitJoinReq
+     35          
+     36              NLME_PermitJoiningRequest(timeout);
+   \                     ??zb_nwk_permit_0:
+   \   000028                ; Setup parameters for call to function NLME_PermitJoiningRequest
+   \   000028   EE           MOV       A,R6
+   \   000029   F9           MOV       R1,A
+   \   00002A   12....       LCALL     `??NLME_PermitJoiningRequest::?relay`; Banked call to: NLME_PermitJoiningRequest
+     37          }
+   \   00002D                REQUIRE ?Subroutine0
+   \   00002D                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7409         MOV       A,#0x9
+   \   000002   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000005   7F01         MOV       R7,#0x1
+   \   000007   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {{65532}, 15}>`:
+   \   000000   FCFF         DW 65532
+   \   000002   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+   \   000008   0F           DB 15
+     38          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     39          void zb_nwk_remove(uint8_t *mac, uint16_t nwkaddr)
+   \                     zb_nwk_remove:
+     40          {
+   \   000000                REQUIRE ?V0
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 9
+   \   000005   74F7         MOV       A,#-0x9
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   EC           MOV       A,R4
+   \   00000B   F8           MOV       R0,A
+   \   00000C   ED           MOV       A,R5
+   \   00000D   F9           MOV       R1,A
+     41              zAddrType_t addr = {
+     42                  .addrMode = Addr16Bit,
+     43                  .addr.shortAddr = nwkaddr,
+     44              };
+   \   00000E   90....       MOV       DPTR,#`?<Constant {{0}, 2}>`
+   \   000011   AC..         MOV       R4,?XSP + 0
+   \   000013   AD..         MOV       R5,?XSP + 1
+   \   000015   7409         MOV       A,#0x9
+   \   000017   12....       LCALL     ?MOVE_LONG8_XDATA_XDATA
+   \   00001A   85..82       MOV       DPL,?XSP + 0
+   \   00001D   85..83       MOV       DPH,?XSP + 1
+   \   000020   E8           MOV       A,R0
+   \   000021   F0           MOVX      @DPTR,A
+   \   000022   A3           INC       DPTR
+   \   000023   E9           MOV       A,R1
+   \   000024   F0           MOVX      @DPTR,A
+     45          
+     46              ZDP_MgmtLeaveReq(&addr, mac, 0, FALSE, 0);
+   \   000025                ; Setup parameters for call to function ZDP_MgmtLeaveReq
+   \   000025   75..00       MOV       ?V0,#0x0
+   \   000028   78..         MOV       R0,#?V0
+   \   00002A   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00002D   78..         MOV       R0,#?V0
+   \   00002F   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000032   7900         MOV       R1,#0x0
+   \   000034   EA           MOV       A,R2
+   \   000035   FC           MOV       R4,A
+   \   000036   EB           MOV       A,R3
+   \   000037   FD           MOV       R5,A
+   \   000038   7402         MOV       A,#0x2
+   \   00003A   12....       LCALL     ?XSTACK_DISP101_8
+   \   00003D   12....       LCALL     `??ZDP_MgmtLeaveReq::?relay`; Banked call to: ZDP_MgmtLeaveReq
+   \   000040   7402         MOV       A,#0x2
+   \   000042   12....       LCALL     ?DEALLOC_XSTACK8
+     47          }
+   \   000045   80..         SJMP      ?Subroutine0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {{0}, 2}>`:
+   \   000000   0000         DW 0
+   \   000002   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+   \   000008   02           DB 2
+     48          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     49          void zb_nwk_priv_send(uint16_t nwkaddr, void *endpoint_desc, uint16_t cluster, const uint8_t *data, uint16_t len)
+   \                     zb_nwk_priv_send:
+     50          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 13
+   \   000005   74F3         MOV       A,#-0xd
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   EC           MOV       A,R4
+   \   00000B   FE           MOV       R6,A
+   \   00000C   ED           MOV       A,R5
+   \   00000D   FF           MOV       R7,A
+     51              static uint8_t zb_nwk_priv_id = 0;
+     52          
+     53              afAddrType_t dest = {
+     54                  .addrMode = (nwkaddr < 0xFFFC) ? afAddr16Bit : afAddrBroadcast,
+     55                  .addr.shortAddr = nwkaddr,
+     56                  .endPoint = ((endPointDesc_t *)endpoint_desc)->endPoint,
+     57              };
+   \   00000E   90....       MOV       DPTR,#`?<Constant {{0}, 0, 0}>`
+   \   000011   7401         MOV       A,#0x1
+   \   000013   12....       LCALL     ?XSTACK_DISP102_8
+   \   000016   740C         MOV       A,#0xc
+   \   000018   12....       LCALL     ?MOVE_LONG8_XDATA_XDATA
+   \   00001B   04           INC       A
+   \   00001C   12....       LCALL     ?XSTACK_DISP0_8
+   \   00001F   EA           MOV       A,R2
+   \   000020   F0           MOVX      @DPTR,A
+   \   000021   A3           INC       DPTR
+   \   000022   EB           MOV       A,R3
+   \   000023   F0           MOVX      @DPTR,A
+   \   000024   C3           CLR       C
+   \   000025   EA           MOV       A,R2
+   \   000026   94FC         SUBB      A,#-0x4
+   \   000028   EB           MOV       A,R3
+   \   000029   94FF         SUBB      A,#-0x1
+   \   00002B   85..82       MOV       DPL,?XSP + 0
+   \   00002E   85..83       MOV       DPH,?XSP + 1
+   \   000031   5004         JNC       ??zb_nwk_priv_send_0
+   \   000033   7402         MOV       A,#0x2
+   \   000035   8002         SJMP      ??zb_nwk_priv_send_1
+   \                     ??zb_nwk_priv_send_0:
+   \   000037   740F         MOV       A,#0xf
+   \                     ??zb_nwk_priv_send_1:
+   \   000039   F0           MOVX      @DPTR,A
+   \   00003A   E0           MOVX      A,@DPTR
+   \   00003B   C0E0         PUSH      A
+   \   00003D   7409         MOV       A,#0x9
+   \   00003F   12....       LCALL     ?XSTACK_DISP0_8
+   \   000042   D0E0         POP       A
+   \   000044   F0           MOVX      @DPTR,A
+   \   000045   8E82         MOV       DPL,R6
+   \   000047   8F83         MOV       DPH,R7
+   \   000049   E0           MOVX      A,@DPTR
+   \   00004A   C0E0         PUSH      A
+   \   00004C   740A         MOV       A,#0xa
+   \   00004E   12....       LCALL     ?XSTACK_DISP0_8
+   \   000051   D0E0         POP       A
+   \   000053   F0           MOVX      @DPTR,A
+     58          
+     59              zb_nwk_priv_id++;
+   \   000054   90....       MOV       DPTR,#??zb_nwk_priv_id
+   \   000057   E0           MOVX      A,@DPTR
+   \   000058   04           INC       A
+   \   000059   F0           MOVX      @DPTR,A
+     60              AF_DataRequest(&dest, (endPointDesc_t *)endpoint_desc, cluster, len, (uint8_t *)data, &zb_nwk_priv_id, AF_DISCV_ROUTE, AF_DEFAULT_RADIUS);
+   \   00005A                ; Setup parameters for call to function AF_DataRequest
+   \   00005A   75..1E       MOV       ?V0,#0x1e
+   \   00005D   78..         MOV       R0,#?V0
+   \   00005F   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000062   75....       MOV       ?V0,#??zb_nwk_priv_id & 0xff
+   \   000065   75....       MOV       ?V1,#(??zb_nwk_priv_id >> 8) & 0xff
+   \   000068   78..         MOV       R0,#?V0
+   \   00006A   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00006D   741C         MOV       A,#0x1c
+   \   00006F   12....       LCALL     ?XSTACK_DISP0_8
+   \   000072   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   000075   7420         MOV       A,#0x20
+   \   000077   12....       LCALL     ?XSTACK_DISP0_8
+   \   00007A   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   00007D   741E         MOV       A,#0x1e
+   \   00007F   12....       LCALL     ?XSTACK_DISP0_8
+   \   000082   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   000085   7900         MOV       R1,#0x0
+   \   000087   EE           MOV       A,R6
+   \   000088   FC           MOV       R4,A
+   \   000089   EF           MOV       A,R7
+   \   00008A   FD           MOV       R5,A
+   \   00008B   740A         MOV       A,#0xa
+   \   00008D   12....       LCALL     ?XSTACK_DISP101_8
+   \   000090   12....       LCALL     `??AF_DataRequest::?relay`; Banked call to: AF_DataRequest
+   \   000093   7409         MOV       A,#0x9
+   \   000095   12....       LCALL     ?DEALLOC_XSTACK8
+     61          }
+   \   000098   740D         MOV       A,#0xd
+   \   00009A   02....       LJMP      ??Subroutine2_0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine2_0:
+   \   000000   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000003   7F02         MOV       R7,#0x2
+   \   000005   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??zb_nwk_priv_id:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {{0}, 0, 0}>`:
+   \   000000   0000         DW 0
+   \   000002   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   0000         DB 0, 0
+     62          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     63          void zb_nwk_set_onoff(uint16_t nwkaddr, uint8_t endpoint, uint8_t on)
+   \                     zb_nwk_set_onoff:
+     64          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 12
+   \   000005   74F4         MOV       A,#-0xc
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   EC           MOV       A,R4
+   \   00000B   FF           MOV       R7,A
+     65              afAddrType_t addr = {
+     66                  .addrMode = afAddr16Bit,
+     67                  .addr.shortAddr = nwkaddr,
+     68                  .endPoint = endpoint,
+     69              };
+   \   00000C   90....       MOV       DPTR,#`?<Constant {{0}, 2, 0}>`
+   \   00000F   AC..         MOV       R4,?XSP + 0
+   \   000011   AD..         MOV       R5,?XSP + 1
+   \   000013   740C         MOV       A,#0xc
+   \   000015   12....       LCALL     ?MOVE_LONG8_XDATA_XDATA
+   \   000018   85..82       MOV       DPL,?XSP + 0
+   \   00001B   85..83       MOV       DPH,?XSP + 1
+   \   00001E   EA           MOV       A,R2
+   \   00001F   F0           MOVX      @DPTR,A
+   \   000020   A3           INC       DPTR
+   \   000021   EB           MOV       A,R3
+   \   000022   F0           MOVX      @DPTR,A
+   \   000023   7409         MOV       A,#0x9
+   \   000025   12....       LCALL     ?XSTACK_DISP0_8
+   \   000028   E9           MOV       A,R1
+   \   000029   F0           MOVX      @DPTR,A
+     70          
+     71              if (on == 0) zclGeneral_SendOnOff_CmdOff(ENDPOINT_ZHA, &addr, FALSE, zb_generate_seqnum());
+   \   00002A   EF           MOV       A,R7
+   \   00002B   703B         JNZ       ??zb_nwk_set_onoff_0
+   \   00002D                ; Setup parameters for call to function zb_generate_seqnum
+   \   00002D   12....       LCALL     `??zb_generate_seqnum::?relay`; Banked call to: zb_generate_seqnum
+   \   000030   E9           MOV       A,R1
+   \   000031   F9           MOV       R1,A
+   \   000032                ; Setup parameters for call to function zcl_SendCommand
+   \   000032   E4           CLR       A
+   \   000033   F5..         MOV       ?V0,A
+   \   000035   F5..         MOV       ?V1,A
+   \   000037   78..         MOV       R0,#?V0
+   \   000039   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00003C   78..         MOV       R0,#?V0
+   \   00003E   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000041   E9           MOV       A,R1
+   \   000042   F5..         MOV       ?V0,A
+   \   000044   78..         MOV       R0,#?V0
+   \   000046   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000049   E4           CLR       A
+   \   00004A   F5..         MOV       ?V0,A
+   \   00004C   78..         MOV       R0,#?V0
+   \   00004E   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000051   78..         MOV       R0,#?V0
+   \   000053   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000056   78..         MOV       R0,#?V0
+   \   000058   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00005B   75..01       MOV       ?V0,#0x1
+   \   00005E   78..         MOV       R0,#?V0
+   \   000060   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000063   75..00       MOV       ?V0,#0x0
+   \   000066   8036         SJMP      ??zb_nwk_set_onoff_1
+     72              else zclGeneral_SendOnOff_CmdOn(ENDPOINT_ZHA, &addr, FALSE, zb_generate_seqnum());
+   \                     ??zb_nwk_set_onoff_0:
+   \   000068                ; Setup parameters for call to function zb_generate_seqnum
+   \   000068   12....       LCALL     `??zb_generate_seqnum::?relay`; Banked call to: zb_generate_seqnum
+   \   00006B   E9           MOV       A,R1
+   \   00006C   F9           MOV       R1,A
+   \   00006D                ; Setup parameters for call to function zcl_SendCommand
+   \   00006D   E4           CLR       A
+   \   00006E   F5..         MOV       ?V0,A
+   \   000070   F5..         MOV       ?V1,A
+   \   000072   78..         MOV       R0,#?V0
+   \   000074   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000077   78..         MOV       R0,#?V0
+   \   000079   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00007C   E9           MOV       A,R1
+   \   00007D   F5..         MOV       ?V0,A
+   \   00007F   78..         MOV       R0,#?V0
+   \   000081   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000084   E4           CLR       A
+   \   000085   F5..         MOV       ?V0,A
+   \   000087   78..         MOV       R0,#?V0
+   \   000089   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00008C   78..         MOV       R0,#?V0
+   \   00008E   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000091   78..         MOV       R0,#?V0
+   \   000093   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000096   75..01       MOV       ?V0,#0x1
+   \   000099   78..         MOV       R0,#?V0
+   \   00009B   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \                     ??zb_nwk_set_onoff_1:
+   \   00009E   78..         MOV       R0,#?V0
+   \   0000A0   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   0000A3   7C06         MOV       R4,#0x6
+   \   0000A5   7D00         MOV       R5,#0x0
+   \   0000A7   740B         MOV       A,#0xb
+   \   0000A9   12....       LCALL     ?XSTACK_DISP101_8
+   \   0000AC   7908         MOV       R1,#0x8
+   \   0000AE   12....       LCALL     `??zcl_SendCommand::?relay`; Banked call to: zcl_SendCommand
+   \   0000B1   740B         MOV       A,#0xb
+   \   0000B3                REQUIRE ?Subroutine1
+   \   0000B3                ; // Fall through to label ?Subroutine1
+     73          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000003   740C         MOV       A,#0xc
+   \   000005                REQUIRE ??Subroutine2_0
+   \   000005                ; // Fall through to label ??Subroutine2_0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {{0}, 2, 0}>`:
+   \   000000   0000         DW 0
+   \   000002   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+   \   000008   02           DB 2
+   \   000009   00           DB 0
+   \   00000A   0000         DB 0, 0
+     74          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     75          void zb_nwk_set_level(uint16_t nwkaddr, uint8_t endpoint, uint8_t level)
+   \                     zb_nwk_set_level:
+     76          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 12
+   \   000005   74F4         MOV       A,#-0xc
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   EC           MOV       A,R4
+   \   00000B   FE           MOV       R6,A
+     77              afAddrType_t dstAddr = {
+     78                  .addrMode = afAddr16Bit,
+     79                  .addr.shortAddr = nwkaddr,
+     80                  .endPoint = endpoint,
+     81              };
+   \   00000C   90....       MOV       DPTR,#`?<Constant {{0}, 2, 0}>_1`
+   \   00000F   AC..         MOV       R4,?XSP + 0
+   \   000011   AD..         MOV       R5,?XSP + 1
+   \   000013   740C         MOV       A,#0xc
+   \   000015   12....       LCALL     ?MOVE_LONG8_XDATA_XDATA
+   \   000018   85..82       MOV       DPL,?XSP + 0
+   \   00001B   85..83       MOV       DPH,?XSP + 1
+   \   00001E   EA           MOV       A,R2
+   \   00001F   F0           MOVX      @DPTR,A
+   \   000020   A3           INC       DPTR
+   \   000021   EB           MOV       A,R3
+   \   000022   F0           MOVX      @DPTR,A
+   \   000023   7409         MOV       A,#0x9
+   \   000025   12....       LCALL     ?XSTACK_DISP0_8
+   \   000028   E9           MOV       A,R1
+   \   000029   F0           MOVX      @DPTR,A
+     82          
+     83              zclGeneral_SendLevelControlMoveToLevel(ENDPOINT_ZHA, &dstAddr, level, 5, false, zb_generate_seqnum());
+   \   00002A                ; Setup parameters for call to function zb_generate_seqnum
+   \   00002A   12....       LCALL     `??zb_generate_seqnum::?relay`; Banked call to: zb_generate_seqnum
+   \   00002D   E9           MOV       A,R1
+   \   00002E                ; Setup parameters for call to function zclGeneral_SendLevelControlMoveToLevelRequest
+   \   00002E   F5..         MOV       ?V0,A
+   \   000030   78..         MOV       R0,#?V0
+   \   000032   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000035   75..00       MOV       ?V0,#0x0
+   \   000038   78..         MOV       R0,#?V0
+   \   00003A   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00003D   75..05       MOV       ?V0,#0x5
+   \   000040   75..00       MOV       ?V1,#0x0
+   \   000043   78..         MOV       R0,#?V0
+   \   000045   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000048   EE           MOV       A,R6
+   \   000049   FD           MOV       R5,A
+   \   00004A   7C00         MOV       R4,#0x0
+   \   00004C   7404         MOV       A,#0x4
+   \   00004E   12....       LCALL     ?XSTACK_DISP101_8
+   \   000051   7908         MOV       R1,#0x8
+   \   000053   12....       LCALL     ??zclGeneral_SendLevelControlMoveToLevelRequest; Banked call to: zclGeneral_SendLevelControlMoveToLevelRequest
+   \   000056   7404         MOV       A,#0x4
+   \   000058   80..         SJMP      ?Subroutine1
+     84          }
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {{0}, 2, 0}>_1`:
+   \   000000   0000         DW 0
+   \   000002   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+   \   000008   02           DB 2
+   \   000009   00           DB 0
+   \   00000A   0000         DB 0, 0
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zbnwk_>`:
+   \   000000   ....         DW ?_0
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_nwk_permit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_nwk_permit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_nwk_remove::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_nwk_remove
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_nwk_priv_send::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_nwk_priv_send
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_nwk_set_onoff::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_nwk_set_onoff
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_nwk_set_level::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_nwk_set_level
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     18   zb_nwk_permit
+        0     18   -> NLME_PermitJoiningRequest
+        0     18   -> ZDP_MgmtPermitJoinReq
+      1     38   zb_nwk_priv_send
+        0     32   -> AF_DataRequest
+      0     20   zb_nwk_remove
+        0     20   -> ZDP_MgmtLeaveReq
+      1     26   zb_nwk_set_level
+        0     22   -> zb_generate_seqnum
+        0     26   -> zclGeneral_SendLevelControlMoveToLevelRequest
+      1     33   zb_nwk_set_onoff
+        0     22   -> zb_generate_seqnum
+        0     33   -> zcl_SendCommand
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      12  ?<Constant {{0}, 0, 0}>
+      12  ?<Constant {{0}, 2, 0}>
+      12  ?<Constant {{0}, 2, 0}>_1
+       9  ?<Constant {{0}, 2}>
+       9  ?<Constant {{65532}, 15}>
+       2  ?<Initializer for zbnwk_>
+       8  ??Subroutine2_0
+      10  ?Subroutine0
+       5  ?Subroutine1
+      45  zb_nwk_permit
+       6  zb_nwk_permit::?relay
+       1  zb_nwk_priv_id
+     157  zb_nwk_priv_send
+       6  zb_nwk_priv_send::?relay
+      71  zb_nwk_remove
+       6  zb_nwk_remove::?relay
+      90  zb_nwk_set_level
+       6  zb_nwk_set_level::?relay
+     179  zb_nwk_set_onoff
+       6  zb_nwk_set_onoff::?relay
+       2  zbnwk_
+      10  -- Other
+
+ 
+ 565 bytes in segment BANKED_CODE
+  30 bytes in segment BANK_RELAYS
+   2 bytes in segment XDATA_I
+   2 bytes in segment XDATA_ID
+  64 bytes in segment XDATA_ROM_C
+   1 byte  in segment XDATA_Z
+ 
+  32 bytes of CODE     memory
+  64 bytes of CONST    memory
+ 565 bytes of HUGECODE memory
+   3 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,674 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               26/Mar/2023  16:31:31
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_router.c
+#    Command line       =  
+#        -f C:\Users\11148\AppData\Local\Temp\EWDEB0.tmp
+#        ("D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_router.c"
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+#        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+#        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+#        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+#        ZCL_LEVEL_CTRL -D HAL_KEY=FALSE -D xISR_KEYINTERRUPT -D HAL_UART=TRUE
+#        -D INT_HEAP_LEN=2048 -D HAL_LCD=TRUE -D HAL_LCD_OLED12864=TRUE -D
+#        HAL_ADC=TRUE -D HAL_DHT11=TRUE -lC
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List"
+#        -lA
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List"
+#        --diag_suppress Pe001,Pa010 -o
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wRouter.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DRTR_NWK) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0402
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x5a, 0x69, 0x67, 0x42,
+#        0x65,0x65, 0x41, 0x6c, 0x6c, 0x69, 0x61, 0x6e, 0x63, 0x65, 0x30,
+#        0x39}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+#        -DENABLE_LED4_DISABLE_S1) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wZCL.cfg"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\" -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\target\CC2530EB\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\userspace\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\high_level\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mt\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\osal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\saddr\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\sdata\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\af\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\bdb\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\gp\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\nwk\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sapi\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sec\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sys\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zcl\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zdo\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\f8w\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Applications\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\List\zcl_router.lst
+#    Object file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Router\Obj\zcl_router.r51
+#
+###############################################################################
+
+D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度 & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zcl_router.c
+      1          #include "zcl_router.h"
+      2          
+      3          #include "bdb_interface.h"
+      4          
+      5          #include "zb_port.h"
+      6          
+      7          #include "hal_key.h"
+      8          
+      9          #include "OnBoard.h"
+     10          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     11          byte zcl_router_taskid;
+   \                     zcl_router_taskid:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     12          
+     13          static void zcl_router_on_incoming_msgs(zclIncomingMsg_t *msg);
+     14          static void zcl_router_on_zdo_msg(zdoIncomingMsg_t *msg);
+     15          static void zcl_router_on_commissioning(bdbCommissioningModeMsg_t *msg);
+     16          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     17          void zcl_router_init(byte task_id)
+   \                     zcl_router_init:
+     18          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV       A,R1
+     19              zcl_router_taskid = task_id;
+   \   000006   90....       MOV       DPTR,#zcl_router_taskid
+   \   000009   F0           MOVX      @DPTR,A
+     20          
+     21              // Private endpint
+     22              endpoint_desc_priv.task_id = &zcl_router_taskid;
+   \   00000A   90....       MOV       DPTR,#endpoint_desc_priv + 2
+   \   00000D   74..         MOV       A,#zcl_router_taskid & 0xff
+   \   00000F   F0           MOVX      @DPTR,A
+   \   000010   A3           INC       DPTR
+   \   000011   74..         MOV       A,#(zcl_router_taskid >> 8) & 0xff
+   \   000013   F0           MOVX      @DPTR,A
+     23              afRegister(&endpoint_desc_priv);
+   \   000014                ; Setup parameters for call to function afRegister
+   \   000014   7A..         MOV       R2,#endpoint_desc_priv & 0xff
+   \   000016   7B..         MOV       R3,#(endpoint_desc_priv >> 8) & 0xff
+   \   000018   12....       LCALL     `??afRegister::?relay`; Banked call to: afRegister
+     24          
+     25              RegisterForKeys(zcl_router_taskid);
+   \   00001B                ; Setup parameters for call to function RegisterForKeys
+   \   00001B   90....       MOV       DPTR,#zcl_router_taskid
+   \   00001E   E0           MOVX      A,@DPTR
+   \   00001F   F9           MOV       R1,A
+   \   000020   12....       LCALL     `??RegisterForKeys::?relay`; Banked call to: RegisterForKeys
+     26          
+     27              bdb_RegisterCommissioningStatusCB(zcl_router_on_commissioning);
+   \   000023                ; Setup parameters for call to function bdb_RegisterCommissioningStatusCB
+   \   000023   7A..         MOV       R2,#`??zcl_router_on_commissioning::?relay` & 0xff
+   \   000025   7B..         MOV       R3,#(`??zcl_router_on_commissioning::?relay` >> 8) & 0xff
+   \   000027   12....       LCALL     `??bdb_RegisterCommissioningStatusCB::?relay`; Banked call to: bdb_RegisterCommissioningStatusCB
+     28          
+     29              bdb_StartCommissioning(BDB_COMMISSIONING_MODE_NWK_STEERING | BDB_COMMISSIONING_MODE_FINDING_BINDING);
+   \   00002A                ; Setup parameters for call to function bdb_StartCommissioning
+   \   00002A   790A         MOV       R1,#0xa
+   \   00002C   12....       LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+     30          
+     31              zbport_->init();
+   \   00002F                ; Setup parameters for indirect call
+   \   00002F   12....       LCALL     ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000032   12....       LCALL     ??Subroutine1_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000035   12....       LCALL     ?CALL_IND
+     32          
+     33              osal_start_timerEx(zcl_router_taskid, ZB_USER_EVENT, ZB_USER_EVENT_PERIOD);
+   \   000038                ; Setup parameters for call to function osal_start_timerEx
+   \   000038   90....       MOV       DPTR,#__Constant_3e8
+   \   00003B   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   00003E   7A01         MOV       R2,#0x1
+   \   000040   7B00         MOV       R3,#0x0
+   \   000042   90....       MOV       DPTR,#zcl_router_taskid
+   \   000045   E0           MOVX      A,@DPTR
+   \   000046   F9           MOV       R1,A
+   \   000047   12....       LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   00004A   7404         MOV       A,#0x4
+   \   00004C   12....       LCALL     ?DEALLOC_XSTACK8
+     34          }
+   \   00004F   7F01         MOV       R7,#0x1
+   \   000051   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   90....       MOV       DPTR,#zbport_
+   \   000003                REQUIRE ??Subroutine1_0
+   \   000003                ; // Fall through to label ??Subroutine1_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine1_0:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F583         MOV       DPH,A
+   \   000006   8882         MOV       DPL,R0
+   \   000008   22           RET
+     35          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     36          uint16 zcl_router_event_loop(uint8 task_id, uint16 events)
+   \                     zcl_router_event_loop:
+     37          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+     38              afIncomingMSGPacket_t *msg;
+     39          
+     40              (void)task_id;
+     41          
+     42              if (events & SYS_EVENT_MSG) {
+   \   000009   5480         ANL       A,#0x80
+   \   00000B   702D         JNZ       ??zcl_router_event_loop_0
+     43                  while ((msg = (afIncomingMSGPacket_t *)osal_msg_receive(zcl_router_taskid))) {
+     44                      switch (msg->hdr.event) {
+     45                      case AF_INCOMING_MSG_CMD:
+     46                        zbport_->on_priv_msg(msg->srcAddr.addr.shortAddr, msg->clusterId, msg->cmd.Data, msg->cmd.DataLength);
+     47                      break;
+     48          
+     49                      case ZCL_INCOMING_MSG:
+     50                        zcl_router_on_incoming_msgs((zclIncomingMsg_t *)msg);
+     51                      break;
+     52          
+     53                      case ZDO_CB_MSG: zcl_router_on_zdo_msg((zdoIncomingMsg_t *)msg); break;
+     54          
+     55                      case ZDO_STATE_CHANGE: break;
+     56          
+     57                      case KEY_CHANGE: if(((keyChange_t *)msg)->keys & HAL_KEY_SW_6) zbport_->on_click(); break;
+     58          
+     59                      default: break;
+     60                      }/*switch*/
+     61          
+     62                      osal_msg_deallocate((uint8 *)msg);
+     63                  }/* while */
+     64          
+     65                  return (events ^ SYS_EVENT_MSG);
+     66              }
+     67          
+     68              if (events & ROUTER_REJOIN_EVT) {
+   \   00000D   EE           MOV       A,R6
+   \   00000E   5480         ANL       A,#0x80
+   \   000010   7003         JNZ       $+5
+   \   000012   02....       LJMP      ??zcl_router_event_loop_1 & 0xFFFF
+     69                  bdb_StartCommissioning(BDB_COMMISSIONING_MODE_NWK_STEERING | BDB_COMMISSIONING_MODE_FINDING_BINDING );
+   \   000015                ; Setup parameters for call to function bdb_StartCommissioning
+   \   000015   790A         MOV       R1,#0xa
+   \   000017   12....       LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+     70          
+     71                  return (events ^ ROUTER_REJOIN_EVT);
+   \   00001A   EE           MOV       A,R6
+   \   00001B   6480         XRL       A,#0x80
+   \   00001D   02....       LJMP      ??zcl_router_event_loop_2 & 0xFFFF
+     72              }
+   \                     ??zcl_router_event_loop_3:
+   \   000020   A3           INC       DPTR
+   \   000021   A3           INC       DPTR
+   \   000022   A3           INC       DPTR
+   \   000023   E0           MOVX      A,@DPTR
+   \   000024   A2E5         MOV       C,0xE0 /* A   */.5
+   \   000026   500B         JNC       ??zcl_router_event_loop_4
+   \   000028                ; Setup parameters for indirect call
+   \   000028   12....       LCALL     ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   00002B   A3           INC       DPTR
+   \   00002C   A3           INC       DPTR
+   \   00002D   12....       LCALL     ??Subroutine1_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000030   12....       LCALL     ?CALL_IND
+   \                     ??zcl_router_event_loop_4:
+   \   000033                ; Setup parameters for call to function osal_msg_deallocate
+   \   000033   AA..         MOV       R2,?V0
+   \   000035   AB..         MOV       R3,?V1
+   \   000037   12....       LCALL     `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+   \                     ??zcl_router_event_loop_0:
+   \   00003A                ; Setup parameters for call to function osal_msg_receive
+   \   00003A   90....       MOV       DPTR,#zcl_router_taskid
+   \   00003D   E0           MOVX      A,@DPTR
+   \   00003E   F9           MOV       R1,A
+   \   00003F   12....       LCALL     `??osal_msg_receive::?relay`; Banked call to: osal_msg_receive
+   \   000042   8A..         MOV       ?V0,R2
+   \   000044   8B..         MOV       ?V1,R3
+   \   000046   EA           MOV       A,R2
+   \   000047   45..         ORL       A,?V1
+   \   000049   6059         JZ        ??zcl_router_event_loop_5
+   \   00004B   8A82         MOV       DPL,R2
+   \   00004D   8B83         MOV       DPH,R3
+   \   00004F   E0           MOVX      A,@DPTR
+   \   000050   24E6         ADD       A,#-0x1a
+   \   000052   6006         JZ        ??zcl_router_event_loop_6
+   \   000054   245A         ADD       A,#0x5a
+   \   000056   60C8         JZ        ??zcl_router_event_loop_3
+   \   000058   80D9         SJMP      ??zcl_router_event_loop_4
+   \                     ??zcl_router_event_loop_6:
+   \   00005A                ; Setup parameters for indirect call
+   \   00005A   EA           MOV       A,R2
+   \   00005B   2420         ADD       A,#0x20
+   \   00005D   F582         MOV       DPL,A
+   \   00005F   E4           CLR       A
+   \   000060   35..         ADDC      A,?V1
+   \   000062   F583         MOV       DPH,A
+   \   000064   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   000067   EA           MOV       A,R2
+   \   000068   2422         ADD       A,#0x22
+   \   00006A   F582         MOV       DPL,A
+   \   00006C   E4           CLR       A
+   \   00006D   35..         ADDC      A,?V1
+   \   00006F   F583         MOV       DPH,A
+   \   000071   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   000074   8A82         MOV       DPL,R2
+   \   000076   8B83         MOV       DPH,R3
+   \   000078   A3           INC       DPTR
+   \   000079   A3           INC       DPTR
+   \   00007A   A3           INC       DPTR
+   \   00007B   A3           INC       DPTR
+   \   00007C   E0           MOVX      A,@DPTR
+   \   00007D   FC           MOV       R4,A
+   \   00007E   A3           INC       DPTR
+   \   00007F   E0           MOVX      A,@DPTR
+   \   000080   FD           MOV       R5,A
+   \   000081   8A82         MOV       DPL,R2
+   \   000083   8B83         MOV       DPH,R3
+   \   000085   A3           INC       DPTR
+   \   000086   A3           INC       DPTR
+   \   000087   A3           INC       DPTR
+   \   000088   A3           INC       DPTR
+   \   000089   A3           INC       DPTR
+   \   00008A   A3           INC       DPTR
+   \   00008B   E0           MOVX      A,@DPTR
+   \   00008C   FA           MOV       R2,A
+   \   00008D   A3           INC       DPTR
+   \   00008E   E0           MOVX      A,@DPTR
+   \   00008F   FB           MOV       R3,A
+   \   000090   12....       LCALL     ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000093   A3           INC       DPTR
+   \   000094   A3           INC       DPTR
+   \   000095   A3           INC       DPTR
+   \   000096   A3           INC       DPTR
+   \   000097   12....       LCALL     ??Subroutine1_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00009A   12....       LCALL     ?CALL_IND
+   \   00009D   7404         MOV       A,#0x4
+   \   00009F   12....       LCALL     ?DEALLOC_XSTACK8
+   \   0000A2   808F         SJMP      ??zcl_router_event_loop_4
+   \                     ??zcl_router_event_loop_5:
+   \   0000A4   EE           MOV       A,R6
+   \   0000A5   FA           MOV       R2,A
+   \   0000A6   EF           MOV       A,R7
+   \   0000A7   6480         XRL       A,#0x80
+   \   0000A9   803B         SJMP      ??zcl_router_event_loop_7
+     73          
+     74              if (events & ZB_USER_EVENT) {
+   \                     ??zcl_router_event_loop_1:
+   \   0000AB   EE           MOV       A,R6
+   \   0000AC   A2E0         MOV       C,0xE0 /* A   */.0
+   \   0000AE   5039         JNC       ??zcl_router_event_loop_8
+     75                  zbport_->on_timer(ZB_USER_EVENT_PERIOD);
+   \   0000B0                ; Setup parameters for indirect call
+   \   0000B0   7AE8         MOV       R2,#-0x18
+   \   0000B2   7B03         MOV       R3,#0x3
+   \   0000B4   90....       MOV       DPTR,#zbport_
+   \   0000B7   E0           MOVX      A,@DPTR
+   \   0000B8   F8           MOV       R0,A
+   \   0000B9   A3           INC       DPTR
+   \   0000BA   E0           MOVX      A,@DPTR
+   \   0000BB   C8           XCH       A,R0
+   \   0000BC   2406         ADD       A,#0x6
+   \   0000BE   F582         MOV       DPL,A
+   \   0000C0   E4           CLR       A
+   \   0000C1   38           ADDC      A,R0
+   \   0000C2   F583         MOV       DPH,A
+   \   0000C4   12....       LCALL     ??Subroutine1_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0000C7   12....       LCALL     ?CALL_IND
+     76                  osal_start_timerEx(zcl_router_taskid, ZB_USER_EVENT, ZB_USER_EVENT_PERIOD);
+   \   0000CA                ; Setup parameters for call to function osal_start_timerEx
+   \   0000CA   90....       MOV       DPTR,#__Constant_3e8
+   \   0000CD   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   0000D0   7A01         MOV       R2,#0x1
+   \   0000D2   7B00         MOV       R3,#0x0
+   \   0000D4   90....       MOV       DPTR,#zcl_router_taskid
+   \   0000D7   E0           MOVX      A,@DPTR
+   \   0000D8   F9           MOV       R1,A
+   \   0000D9   12....       LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   0000DC   7404         MOV       A,#0x4
+   \   0000DE   12....       LCALL     ?DEALLOC_XSTACK8
+     77          
+     78                  return (events ^ ZB_USER_EVENT);
+   \   0000E1   EE           MOV       A,R6
+   \   0000E2   6401         XRL       A,#0x1
+   \                     ??zcl_router_event_loop_2:
+   \   0000E4   FA           MOV       R2,A
+   \   0000E5   EF           MOV       A,R7
+   \                     ??zcl_router_event_loop_7:
+   \   0000E6   FB           MOV       R3,A
+   \   0000E7   8004         SJMP      ??zcl_router_event_loop_9
+     79              }
+     80          
+     81              return 0;
+   \                     ??zcl_router_event_loop_8:
+   \   0000E9   7A00         MOV       R2,#0x0
+   \   0000EB   7B00         MOV       R3,#0x0
+   \                     ??zcl_router_event_loop_9:
+   \   0000ED   7F04         MOV       R7,#0x4
+   \   0000EF   02....       LJMP      ?BANKED_LEAVE_XDATA
+     82          }
+     83          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     84          void zcl_router_on_commissioning(bdbCommissioningModeMsg_t *msg)
+   \                     zcl_router_on_commissioning:
+     85          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     86              switch(msg->bdbCommissioningMode) {
+   \   000004   8A82         MOV       DPL,R2
+   \   000006   8B83         MOV       DPH,R3
+   \   000008   A3           INC       DPTR
+   \   000009   E0           MOVX      A,@DPTR
+   \   00000A   14           DEC       A
+   \   00000B   6015         JZ        ??zcl_router_on_commissioning_0
+   \   00000D   14           DEC       A
+   \   00000E   7030         JNZ       ??zcl_router_on_commissioning_1
+     87              case BDB_COMMISSIONING_FORMATION:
+     88                  if(msg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS) {
+   \   000010   8A82         MOV       DPL,R2
+   \   000012   8B83         MOV       DPH,R3
+   \   000014   E0           MOVX      A,@DPTR
+   \   000015   7029         JNZ       ??zcl_router_on_commissioning_1
+     89                      //After formation, perform nwk steering again plus the remaining commissioning modes that has not been processed yet
+     90                      bdb_StartCommissioning(BDB_COMMISSIONING_MODE_NWK_STEERING | msg->bdbRemainingCommissioningModes);
+   \   000017                ; Setup parameters for call to function bdb_StartCommissioning
+   \   000017   A3           INC       DPTR
+   \   000018   A3           INC       DPTR
+   \   000019   E0           MOVX      A,@DPTR
+   \   00001A   4402         ORL       A,#0x2
+   \   00001C   F9           MOV       R1,A
+   \   00001D   12....       LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+   \   000020   801E         SJMP      ??zcl_router_on_commissioning_1
+     91                  }
+     92                  else {
+     93                      //Want to try other channels?
+     94                      //try with bdb_setChannelAttribute
+     95                  }
+     96              break;
+     97          
+     98              case BDB_COMMISSIONING_NWK_STEERING:
+     99                  if(msg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS) {
+   \                     ??zcl_router_on_commissioning_0:
+   \   000022   8A82         MOV       DPL,R2
+   \   000024   8B83         MOV       DPH,R3
+   \   000026   E0           MOVX      A,@DPTR
+   \   000027   6017         JZ        ??zcl_router_on_commissioning_1
+    100                      //YOUR JOB:
+    101                      //We are on the nwk, what now?
+    102                  }
+    103                  else {
+    104                      //See the possible errors for nwk steering procedure
+    105                      //No suitable networks found
+    106                      //Want to try other channels?
+    107                      //try with bdb_setChannelAttribute
+    108                      osal_start_timerEx(zcl_router_taskid, ROUTER_REJOIN_EVT, ROUTER_REJOIN_PERIOD);
+   \   000029                ; Setup parameters for call to function osal_start_timerEx
+   \   000029   90....       MOV       DPTR,#__Constant_3e8
+   \   00002C   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   00002F   7A80         MOV       R2,#-0x80
+   \   000031   7B00         MOV       R3,#0x0
+   \   000033   90....       MOV       DPTR,#zcl_router_taskid
+   \   000036   E0           MOVX      A,@DPTR
+   \   000037   F9           MOV       R1,A
+   \   000038   12....       LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   00003B   7404         MOV       A,#0x4
+   \   00003D   12....       LCALL     ?DEALLOC_XSTACK8
+    109                  }
+    110              break;
+    111          
+    112              case BDB_COMMISSIONING_FINDING_BINDING:
+    113                  if(msg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS) {
+    114                      //YOUR JOB:
+    115                  }
+    116                  else {
+    117                      //YOUR JOB:
+    118                      //retry?, wait for user interaction?
+    119                  }
+    120              break;
+    121          
+    122              case BDB_COMMISSIONING_INITIALIZATION:
+    123                  //Initialization notification can only be successful. Failure on initialization 
+    124                  //only happens for ZED and is notified as BDB_COMMISSIONING_PARENT_LOST notification
+    125                
+    126                  //YOUR JOB:
+    127                  //We are on a network, what now?
+    128              break;
+    129            }
+    130          }
+   \                     ??zcl_router_on_commissioning_1:
+   \   000040   D083         POP       DPH
+   \   000042   D082         POP       DPL
+   \   000044   02....       LJMP      ?BRET
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3e8:
+   \   000000   E8030000     DD 1000
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_router_init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_router_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_router_event_loop::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_router_event_loop
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zcl_router_on_commissioning::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zcl_router_on_commissioning
+    131          
+    132          void zcl_router_on_incoming_msgs(zclIncomingMsg_t *msg)
+    133          {
+    134          }
+    135          
+    136          void zcl_router_on_zdo_msg(zdoIncomingMsg_t *msg)
+    137          {
+    138          }
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     16   zcl_router_event_loop
+        0     12   -> bdb_StartCommissioning
+        0     12   -> osal_msg_deallocate
+        0     12   -> osal_msg_receive
+        0     16   -> osal_start_timerEx
+      0     13   zcl_router_init
+        0      9   -> RegisterForKeys
+        0      9   -> afRegister
+        0      9   -> bdb_RegisterCommissioningStatusCB
+        0      9   -> bdb_StartCommissioning
+        0     13   -> osal_start_timerEx
+      2      4   zcl_router_on_commissioning
+        2      0   -> bdb_StartCommissioning
+        2      4   -> osal_start_timerEx
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       9  ??Subroutine1_0
+       3  ?Subroutine0
+       4  __Constant_3e8
+     242  zcl_router_event_loop
+       6  zcl_router_event_loop::?relay
+      84  zcl_router_init
+       6  zcl_router_init::?relay
+      71  zcl_router_on_commissioning
+       6  zcl_router_on_commissioning::?relay
+       1  zcl_router_taskid
+
+ 
+ 409 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+   4 bytes in segment XDATA_ROM_C
+   1 byte  in segment XDATA_Z
+ 
+  18 bytes of CODE     memory
+   0 bytes of CONST    memory (+ 4 bytes shared)
+ 409 bytes of HUGECODE memory
+   1 byte  of XDATA    memory
+
+Errors: none
+Warnings: none

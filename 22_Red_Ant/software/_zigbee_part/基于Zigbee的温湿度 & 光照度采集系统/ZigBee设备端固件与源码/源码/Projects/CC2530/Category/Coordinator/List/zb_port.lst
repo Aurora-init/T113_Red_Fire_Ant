@@ -1,0 +1,904 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.10.1.4655 for 8051               26/Mar/2023  16:30:21
+# Copyright 2004-2017 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_port.c
+#    Command line       =  
+#        -f C:\Users\11148\AppData\Local\Temp\EWCE51.tmp
+#        ("D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_port.c"
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+#        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+#        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+#        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+#        ZCL_LEVEL_CTRL -D HAL_KEY=TRUE -D xISR_KEYINTERRUPT -D HAL_UART=TRUE
+#        -D INT_HEAP_LEN=2048 -D HAL_LCD=TRUE -D HAL_LCD_OLED12864=TRUE -lC
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List"
+#        -lA
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List"
+#        --diag_suppress Pe001,Pa010 -o
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0402
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x5a, 0x69, 0x67, 0x42,
+#        0x65,0x65, 0x41, 0x6c, 0x6c, 0x69, 0x61, 0x6e, 0x63, 0x65, 0x30,
+#        0x39}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+#        -DENABLE_LED4_DISABLE_S1) -f
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Tools\f8wZCL.cfg"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        & 光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\" -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\target\CC2530EB\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\hal\userspace\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\high_level\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\mt\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\osal\include\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\saddr\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\services\sdata\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\af\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\bdb\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\gp\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\nwk\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sapi\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sec\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\sys\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zcl\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\stack\zdo\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Components\zmac\f8w\"
+#        -I
+#        "D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\..\..\Applications\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_China.936
+#    List file          =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\List\zb_port.lst
+#    Object file        =  
+#        D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度
+#        &
+#        光照度采集系统\ZigBee设备端固件与源码\源码\Projects\CC2530\Category\Coordinator\Obj\zb_port.r51
+#
+###############################################################################
+
+D:\桌面\《ZigBee3.0开发指南》配套资源（附加部分）\课外篇：项目实战\基于Zigbee的温湿度 & 光照度采集系统\ZigBee设备端固件与源码\源码\Applications\zb_port.c
+      1          #include "zb_port.h"
+      2          
+      3          #include "zb_network.h"
+      4          
+      5          #include "zb_msg.h"
+      6          
+      7          #include "hal_lcd.h"
+      8          
+      9          #include "AF.h"
+     10          
+     11          #include "cc2530_ioctl.h"
+     12          
+     13          #include "hal_adc.h"
+     14          
+     15          #include "hal_dht11.h"
+     16          
+     17          #include "hal_uart.h"
+     18          
+     19          #include <stdio.h>
+     20          #include <stdlib.h>
+     21          #include <string.h>
+     22          
+     23          // Uart
+     24          #define ZCLSAMPLESW_UART_BUF_LEN        128
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     25          static uint8 zclSampleSw_UartBuf[ZCLSAMPLESW_UART_BUF_LEN];
+   \                     zclSampleSw_UartBuf:
+   \   000000                DS 128
+   \   000080                REQUIRE __INIT_XDATA_Z
+     26          static void zclSampleSw_InitUart(void);
+     27          static void zclSampleSw_UartCB(uint8 port, uint8 event);
+     28          
+     29          static void zb_on_msg(const uint8_t *data, uint8_t len);
+     30          
+     31          static void zb_port_init(void);
+     32          static void zb_port_on_click(void);
+     33          static void zb_port_on_priv_msg(uint16_t nwkaddr, uint16_t cluster, const uint8_t *data, uint16_t len);
+     34          static void zb_port_on_timer(uint16_t ms);
+     35          
+     36          #if ZG_BUILD_COORDINATOR_TYPE
+     37          static void zb_port_coordinator_on_msg(uint8_t temp, uint8_t humi, uint8_t light, uint8_t gas);
+     38          #endif
+     39          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     40          const zb_port_t *zbport_ = &(const zb_port_t){
+   \                     zbport_:
+   \   000000                DS 2
+   \   000002                REQUIRE `?<Initializer for zbport_>`
+   \   000002                REQUIRE __INIT_XDATA_I
+     41              .init = zb_port_init,
+     42              .on_click = zb_port_on_click,
+     43              .on_priv_msg = zb_port_on_priv_msg,
+     44              .on_timer = zb_port_on_timer,
+     45          };
+     46          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     47          void zb_on_msg(const uint8_t *data, uint8_t len)
+   \                     zb_on_msg:
+     48          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     49          #if ZG_BUILD_COORDINATOR_TYPE
+     50              HalLcdWriteString("", 2);
+   \   000004                ; Setup parameters for call to function HalLcdWriteString
+   \   000004   7902         MOV       R1,#0x2
+   \   000006   7A..         MOV       R2,#`?<Constant "">` & 0xff
+   \   000008   7B..         MOV       R3,#(`?<Constant "">` >> 8) & 0xff
+   \   00000A   12....       LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+     51              HalLcdWriteString("sync", 2);
+   \   00000D                ; Setup parameters for call to function HalLcdWriteString
+   \   00000D   7902         MOV       R1,#0x2
+   \   00000F   7A..         MOV       R2,#`?<Constant "sync">` & 0xff
+   \   000011   7B..         MOV       R3,#(`?<Constant "sync">` >> 8) & 0xff
+   \   000013   12....       LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+     52          #elif ZG_BUILD_RTRONLY_TYPE
+     53          #else
+     54          #endif
+     55          }
+   \   000016                REQUIRE ?Subroutine0
+   \   000016                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP       DPH
+   \   000002   D082         POP       DPL
+   \   000004   02....       LJMP      ?BRET
+     56          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     57          void zb_port_init()
+   \                     zb_port_init:
+     58          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     59          #if ZG_BUILD_COORDINATOR_TYPE
+     60              zbmsg_->set_receiver(zb_on_msg);
+   \   000004                ; Setup parameters for indirect call
+   \   000004   7A..         MOV       R2,#`??zb_on_msg::?relay` & 0xff
+   \   000006   7B..         MOV       R3,#(`??zb_on_msg::?relay` >> 8) & 0xff
+   \   000008   90....       MOV       DPTR,#zbmsg_
+   \   00000B   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00000E   A3           INC       DPTR
+   \   00000F   A3           INC       DPTR
+   \   000010   A3           INC       DPTR
+   \   000011   A3           INC       DPTR
+   \   000012   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000015   12....       LCALL     ?CALL_IND
+     61              zbmsg_->init();
+   \   000018                ; Setup parameters for indirect call
+   \   000018   90....       MOV       DPTR,#zbmsg_
+   \   00001B   12....       LCALL     ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00001E   12....       LCALL     ?CALL_IND
+     62          
+     63              zbnwk_->permit(60, 0);
+   \   000021                ; Setup parameters for indirect call
+   \   000021   7A00         MOV       R2,#0x0
+   \   000023   793C         MOV       R1,#0x3c
+   \   000025   90....       MOV       DPTR,#zbnwk_
+   \   000028   12....       LCALL     ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   00002B   12....       LCALL     ?CALL_IND
+     64          #elif ZG_BUILD_RTRONLY_TYPE
+     65          #else
+     66          #endif
+     67          }
+   \   00002E   80..         SJMP      ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000003   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F583         MOV       DPH,A
+   \   000006   8882         MOV       DPL,R0
+   \   000008   22           RET
+     68          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     69          void zb_port_on_click(void)
+   \                     zb_port_on_click:
+     70          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     71          #if ZG_BUILD_COORDINATOR_TYPE
+     72          #elif ZG_BUILD_RTRONLY_TYPE
+     73          #else
+     74          #endif
+     75          }
+   \   000000   02....       LJMP      ?BRET
+     76          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     77          void zb_port_on_priv_msg(uint16_t nwkaddr, uint16_t cluster, const uint8_t *data, uint16_t len)
+   \                     zb_port_on_priv_msg:
+     78          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     79          #if ZG_BUILD_COORDINATOR_TYPE
+     80              static uint8_t _temp = 25;
+     81              static uint8_t _humi = 54;
+     82          
+     83              if (cluster == PRIV_CID_MESSAGE) {
+   \   000004   EC           MOV       A,R4
+   \   000005   4D           ORL       A,R5
+   \   000006   703F         JNZ       ??zb_port_on_priv_msg_0
+   \   000008   85..82       MOV       DPL,?XSP + 0
+   \   00000B   85..83       MOV       DPH,?XSP + 1
+   \   00000E   E0           MOVX      A,@DPTR
+   \   00000F   F8           MOV       R0,A
+   \   000010   A3           INC       DPTR
+   \   000011   E0           MOVX      A,@DPTR
+   \   000012   F9           MOV       R1,A
+     84                  uint8_t temp  = data[0];
+   \   000013   8882         MOV       DPL,R0
+   \   000015   8983         MOV       DPH,R1
+   \   000017   E0           MOVX      A,@DPTR
+   \   000018   FC           MOV       R4,A
+     85                  uint8_t humi  = data[1];
+   \   000019   A3           INC       DPTR
+   \   00001A   E0           MOVX      A,@DPTR
+   \   00001B   FA           MOV       R2,A
+     86                  uint8_t light = data[2];
+   \   00001C   8882         MOV       DPL,R0
+   \   00001E   8983         MOV       DPH,R1
+   \   000020   A3           INC       DPTR
+   \   000021   A3           INC       DPTR
+   \   000022   E0           MOVX      A,@DPTR
+   \   000023   FB           MOV       R3,A
+     87          
+     88                  if (temp != 0xFF) _temp = temp;
+   \   000024   74FF         MOV       A,#-0x1
+   \   000026   6C           XRL       A,R4
+   \   000027   6005         JZ        ??zb_port_on_priv_msg_1
+   \   000029   EC           MOV       A,R4
+   \   00002A   90....       MOV       DPTR,#??_temp
+   \   00002D   F0           MOVX      @DPTR,A
+     89                  if (humi != 0xFF) _humi = humi;
+   \                     ??zb_port_on_priv_msg_1:
+   \   00002E   74FF         MOV       A,#-0x1
+   \   000030   6A           XRL       A,R2
+   \   000031   6005         JZ        ??zb_port_on_priv_msg_2
+   \   000033   EA           MOV       A,R2
+   \   000034   90....       MOV       DPTR,#??_humi
+   \   000037   F0           MOVX      @DPTR,A
+     90          
+     91                  char msg[32];
+                              ^
+Warning[Pe177]: variable "msg" was declared but never referenced
+     92                  
+     93                  //sprintf(msg, "%d#", _temp);
+     94                  //sprintf(msg, "T:%d,H:%d#", _temp, _humi);
+     95          
+     96                  //zbmsg_->send((uint8_t *)msg, strlen(msg) + 1);
+     97          
+     98                  zb_port_coordinator_on_msg(_temp, _humi, light, 0);
+   \                     ??zb_port_on_priv_msg_2:
+   \   000038                ; Setup parameters for call to function zb_port_coordinator_on_msg
+   \   000038   7C00         MOV       R4,#0x0
+   \   00003A   90....       MOV       DPTR,#??_humi
+   \   00003D   E0           MOVX      A,@DPTR
+   \   00003E   FA           MOV       R2,A
+   \   00003F   90....       MOV       DPTR,#??_temp
+   \   000042   E0           MOVX      A,@DPTR
+   \   000043   F9           MOV       R1,A
+   \   000044   12....       LCALL     `??zb_port_coordinator_on_msg::?relay`; Banked call to: zb_port_coordinator_on_msg
+     99              }
+    100          #elif ZG_BUILD_RTRONLY_TYPE
+    101          #else
+    102          #endif
+    103          }
+   \                     ??zb_port_on_priv_msg_0:
+   \   000047   02....       LJMP      ?Subroutine0 & 0xFFFF
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+   \                     ??_temp:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for _temp>`
+   \   000001                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+   \                     ??_humi:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for _humi>`
+   \   000001                REQUIRE __INIT_XDATA_I
+    104          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    105          void zb_port_on_timer(uint16_t ms)
+   \                     zb_port_on_timer:
+    106          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    107          #if ZG_BUILD_COORDINATOR_TYPE
+    108          #elif ZG_BUILD_RTRONLY_TYPE
+    109              extern endPointDesc_t endpoint_desc_priv;
+    110          
+    111              static uint8_t newdev = 0;
+    112          
+    113              if (!(_NIB.nwkDevAddress != INVALID_NODE_ADDR && _NIB.nwkPanId != INVALID_NODE_ADDR)) {
+    114                  if (newdev == 0) newdev = 1;
+    115                  return;
+    116              }
+    117          
+    118              if (newdev != 0) {
+    119                  static uint8_t cnt = 0;
+    120                  if (cnt < 7) { cnt++; return; }
+    121              }
+    122          
+    123              uint8_t buf[4];
+    124          
+    125              static uint8_t _temp = 0xFF, _humi = 0xFF, _light = 0xFF;
+    126          
+    127              halDHT11Data_t dht11Dat = halDHT11GetData();
+    128              if (dht11Dat.ok && (dht11Dat.temp != 0 || dht11Dat.humi != 0)) {
+    129                  buf[0] = dht11Dat.temp;
+    130                  buf[1] = dht11Dat.humi;
+    131              }
+    132              else buf[0] = buf[1] = 0xFF;
+    133              
+    134              buf[2] = HalAdcRead(HAL_ADC_CHN_AIN7, HAL_ADC_RESOLUTION_8);
+    135              if (buf[2] >= 125) buf[2] = 0;
+    136              else buf[2] = 125 - buf[2];
+    137          
+    138              buf[3] = 0;
+    139          
+    140              if (_temp == buf[0] && _humi == buf[1] && (_light != 0xFF && (_light < buf[2] + 3) && (_light + 3 > buf[2]))) return;
+    141          
+    142              _temp = buf[0];
+    143              _humi = buf[1];
+    144          
+    145          #if 0
+    146              /* Debug */
+    147              char str[32];
+    148              sprintf(str, "%d %d %d %d", _temp, _humi, buf[2], buf[3]);
+    149              HalLcdWriteString(str, 3);
+    150          #endif
+    151          
+    152              if (_light > buf[2] + 3 || _light + 3 < buf[2]) {
+    153                  _light = buf[2];
+    154                  zbnwk_->priv_send(0, &endpoint_desc_priv, PRIV_CID_MESSAGE, buf, 4);
+    155              }
+    156              else {
+    157                  static uint8_t sendcnt = 0;
+    158                  if (++sendcnt > 3) { _light = buf[2]; sendcnt = 0; zbnwk_->priv_send(0, &endpoint_desc_priv, PRIV_CID_MESSAGE, buf, 4); }
+    159              }
+    160          #else
+    161          #endif
+    162          }
+   \   000000   02....       LJMP      ?BRET
+    163          
+    164          #if ZG_BUILD_COORDINATOR_TYPE
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    165          void zb_port_coordinator_on_msg(uint8_t temp, uint8_t humi, uint8_t light, uint8_t gas)
+   \                     zb_port_coordinator_on_msg:
+    166          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 125
+   \   000005   7483         MOV       A,#-0x7d
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   E9           MOV       A,R1
+   \   00000B   FE           MOV       R6,A
+   \   00000C   EA           MOV       A,R2
+   \   00000D   FF           MOV       R7,A
+   \   00000E   8B..         MOV       ?V0,R3
+    167              zclSampleSw_InitUart();
+   \   000010   85..82       MOV       DPL,?XSP + 0
+   \   000013   85..83       MOV       DPH,?XSP + 1
+   \   000016   7401         MOV       A,#0x1
+   \   000018   F0           MOVX      @DPTR,A
+   \   000019   12....       LCALL     ?XSTACK_DISP0_8
+   \   00001C   7404         MOV       A,#0x4
+   \   00001E   F0           MOVX      @DPTR,A
+   \   00001F   7402         MOV       A,#0x2
+   \   000021   12....       LCALL     ?XSTACK_DISP0_8
+   \   000024   E4           CLR       A
+   \   000025   F0           MOVX      @DPTR,A
+   \   000026   7403         MOV       A,#0x3
+   \   000028   12....       LCALL     ?XSTACK_DISP0_8
+   \   00002B   E4           CLR       A
+   \   00002C   F0           MOVX      @DPTR,A
+   \   00002D   A3           INC       DPTR
+   \   00002E   F0           MOVX      @DPTR,A
+   \   00002F   740A         MOV       A,#0xa
+   \   000031   12....       LCALL     ?XSTACK_DISP0_8
+   \   000034   7480         MOV       A,#-0x80
+   \   000036   F0           MOVX      @DPTR,A
+   \   000037   A3           INC       DPTR
+   \   000038   E4           CLR       A
+   \   000039   F0           MOVX      @DPTR,A
+   \   00003A   7412         MOV       A,#0x12
+   \   00003C   12....       LCALL     ?XSTACK_DISP0_8
+   \   00003F   E4           CLR       A
+   \   000040   F0           MOVX      @DPTR,A
+   \   000041   A3           INC       DPTR
+   \   000042   F0           MOVX      @DPTR,A
+   \   000043   7405         MOV       A,#0x5
+   \   000045   12....       LCALL     ?XSTACK_DISP0_8
+   \   000048   7406         MOV       A,#0x6
+   \   00004A   F0           MOVX      @DPTR,A
+   \   00004B   7416         MOV       A,#0x16
+   \   00004D   12....       LCALL     ?XSTACK_DISP0_8
+   \   000050   7401         MOV       A,#0x1
+   \   000052   F0           MOVX      @DPTR,A
+   \   000053   741B         MOV       A,#0x1b
+   \   000055   12....       LCALL     ?XSTACK_DISP0_8
+   \   000058   74..         MOV       A,#`??zclSampleSw_UartCB::?relay` & 0xff
+   \   00005A   F0           MOVX      @DPTR,A
+   \   00005B   A3           INC       DPTR
+   \   00005C   74..         MOV       A,#(`??zclSampleSw_UartCB::?relay` >> 8) & 0xff
+   \   00005E   F0           MOVX      @DPTR,A
+   \   00005F                ; Setup parameters for call to function HalUARTOpen
+   \   00005F   AA..         MOV       R2,?XSP + 0
+   \   000061   AB..         MOV       R3,?XSP + 1
+   \   000063   7900         MOV       R1,#0x0
+   \   000065   12....       LCALL     `??HalUARTOpen::?relay`; Banked call to: HalUARTOpen
+    168              
+    169              char tempHumiStr[32];
+    170              char lightGasStr[32];
+    171              char tempx[32];
+    172              char tempxHumixlightx[32];
+    173              
+    174              /*这两段封装了LCD显示的东西*/
+    175              sprintf(tempHumiStr, "T:%d,H:%d", temp, humi);
+   \   000068   EE           MOV       A,R6
+   \   000069   F5..         MOV       ?V4,A
+   \   00006B   75..00       MOV       ?V5,#0x0
+   \   00006E   EF           MOV       A,R7
+   \   00006F   F5..         MOV       ?V6,A
+   \   000071   75..00       MOV       ?V7,#0x0
+   \   000074                ; Setup parameters for call to function sprintf
+   \   000074   78..         MOV       R0,#?V6
+   \   000076   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000079   78..         MOV       R0,#?V4
+   \   00007B   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00007E   7C..         MOV       R4,#`?<Constant "T:%d,H:%d">` & 0xff
+   \   000080   7D..         MOV       R5,#(`?<Constant "T:%d,H:%d">` >> 8) & 0xff
+   \   000082   7461         MOV       A,#0x61
+   \   000084   12....       LCALL     ?XSTACK_DISP101_8
+   \   000087   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   00008A   7404         MOV       A,#0x4
+   \   00008C   12....       LCALL     ?DEALLOC_XSTACK8
+    176              sprintf(lightGasStr, "LADC: %d", light);
+   \   00008F   E5..         MOV       A,?V0
+   \   000091   F5..         MOV       ?V2,A
+   \   000093   75..00       MOV       ?V3,#0x0
+   \   000096                ; Setup parameters for call to function sprintf
+   \   000096   78..         MOV       R0,#?V2
+   \   000098   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00009B   7C..         MOV       R4,#`?<Constant "LADC: %d">` & 0xff
+   \   00009D   7D..         MOV       R5,#(`?<Constant "LADC: %d">` >> 8) & 0xff
+   \   00009F   743F         MOV       A,#0x3f
+   \   0000A1   12....       LCALL     ?XSTACK_DISP101_8
+   \   0000A4   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   0000A7   7402         MOV       A,#0x2
+   \   0000A9   12....       LCALL     ?DEALLOC_XSTACK8
+    177              HalLcdWriteString(tempHumiStr, 3);
+   \   0000AC                ; Setup parameters for call to function HalLcdWriteString
+   \   0000AC   7903         MOV       R1,#0x3
+   \   0000AE   745D         MOV       A,#0x5d
+   \   0000B0   12....       LCALL     ?XSTACK_DISP101_8
+   \   0000B3   12....       LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+    178              HalLcdWriteString(lightGasStr, 4);
+   \   0000B6                ; Setup parameters for call to function HalLcdWriteString
+   \   0000B6   7904         MOV       R1,#0x4
+   \   0000B8   743D         MOV       A,#0x3d
+   \   0000BA   12....       LCALL     ?XSTACK_DISP101_8
+   \   0000BD   12....       LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+    179              
+    180              /*这一段封装了串口打印的数据*/
+    181              
+    182              //sprintf(tempx,"%d\0",temp,humi); 
+    183              //HalUARTWrite(HAL_UART_PORT_0, tempx, 10);
+    184              sprintf(tempxHumixlightx, "%d%d%d\0", temp,humi,light); 
+   \   0000C0                ; Setup parameters for call to function sprintf
+   \   0000C0   78..         MOV       R0,#?V2
+   \   0000C2   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000C5   78..         MOV       R0,#?V6
+   \   0000C7   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000CA   78..         MOV       R0,#?V4
+   \   0000CC   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000CF   7C..         MOV       R4,#`?<Constant "%d%d%d\\000">` & 0xff
+   \   0000D1   7D..         MOV       R5,#(`?<Constant "%d%d%d\\000">` >> 8) & 0xff
+   \   0000D3   7423         MOV       A,#0x23
+   \   0000D5   12....       LCALL     ?XSTACK_DISP101_8
+   \   0000D8   12....       LCALL     `??sprintf::?relay`; Banked call to: sprintf
+   \   0000DB   7406         MOV       A,#0x6
+   \   0000DD   12....       LCALL     ?DEALLOC_XSTACK8
+    185              HalUARTWrite(HAL_UART_PORT_0, tempxHumixlightx, 10);
+                                                   ^
+Warning[Pe167]: argument of type "char *" is incompatible with parameter of
+          type "uint8 *"
+
+      char tempx[32];
+           ^
+"D:\妗岄潰\銆奪igBee3.0寮�鍙戞寚鍗椼�嬮厤濂楄祫婧愶紙闄勫姞閮ㄥ垎锛塡璇惧绡囷細椤圭洰瀹炴垬\鍩轰簬Zigbee鐨勬俯婀垮害 & 鍏夌収搴﹂噰闆嗙郴缁焅ZigBee璁惧绔浐浠朵笌婧愮爜\婧愮爜\Applications\zb_port.c",171  Warning[Pe177]: 
+          variable "tempx" was declared but never referenced
+   \   0000E0                ; Setup parameters for call to function HalUARTWrite
+   \   0000E0   7C0A         MOV       R4,#0xa
+   \   0000E2   7D00         MOV       R5,#0x0
+   \   0000E4   741D         MOV       A,#0x1d
+   \   0000E6   12....       LCALL     ?XSTACK_DISP101_8
+   \   0000E9   7900         MOV       R1,#0x0
+   \   0000EB   12....       LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+    186              //HalUARTWrite(HAL_UART_PORT_0, Humix, 10);
+    187              //HalUARTWrite(HAL_UART_PORT_0, lightx, 10);
+    188          }
+   \   0000EE   747D         MOV       A,#0x7d
+   \   0000F0   12....       LCALL     ?DEALLOC_XSTACK8
+   \   0000F3   7F08         MOV       R7,#0x8
+   \   0000F5   02....       LJMP      ?BANKED_LEAVE_XDATA
+    189          #endif
+    190          
+    191          static void zclSampleSw_InitUart(void)
+    192          {
+    193            halUARTCfg_t uartConfig;
+    194          
+    195            /* UART Configuration */
+    196            uartConfig.configured           = TRUE;
+    197            uartConfig.baudRate             = HAL_UART_BR_115200;
+    198            uartConfig.flowControl          = FALSE;
+    199            uartConfig.flowControlThreshold = 0;
+    200            uartConfig.rx.maxBufSize        = ZCLSAMPLESW_UART_BUF_LEN;
+    201            uartConfig.tx.maxBufSize        = 0;
+    202            uartConfig.idleTimeout          = 6;
+    203            uartConfig.intEnable            = TRUE;
+    204            uartConfig.callBackFunc         = zclSampleSw_UartCB;
+    205          
+    206            /* Start UART */
+    207            HalUARTOpen(HAL_UART_PORT_0, &uartConfig);
+    208          }
+    209          
+    210          /**
+    211           * @fn      zclSampleSw_UartCB
+    212           *
+    213           * @brief   Uart Callback
+    214           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    215          static void zclSampleSw_UartCB(uint8 port, uint8 event)
+   \                     zclSampleSw_UartCB:
+    216          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    217            uint8 rxLen = Hal_UART_RxBufLen(HAL_UART_PORT_0);
+   \   000005                ; Setup parameters for call to function Hal_UART_RxBufLen
+   \   000005   7900         MOV       R1,#0x0
+   \   000007   12....       LCALL     `??Hal_UART_RxBufLen::?relay`; Banked call to: Hal_UART_RxBufLen
+   \   00000A   EA           MOV       A,R2
+    218            
+    219            if(rxLen != 0)
+   \   00000B   601A         JZ        ??zclSampleSw_UartCB_0
+    220            {
+    221              //读取串口接收到的数据
+    222              HalUARTRead(HAL_UART_PORT_0  ,  zclSampleSw_UartBuf , rxLen);
+   \   00000D   FE           MOV       R6,A
+   \   00000E                ; Setup parameters for call to function HalUARTRead
+   \   00000E   FC           MOV       R4,A
+   \   00000F   7D00         MOV       R5,#0x0
+   \   000011   7A..         MOV       R2,#zclSampleSw_UartBuf & 0xff
+   \   000013   7B..         MOV       R3,#(zclSampleSw_UartBuf >> 8) & 0xff
+   \   000015   7900         MOV       R1,#0x0
+   \   000017   12....       LCALL     `??HalUARTRead::?relay`; Banked call to: HalUARTRead
+    223              //发送开关命令
+    224              //zclSampleSw_OnOffTest();
+    225              //串口发送接收到的数据
+    226              HalUARTWrite(HAL_UART_PORT_0 ,  zclSampleSw_UartBuf , rxLen);
+   \   00001A                ; Setup parameters for call to function HalUARTWrite
+   \   00001A   EE           MOV       A,R6
+   \   00001B   FC           MOV       R4,A
+   \   00001C   7D00         MOV       R5,#0x0
+   \   00001E   7A..         MOV       R2,#zclSampleSw_UartBuf & 0xff
+   \   000020   7B..         MOV       R3,#(zclSampleSw_UartBuf >> 8) & 0xff
+   \   000022   7900         MOV       R1,#0x0
+   \   000024   12....       LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+    227            }
+    228          }
+   \                     ??zclSampleSw_UartCB_0:
+   \   000027   7F01         MOV       R7,#0x1
+   \   000029   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zbport_>`:
+   \   000000   ....         DW ?_0
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for _temp>`:
+   \   000000   19           DB 25
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for _humi>`:
+   \   000000   36           DB 54
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_on_msg::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_on_msg
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_port_init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_port_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_port_on_click::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_port_on_click
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_port_on_priv_msg::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_port_on_priv_msg
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_port_on_timer::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_port_on_timer
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zb_port_coordinator_on_msg::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_port_coordinator_on_msg
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_UartCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_UartCB
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "">`:
+   \   000000   00           DB ""
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "sync">`:
+   \   000000   73796E63     DB "sync"
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "T:%d,H:%d">`:
+   \   000000   543A2564     DB "T:%d,H:%d"
+   \            2C483A25
+   \            6400    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "LADC: %d">`:
+   \   000000   4C414443     DB "LADC: %d"
+   \            3A202564
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "%d%d%d\\000">`:
+   \   000000   25642564     DB 25H, 64H, 25H, 64H, 25H, 64H, 0, 0
+   \            25640000
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   zb_on_msg
+        2      0   -> HalLcdWriteString
+      0    147   zb_port_coordinator_on_msg
+        0    141   -> HalLcdWriteString
+        0    141   -> HalUARTOpen
+        0    141   -> HalUARTWrite
+        0    143   -> sprintf
+        0    145   -> sprintf
+        0    147   -> sprintf
+      2      0   zb_port_init
+      0      0   zb_port_on_click
+      2      4   zb_port_on_priv_msg
+        2      0   -> zb_port_coordinator_on_msg
+      0      0   zb_port_on_timer
+      0      9   zclSampleSw_UartCB
+        0      9   -> HalUARTRead
+        0      9   -> HalUARTWrite
+        0      9   -> Hal_UART_RxBufLen
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  ?<Constant "">
+       8  ?<Constant "%d%d%d\000">
+       9  ?<Constant "LADC: %d">
+      10  ?<Constant "T:%d,H:%d">
+       5  ?<Constant "sync">
+       1  ?<Initializer for _humi>
+       1  ?<Initializer for _temp>
+       2  ?<Initializer for zbport_>
+       7  ?Subroutine0
+       7  ?Subroutine1
+       4  ?Subroutine2
+       9  ?Subroutine3
+       1  _humi
+       1  _temp
+      22  zb_on_msg
+       6  zb_on_msg::?relay
+     248  zb_port_coordinator_on_msg
+       6  zb_port_coordinator_on_msg::?relay
+      48  zb_port_init
+       6  zb_port_init::?relay
+       3  zb_port_on_click
+       6  zb_port_on_click::?relay
+      74  zb_port_on_priv_msg
+       6  zb_port_on_priv_msg::?relay
+       3  zb_port_on_timer
+       6  zb_port_on_timer::?relay
+       2  zbport_
+     128  zclSampleSw_UartBuf
+      44  zclSampleSw_UartCB
+       6  zclSampleSw_UartCB::?relay
+       8  -- Other
+
+ 
+ 469 bytes in segment BANKED_CODE
+  42 bytes in segment BANK_RELAYS
+   4 bytes in segment XDATA_I
+   4 bytes in segment XDATA_ID
+  41 bytes in segment XDATA_ROM_C
+ 128 bytes in segment XDATA_Z
+ 
+  46 bytes of CODE     memory
+  41 bytes of CONST    memory
+ 469 bytes of HUGECODE memory
+ 132 bytes of XDATA    memory
+
+Errors: none
+Warnings: 3
