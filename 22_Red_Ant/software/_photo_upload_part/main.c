@@ -10,8 +10,8 @@ int main(int argc, char** argv)
     FILE* fp;
     long filesize;
     char* buffer;
-    char* api_key = "wz=2mkLTKPDJ18qbgj09AHSS4cA="; // OneNet平台的API key
-    char* device_id = "1022613584"; // 设备ID
+    char* api_key = "Mz0TPUdO4P5=B=PQbdv=dBXsQoY="; // OneNet平台的API key
+    char* device_id = "1026301742"; // 设备ID
     char url[256];
 
     // 打开待上传的jpg文件
@@ -43,17 +43,22 @@ int main(int argc, char** argv)
     // 关闭文件
     fclose(fp);
 
+    // 将图片数据转换为二进制数据
+    char* binary_data = (char*) malloc(sizeof(char) * filesize * 2 + 1);
+    for (int i = 0; i < filesize; i++) {
+        sprintf(&binary_data[i * 2], "%02x", (unsigned char) buffer[i]);
+    }
+
+    // 构造JSON数据
+    char* json_template = "{\"datastreams\":[{\"id\":\"photo\",\"datapoints\":[{\"value\":\"%s\"}]}]}";
+    char* json_data = (char*) malloc(sizeof(char) * (strlen(json_template) + strlen(binary_data) + 1));
+    sprintf(json_data, json_template, binary_data);
+
     // 初始化curl库
     curl = curl_easy_init();
     if (curl) {
         // 构造HTTP请求的URL
         sprintf(url, "http://api.heclouds.com/devices/%s/datapoints?type=3", device_id);
-
-        // 构造JSON数据
-        char* json_data = "{ \"datastreams\": [{ \"id\": \"photo\", \"datapoints\": [{ \"value\": \"%s\" }] }] }";
-        char* encoded_data = curl_easy_escape(curl, buffer, filesize);
-        char* escaped_json_data = (char*) malloc(sizeof(char) * (strlen(json_data) + strlen(encoded_data)));
-        sprintf(escaped_json_data, json_data, encoded_data);
 
         // 设置HTTP请求的头信息和数据
         struct curl_slist* headers = NULL;
@@ -63,8 +68,8 @@ int main(int argc, char** argv)
         sprintf(api_key_header, "api-key: %s", api_key);
         headers = curl_slist_append(headers, api_key_header);
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, escaped_json_data);
-        curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, strlen(escaped_json_data));
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_data);
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, strlen(json_data));
 
         // 设置HTTP请求的URL和方法
         curl_easy_setopt(curl, CURLOPT_URL, url);
@@ -79,12 +84,11 @@ int main(int argc, char** argv)
         // 释放资源
         curl_slist_free_all(headers);
         curl_easy_cleanup(curl);
-        free(encoded_data);
-        free(escaped_json_data);
     }
 
     // 释放缓冲区
-    free(buffer);
+    free(binary_data);
+    free(json_data);
 
     return 0;
 }
