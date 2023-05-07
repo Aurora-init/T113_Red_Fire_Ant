@@ -96,11 +96,11 @@
 				    },
 					method: 'GET',
 				    success: (res) => {
-						this.Temp = res.data.data.datastreams[2].datapoints[0].value;
-						this.Humi = res.data.data.datastreams[3].datapoints[0].value;
-						this.ligh = res.data.data.datastreams[4].datapoints[0].value;
-						this.latitude = res.data.data.datastreams[0].datapoints[0].value;
-						this.longitude = res.data.data.datastreams[1].datapoints[0].value;
+						this.Temp 	= res.data.data.datastreams[2].datapoints[0].value;
+						this.Humi 	= res.data.data.datastreams[4].datapoints[0].value;
+						this.ligh 	= res.data.data.datastreams[5].datapoints[0].value;
+						this.latitude 	= res.data.data.datastreams[0].datapoints[0].value;
+						this.longitude 	= res.data.data.datastreams[1].datapoints[0].value;
 				    }
 				});
 			},
