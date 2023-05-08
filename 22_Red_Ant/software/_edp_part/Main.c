@@ -73,6 +73,10 @@ void *OneNetReacv(void *arg)
 				/* 3.拍照 */
 				sprintf(command, "ffmpeg -y -i /dev/video0 -vframes 1 -s 1920x1080 -q:v 0 -f image2 ./test_photo.jpg");
 				ret = system(command);
+				sleep(3);
+				sprintf(command, "./photo_upload");
+				ret = system(command);
+				sleep(1);
 			}
 		} else {
 			/* 如果没有找到"{\"CAMERA\":\""字符串，则继续查找"{\"LEDSET\":\""字符串 */
