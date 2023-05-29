@@ -8,19 +8,35 @@
 
 ## 代码介绍
 
-![image-20230426224241411](C:\Users\11148\AppData\Roaming\Typora\typora-user-images\image-20230426224241411.png)
+![image-20230529224849411](image-20230529224849411.png)
 
-一共有5部分代码，其中
+（1）T113设备上运行的代码：(运行前提：1.curl及ffmpeg移植，2.将以下的四个可执行文件都放到设备/root目录下）
 
-**_bluez_part**为bluz代码，可执行文件名为"**bt_app**"
+1.**_bluez_part**：可执行文件名为"**bt_app**"，目前只有一个读服务功能和一个写服务功能，
 
-**_edp_part**为T113连接onenet的应用部分代码，可执行文件名为"**edp**"
+2.**_edp_part**：可执行文件名为"**edp**"，T113连接onenet的应用部分代码，用于完成onenet与T113设备的联合
 
-**_fork_edp_and_bluez**为进程创建代码，可执行文件名为"**main**"
+3.**_fork_edp_and_bluez**：可执行文件名为"**main**"，创建进程"**bt_app**"和"**edp**"
 
-**_uniapp_part**为uniapp开发的安卓APP，目前功能有登录界面(账号密码都为1)，下拉onenet的api控制设备，用户退出界面等。
+4.**_photo_upload_part**：可执行文件名为"**photo_upload**"，将设备拍摄的照片上传至onenet平台
 
-**_zigbee_part**为zigbee代码，这份代码包含协调器，路由器，终端设备的代码，用于路由器或终端设备采集温湿度光照数据发送回协调器，协调器再通过串口发送到T113开发板。
+
+
+（2）手机APP
+
+**_uniapp_part**：uniapp开发的安卓APP，目前功能有：1.登录界面(账号密码都为1)、2.下拉onenet的api控制设备、3.用户退出界面、
+
+
+
+（3）ZIGBEE设备上运行的代码：
+
+**_zigbee_part**：zigbee代码，这份代码包含协调器，路由器，终端设备的代码，用于路由器或终端设备采集温湿度光照数据发送回协调器，协调器再通过串口发送到T113开发板。具体怎么用得你们自己了解如何烧录代码了
+
+
+
+（4）PC上(Linux)运行的代码：
+
+**_photo_download_part**：可执行文件名为"**photo**"，用于将onenet平台上的图片下载到PC端并恢复成图片
 
 ## 0.技术框图![技术框图](D:\桌面\buildroot_project\22_Red_Ant\技术框图.png)
 
